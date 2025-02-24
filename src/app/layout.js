@@ -16,11 +16,24 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+
       <head> 
-        {/* site specific */}
+
         <meta name="google-adsense-account" content="ca-pub-7180492942755368" />
 
+        <link rel="canonical" href="https://www.artxpress.art" />
+
+        <meta property="og:title" content="ArtXpress - Supporting Positive Expressions of Art" />
+        <meta property="og:description" content="A community supporting artists' positive expressions of art." />
+        <meta property="og:image" content="https://www.artxpress.art/site-assets/logo.png" />
+        <meta property="og:url" content="https://www.artxpress.art" />
+        <meta property="og:type" content="website" />
+
+        <meta name="description" content="A community supporting artists' positive expressions of art." />
+        <meta name="keywords" content="art, artists, paintings, digital art, written word, support artists, support arts, support the arts, contemporary art, family-friendly art, modern art, online art gallery" />
+
       </head>
+
       <body  style={{backgroundColor: 'rgba(0, 0, 0, 0.1)', overflowX: 'hidden!important'}} className={inter.className}>
         {/* AdSense Script */}
         <Script
