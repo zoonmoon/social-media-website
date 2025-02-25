@@ -7,7 +7,6 @@ import Script from 'next/script'
 
 export const metadata = {
   title: "ArtXpressArt",
-  description: "ArtXpressArt",
 };
 
 import Footer from "./_components/footer";

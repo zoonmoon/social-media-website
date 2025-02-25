@@ -268,15 +268,12 @@ export const SupportSiteButton = ({  type }) => {
   return (
     <>
       {
-        type === 'button' ? (
-          <Button
-            variant={'outlined'}
-            color={'neutral'}
-            startDecorator={<FavoriteBorderIcon />}
-            onClick={handleOpen}
-          >
-            {isMobile ? '' : 'Support'} {/* Conditionally render text */}
-          </Button>
+        type === 'list_item' ? (
+          <ListItem  onClick={handleOpen} disablePadding>
+          <ListItemButton>
+              <ListItemText primary= {'Support Site'} />
+          </ListItemButton>
+      </ListItem>
         ) : (
             <Link 
               style={{

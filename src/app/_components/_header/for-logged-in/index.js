@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link'; // Import Link from Next.js
 import { Button } from '@mui/joy';
+import { SupportSiteButton } from '../../modals/support-site';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,6 +43,8 @@ const Header = () => {
           <ListItemText primary="Contact us" />
         </Link>
       </ListItem>
+      <SupportSiteButton  type={'list_item'}/>
+
     </List>
   );
 
