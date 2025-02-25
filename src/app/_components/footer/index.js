@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
+import { SupportSiteButton } from '../modals/support-site';
 
 const Footer = () => {
   return (
@@ -10,6 +11,7 @@ const Footer = () => {
           <Link href="/feed" style={linkStyle}><Typography variant="body2">Home</Typography></Link>
           <Link href="/pages/about-us" style={linkStyle}><Typography variant="body2">About us</Typography></Link>
           <Link href="/pages/contact-us" style={linkStyle}><Typography variant="body2">Contact us</Typography></Link>
+          <SupportSiteButton type={'tex'} />
           <Link href="/pages/be-the-one" style={linkStyle}><Typography variant="body2">Be the One</Typography></Link>
           <Link href="/pages/privacy-policy" style={linkStyle}><Typography variant="body2">Privacy Policy</Typography></Link>
           <Link href="/pages/terms-of-use" style={linkStyle}><Typography variant="body2">Terms of use</Typography></Link>
