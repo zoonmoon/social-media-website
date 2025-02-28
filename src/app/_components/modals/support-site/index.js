@@ -274,7 +274,19 @@ export const SupportSiteButton = ({  type }) => {
               <ListItemText primary= {'Support Site'} />
           </ListItemButton>
       </ListItem>
-        ) : (
+        ) : 
+        
+          type === "button" ? (
+            <>
+              <Link onClick={handleOpen}  style={{ textDecoration: 'none', color: 'black' }} href={'#'}>
+                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                  Support Site
+                </Button>
+              </Link>
+            </>
+          ) 
+          :
+          (
             <Link 
               style={{
                 textDecoration: 'none',

@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import { Button } from '@mui/joy';
 import Link from 'next/link';
+import { SupportSiteButton } from '../../modals/support-site';
 
 const LoggedOutHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -18,7 +19,7 @@ const LoggedOutHeader = () => {
     <List>
       <ListItem button>
         <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
-          <Button variant={'solid'} sx={{ marginLeft: '10px', minWidth: '100px' }}>
+          <Button fullWidth variant={'solid'} sx={{  minWidth: '100%' }}>
             Log In
           </Button>
         </Link>
@@ -39,6 +40,7 @@ const LoggedOutHeader = () => {
           <ListItemText primary="Contact us" />
         </Link>
       </ListItem>
+      <SupportSiteButton  type={'list_item'}/>
 
     </List>
   );
@@ -55,29 +57,32 @@ const LoggedOutHeader = () => {
 
         {/* Only show menu items in the center for larger screens */}
         {!isMobile && (
-          <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Link style={{ textDecoration: 'none', color: 'black' }} href={'/feed'}>
-              <Button variant='plain' sx={{ margin: '0 10px' }}>
-                Feed
-              </Button>
-            </Link>
-            <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/about-us'}>
-              <Button variant='plain' sx={{ margin: '0 10px' }}>
-                About Us
-              </Button>
-            </Link>
-            <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/contact-us'}>
-              <Button variant='plain' sx={{ margin: '0 10px' }}>
-                Contact Us
-              </Button>
-            </Link>
+          <Container maxWidth="md" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div>
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/feed'}>
+                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                  Feed
+                </Button>
+              </Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/about-us'}>
+                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                  About Us
+                </Button>
+              </Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/contact-us'}>
+                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                  Contact Us
+                </Button>
+              </Link>
+              <SupportSiteButton  type={'button'}/>
 
-            {/* Log In Button wrapped in Link */}
-            <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
-              <Button variant={'solid'} sx={{ marginLeft: '10px', minWidth: '100px' }}>
-                Log In
-              </Button>
-            </Link>
+              {/* Log In Button wrapped in Link */}
+              <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
+                <Button variant={'solid'} sx={{ marginLeft: '10px', minWidth: '100px' }}>
+                  Log In
+                </Button>
+              </Link>
+            </div>
           </Container>
         )}
 
@@ -94,7 +99,7 @@ const LoggedOutHeader = () => {
       </Toolbar>
 
       {/* Drawer for mobile menu */}
-      <Drawer anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
+      <Drawer PaperProps={{sx:{width:250}}} anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
         {drawerItems}
       </Drawer>
     </AppBar>

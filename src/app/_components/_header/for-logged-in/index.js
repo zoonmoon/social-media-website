@@ -86,6 +86,8 @@ const Header = () => {
                 Contact us
               </Button>
             </Link>
+            <SupportSiteButton  type={'button'}/>
+
           </Container>
         )}
 
