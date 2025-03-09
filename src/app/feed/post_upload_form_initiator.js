@@ -34,8 +34,13 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
                 <Grid item xs onClick={handlePostUploadFormDisplay}>
                     {
                         data?.userInfo?.profile_pic_src ? (
-                            <div class="light-bg-on-hover" style={{padding:'12px 20px', curspor:'pointer', border:'1px solid rgba(0, 0, 0, 0.5)', borderRadius: '35px'}} >
-                                Express your Positive Art
+                            <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
+                                <div class="light-bg-on-hover" style={{flexGrow:'1', padding:'12px 20px', curspor:'pointer', border:'1px solid rgba(0, 0, 0, 0.5)', borderRadius: '35px'}} >
+                                    Express your Positive Art
+                                </div>
+                                <div>
+                                    <img style={{borderRadius:'50%', cursor:'pointer'}} width={'45px'} src="/site-assets/upload-icon.jpg" />
+                                </div>
                             </div>
                         ): (
                             <Skeleton variant="rounded" width={'100'} height={50} />

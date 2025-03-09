@@ -54,11 +54,11 @@ const SupportModal = ({ open, handleClose }) => {
     } else if (selectedOption === 'coffee') {
       amount = 5;
     } else if (selectedOption === 'dinner') {
-      amount = 25;
+      amount = 20;
     }else if (selectedOption === 'dinner2') {
-      amount = 40;
-    }else if (selectedOption === 'dinner2wd') {
       amount = 50;
+    }else if (selectedOption === 'suit') {
+      amount = 100;
     }
     return amount
   }
@@ -201,10 +201,10 @@ const SupportModal = ({ open, handleClose }) => {
       <DialogContent>
         <FormControl component="fieldset" fullWidth>
           <RadioGroup value={selectedOption} onChange={handleOptionChange}>
-            <FormControlLabel value="coffee" control={<Radio />} label="Support the Site ($5)" />
-            <FormControlLabel value="dinner" control={<Radio />} label="Support the Site ($25)" />
-            <FormControlLabel value="dinner2" control={<Radio />} label="Support the Site ($40)" />
-            <FormControlLabel value="dinner2wd" control={<Radio />} label="Support the Site ($50)" />
+            <FormControlLabel value="coffee" control={<Radio />} label="Buy us a coffee ($5)" />
+            <FormControlLabel value="dinner" control={<Radio />} label="Buy us a dinner ($20)" />
+            <FormControlLabel value="dinner2" control={<Radio />} label="Buy our developers a dinner ($50)" />
+            <FormControlLabel value="suit" control={<Radio />} label="Buy our developers a new suit ($100)" />
             <FormControlLabel
               value="custom"
               control={<Radio />}

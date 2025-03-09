@@ -49,7 +49,9 @@ export default function DashboardLayout({params,  children }) {
     <p>To exercise these rights, please  <a href="/pages/contact-us">contact us</a>.</p>
 
     <h2>6. Cookies and Tracking</h2>
-    <p>artXpress.art uses minimal cookies to enhance your experience, such as remembering your login status. We do not use tracking cookies or analytics that collect personal data.</p>
+    <p>artXpress.art uses minimal cookies to enhance your experience, such as remembering your login status. 
+    We use Google and Apple authentication so the only information that should be shared with our site is the users name and email address. Both Google and Apple prioritize sharing only the basic information to minimize privacy concerns and ensure users are only providing the necessary details to access the service.
+    </p>
 
     <h2>7. Children Privacy</h2>
     <p>artXpress.art is intended for users aged 18 and above. We do not knowingly collect information from individuals under 18. If we learn that we have inadvertently collected such information, we will promptly delete it.</p>

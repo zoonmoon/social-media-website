@@ -39,7 +39,7 @@ export default function NestedList() {
                     <ListItemIcon>
                     <MonetizationOnIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Receiving Account" />
+                    <ListItemText primary="Receiving PayPal Account" />
                     <ChevronRightIcon />
                 </ListItemButton>
             </Link>

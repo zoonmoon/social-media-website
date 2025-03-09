@@ -15,6 +15,8 @@ const Footer = () => {
           <Link href="/pages/be-the-one" style={linkStyle}><Typography variant="body2">Be the One</Typography></Link>
           <Link href="/pages/privacy-policy" style={linkStyle}><Typography variant="body2">Privacy Policy</Typography></Link>
           <Link href="/pages/terms-of-use" style={linkStyle}><Typography variant="body2">Terms of use</Typography></Link>
+          <Link href="#" style={linkStyle}><Typography variant="body2">&copy; 2025 Beaver Entertainment LLC. All rights reserved.
+          </Typography></Link>
         </Box>
       </Box>
     </div>
