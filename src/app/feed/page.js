@@ -15,11 +15,7 @@ import { getRequest } from "../_components/file_upload";
 import FeedLeftSidebarSkeleton from "./_left_side_bar/skeleton";
 
 
-
-
-
-
-// myaaaaaaaaaaaaaa
+// 
 
 export default function Feed(){
 

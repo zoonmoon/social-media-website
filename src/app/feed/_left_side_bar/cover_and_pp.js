@@ -11,7 +11,7 @@ import { Button } from '@mui/joy';
 
 export default function PPandCover({data}){
     if(data.userInfo.cover_pic_src === null || data.userInfo.cover_pic_src == ''){
-        data.userInfo.cover_pic_src = '/site-assets/default_cover_pic.webp'
+        data.userInfo.cover_pic_src = '/site-assets/butterfly-ls.jpg'
     }
 
     if(data.userInfo.profile_pic_src === null || data.userInfo.profile_pic_src == ''){

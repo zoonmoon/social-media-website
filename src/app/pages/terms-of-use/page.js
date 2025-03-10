@@ -12,7 +12,7 @@ export default function DashboardLayout({params,  children }) {
           <div>
     <h1>Terms of Use for artXpress.art</h1>
     <p><strong>Effective Date:</strong> January 1st, 2025</p>
-    <p><strong>Last Updated:</strong> [Insert Date]</p>
+    <p><strong>Last Updated:</strong> February 26, 2025</p>
     <p>Welcome to <strong>artXpress.art</strong>, operated by Beaver Entertainment, LLC! We are a social network dedicated to positive expressions of art and fostering connections between artists and those inspired by their work. By using our platform, you agree to these Terms of Use. Please read them carefully before participating.</p>
 </div>
 

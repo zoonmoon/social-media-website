@@ -30,7 +30,7 @@ export default function ProfileBasicInfo({username}){
             if(userInfoJSON.success !== true) throw new Error(userInfoJSON.msg)
             let data = userInfoJSON
             if(data.userInfo.cover_pic_src === null || data.userInfo.cover_pic_src == ''){
-                data.userInfo.cover_pic_src = '/site-assets/default_cover_pic.webp'
+                data.userInfo.cover_pic_src = '/site-assets/butterfly-ls.jpg'
             }
         
             if(data.userInfo.profile_pic_src === null || data.userInfo.profile_pic_src == ''){
