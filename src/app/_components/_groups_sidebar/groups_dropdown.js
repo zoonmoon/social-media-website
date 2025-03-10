@@ -8,13 +8,19 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
     useEffect(()=>{
 
         if(! (feedTypeFilter.includes(selectedGroup))){
-            setSelectedGroup('')
+            if(feedTypeFilter.length >0){
+                setSelectedGroup(feedTypeFilter[0])
+            }else{
+                setSelectedGroup('')
+            }
+            
         }
 
         if(feedTypeFilter.length == 1){
             setSelectedGroup(feedTypeFilter[0])
         }
 
+        
     }, [feedTypeFilter])
 
     const handleChange = (event) => {
