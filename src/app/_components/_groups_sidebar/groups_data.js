@@ -13,11 +13,6 @@ const groups = [
         name: "Written Word",
         key: "written_word",
         image_src: '/site-assets/group_visual_art.jpeg'
-    },
-    {
-        name: "New Members",
-        key: "new_members",
-        image_src: '/site-assets/group_new_members.png'
     }
 ];
 

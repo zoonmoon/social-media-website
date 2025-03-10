@@ -8,6 +8,7 @@ import Divider from '@mui/material/Divider';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@mui/joy';
+import GroupsDropdown from '@/app/_components/_groups_sidebar/groups_dropdown';
 
 export default function PPandCover({data}){
     if(data.userInfo.cover_pic_src === null || data.userInfo.cover_pic_src == ''){
@@ -75,7 +76,6 @@ export default function PPandCover({data}){
             
             <Link href={'/mywallet'} ><Button sx={{textAlign:'left!important', borderRadius: '0px'}} fullWidth variant={'plain'}>My Wallet</Button></Link> 
             
-            <Divider />
 
             <ProfileStats data={data} />
 

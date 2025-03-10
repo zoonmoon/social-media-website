@@ -14,34 +14,36 @@ function ProfileStats({data}) {
   
 
   return (
-    <Box sx={{ mx: 'auto', p: 2, }}>
-        <Grid container>
-            {stats.map((stat, index) => (
-                <Grid item xs={12} key={index}>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '30px',
-                            borderRadius: 2,
-                        }}
-                    >
-                        <Typography variant="subtitle1">{stat.label}</Typography>
-                        {
-                            stat.link.trim().length > 0 ? (
-                                <Link href={stat.link}>
+    <div className='profile-stats' style={{display:'none'}}>
+        <Box  sx={{ mx: 'auto', p: 2, }}>
+            <Grid container>
+                {stats.map((stat, index) => (
+                    <Grid item xs={12} key={index}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                gap: '30px',
+                                borderRadius: 2,
+                            }}
+                        >
+                            <Typography variant="subtitle1">{stat.label}</Typography>
+                            {
+                                stat.link.trim().length > 0 ? (
+                                    <Link href={stat.link}>
+                                        <Typography  variant="subtitle" sx={{color: 'blue'}}>~{stat.value}</Typography>
+                                    </Link>
+                                ): (
                                     <Typography  variant="subtitle" sx={{color: 'blue'}}>~{stat.value}</Typography>
-                                </Link>
-                            ): (
-                                <Typography  variant="subtitle" sx={{color: 'blue'}}>~{stat.value}</Typography>
-                            )
-                        }
-                    </Box>
-                </Grid>
-            ))}
-        </Grid>
-    </Box>
+                                )
+                            }
+                        </Box>
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
+    </div>
   );
 }
 
