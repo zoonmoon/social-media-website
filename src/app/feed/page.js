@@ -13,6 +13,7 @@ import PostUploadForm from "../_components/_post_upload_form";
 import PostUploadFormInitiator from "./post_upload_form_initiator";
 import { getRequest } from "../_components/file_upload";
 import FeedLeftSidebarSkeleton from "./_left_side_bar/skeleton";
+import Footer from "../_components/footer";
 
 
 // 
@@ -183,7 +184,7 @@ export default function Feed(){
               }
           </Grid>
           <Grid item xs={12} md={3}>
-            <RightSidebar handleFeedTypeFilterChange={handleFeedTypeFilterChange} />
+            <Footer />
           </Grid>
         </Grid>
       </Container>

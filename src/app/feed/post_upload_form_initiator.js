@@ -17,20 +17,18 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
     return(
         <>
             <Grid container spacing={2} sx={{alignItems:'center'}}>
-                <Grid item>
+                
                     {
                         data?.userInfo?.profile_pic_src 
                             ? (
-                                <Avatar
-                                alt="Avatar Image"
-                                src={ data.userInfo.profile_pic_src }
-                                sx={{ width: 50, height: 50 }}
-                            />
+                                <></>
                             ): (
+                                <Grid item>
                                 <Skeleton variant="circular" width={50} height={50} />
+                                </Grid>
                             )
                     }
-                </Grid>
+                
                 <Grid item xs onClick={handlePostUploadFormDisplay}>
                     {
                         data?.userInfo?.profile_pic_src ? (
@@ -39,7 +37,7 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
                                     Express your Positive Art
                                 </div>
                                 <div>
-                                    <img style={{borderRadius:'50%', cursor:'pointer'}} width={'45px'} src="/site-assets/upload-icon.jpg" />
+                                    <img style={{borderRadius:'50%', cursor:'pointer'}} width={'50px'} src="/site-assets/upload-icon.jpg" />
                                 </div>
                             </div>
                         ): (
