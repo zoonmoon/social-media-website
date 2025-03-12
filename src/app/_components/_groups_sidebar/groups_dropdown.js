@@ -37,7 +37,13 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
                 >
                     {groups.map((group, index) => (
                         <MenuItem key={index} value={group.key}>
-                            {group.name}
+                            <div style={{display:'flex', alignItems:'center', gap: '5px'}}>
+                                {group.icon}
+                                <div>
+                                    {group.name}
+                                </div>
+                            </div>
+
                         </MenuItem>
                     ))}
                 </Select>

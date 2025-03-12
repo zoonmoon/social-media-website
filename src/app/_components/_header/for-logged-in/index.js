@@ -45,6 +45,12 @@ const Header = () => {
       </ListItem>
       <SupportSiteButton  type={'list_item'}/>
 
+      <ListItem button>
+        <Link href="/pages/be-the-one" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Be the One" />
+        </Link>
+      </ListItem>
+
     </List>
   );
 
@@ -65,7 +71,7 @@ const Header = () => {
 
         {/* Menu items in the center (only shown on larger screens) */}
         {!isMobile && (
-          <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Container maxWidth="md" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Link href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 Feed
@@ -87,7 +93,11 @@ const Header = () => {
               </Button>
             </Link>
             <SupportSiteButton  type={'button'}/>
-
+            <Link href="/pages/be-the-one" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button variant="plain" sx={{ margin: '0 10px' }}>
+                Be the One
+              </Button>
+            </Link>
           </Container>
         )}
 
