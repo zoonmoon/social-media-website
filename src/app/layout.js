@@ -55,7 +55,9 @@ export default function RootLayout({ children }) {
             {children}
           </GoogleOAuthProvider>
         </div>
-        <Footer />
+        <div className="fixed-footer">
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { Stack, Divider } from "@mui/material";
 
 import Alert from '@mui/material/Alert';
 
+import MyAppleSigninButton from "./_apple-sign-in";
 
 export default function ThirdPartySignIns(){
     return(
@@ -19,8 +20,9 @@ export default function ThirdPartySignIns(){
             </div>
             <Divider>or</Divider>
             <div style={{display:'flex', justifyContent:'center'}}>
-                <FacebookSignIn />
+                <MyAppleSigninButton />
             </div>
+
         </Stack>
     )
 }

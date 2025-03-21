@@ -116,7 +116,7 @@ export default function Feed(){
 
   const handleFeedTypeFilterChange = (filterBy) => {
     if(!(feedTypeFilter.includes(filterBy))){
-      setFeedTypeFilter([...feedTypeFilter, filterBy])
+      setFeedTypeFilter([filterBy])
       setPage(1)
       setPosts([])
     }
@@ -150,7 +150,13 @@ export default function Feed(){
   }, [])
 
 
-  
+  useEffect(() => {
+
+    if(window.innerWidth > 1280 && document.querySelector('.footer-fixed')){
+      document.querySelector('.footer-fixed').style.display = "none"
+    }
+
+  }, [])
 
   return(
     <>
@@ -163,15 +169,6 @@ export default function Feed(){
           </Grid>
           <Grid item xs={12} md={6}>
 
-            {
-              feedTypeFilter.length 
-                ? 
-                  <div style={{marginBottom: '20px'}}>
-                    <DisplaySelectedFiltersChips  filters={feedTypeFilter} handleDelete={handlFilterUnselect} /> 
-                  </div>
-                : 
-                  <></>
-            }
               <Paper sx={{paddingTop: {md: '20px', xs: '20px'}, paddingBottom: '20px', paddingLeft: '20px', paddingRight:'20px' }}>
                 <PostUploadFormInitiator data={profileStats} handlePostUploadFormDisplay={handlePostUploadFormDisplay} />
               </Paper>
@@ -184,7 +181,6 @@ export default function Feed(){
               }
           </Grid>
           <Grid item xs={12} md={3}>
-            <Footer />
           </Grid>
         </Grid>
       </Container>

@@ -26,7 +26,7 @@ export default function Header() {
 
 
     return (
-        <div style={{ backgroundColor: 'white', display: 'flex', minHeight: '70px', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="header" style={{ backgroundColor: 'white', display: 'flex', minHeight: '70px', justifyContent: 'center', alignItems: 'center' }}>
             {
                 isLoading
                     ? (
