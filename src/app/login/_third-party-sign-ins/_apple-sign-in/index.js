@@ -10,7 +10,7 @@ const MyAppleSigninButton = () => (
       /** Requested scopes, seperated by spaces - eg: 'email name' */
       scope: 'email name',
       /** Apple's redirectURI - must be one of the URIs you added to the serviceID - the undocumented trick in apple docs is that you should call auth from a page that is listed as a redirectURI, localhost fails */
-      redirectURI: 'https://artxpress.art',
+      redirectURI: 'https://artxpress.art/auth/callback',
       /** State string that is returned with the apple response */
       state: 'state',
       /** Nonce */
