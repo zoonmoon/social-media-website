@@ -16,7 +16,7 @@ const MyAppleSigninButton = () => (
       /** Nonce */
       nonce: 'nonce',
       /** Uses popup auth instead of redirection */
-      usePopup: true,
+      usePopup: false,
     }} // REQUIRED
     /** General props */
     uiType="dark"
