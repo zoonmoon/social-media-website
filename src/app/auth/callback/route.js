@@ -6,4 +6,5 @@ export async function POST() {
             Location: "/login"
         }
     });
+    
 }
