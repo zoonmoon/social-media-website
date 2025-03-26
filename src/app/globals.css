@@ -40,7 +40,7 @@
 
 
 
-html, body {
+ body {
     overflow-x: hidden!important;
     margin: 0!important;
     padding: 0!important;
@@ -90,6 +90,27 @@ html, body {
     .left-side-bar{
         position: fixed;
         width: 250px;
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+    opacity: 0.95;
+}
+
+/* styles/custom.css */
+@media (max-width: 768px) {
+    .left-side-bar-footer{
+        display: none;
+    }
+    .fixed-footer{
+        display: none;
+    }
+    .account-icon{
+        display: none;
     }
 }
 

@@ -23,7 +23,7 @@ export default function PPandCover({data}){
     const redirectToProfile = () => router.push(`/users/${data.userInfo.username}`)
     
     return(
-        <Card >
+        <Card sx={{marginBottom:'20px'}}>
             <CardActionArea onClick={redirectToProfile} sx={{paddingBottom: '10px'}}>
                 <div 
                     class="cover-pic__profile-pic"

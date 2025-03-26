@@ -150,6 +150,13 @@ export default function Feed(){
   }, [])
 
 
+  useEffect(() => {
+
+    if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
+      document.querySelector('.footer-fixed').style.display = "none"
+    }
+
+  }, [])
 
   return(
     <>

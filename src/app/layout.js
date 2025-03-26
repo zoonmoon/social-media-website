@@ -40,7 +40,6 @@ export default function RootLayout({ children }) {
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
             crossOrigin="anonymous"
         />
-        <div id="fb-root">
           <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
             <Toaster  position="bottom-center" 
               toastOptions={{
@@ -54,7 +53,6 @@ export default function RootLayout({ children }) {
             />
             {children}
           </GoogleOAuthProvider>
-        </div>
         <div className="fixed-footer">
           <Footer />
         </div>

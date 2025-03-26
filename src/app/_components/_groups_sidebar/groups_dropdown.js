@@ -29,7 +29,7 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
     };
 
     return (
-        <Paper sx={{marginTop: '20px', padding:'15px'}}>
+        <Paper sx={{ padding:'15px'}}>
             <FormControl fullWidth sx={{border:'none'}}>
                 <InputLabel >Filter posts by</InputLabel>
                 <Select sx={{border:'none'}} value={selectedGroup} onChange={handleChange}

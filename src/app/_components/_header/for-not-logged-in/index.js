@@ -46,6 +46,30 @@ const LoggedOutHeader = () => {
           <ListItemText primary="Be the One" />
         </Link>
       </ListItem>
+
+
+      <ListItem button>
+        <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Privacy Policy" />
+        </Link>
+      </ListItem>
+
+      <ListItem button>
+        <Link href="/pages/terms-of-use" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Terms of Use" />
+        </Link>
+      </ListItem>
+      
+      <hr style={{opacity: 0.3}} /> 
+
+
+      <ListItem button>
+        <Link href="#" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="&copy; 2025 Beaver Entertainment LLC. All rights reserved." />
+        </Link>
+      </ListItem>
+
+
     </List>
   );
 

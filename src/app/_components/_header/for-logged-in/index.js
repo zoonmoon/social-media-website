@@ -26,6 +26,11 @@ const Header = () => {
     setDrawerOpen(open);
   };
 
+  const logOut = () => {
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    location.reload();
+  };
+
   const drawerItems = (
     <List>
       <ListItem button>
@@ -51,13 +56,38 @@ const Header = () => {
         </Link>
       </ListItem>
 
+      <ListItem button>
+        <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Privacy Policy" />
+        </Link>
+      </ListItem>
+
+      <ListItem button>
+        <Link href="/pages/terms-of-use" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Terms of Use" />
+        </Link>
+      </ListItem>
+
+      <ListItem button onClick={logOut}>
+        <Link href="#" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="Log Out" />
+        </Link>
+      </ListItem>
+
+      <hr style={{opacity: 0.3}} /> 
+
+
+      <ListItem button>
+        <Link href="#" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <ListItemText primary="&copy; 2025 Beaver Entertainment LLC. All rights reserved." />
+        </Link>
+      </ListItem>
+
+
     </List>
   );
 
-  const logOut = () => {
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    location.reload();
-  };
+
 
   return (
     <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
@@ -113,7 +143,7 @@ const Header = () => {
         )}
 
         {/* Account icon (no Link here, it's still clickable for the menu) */}
-        <IconButton variant="plain" onClick={handleMenuClick} edge="end">
+        <IconButton variant="plain" onClick={handleMenuClick} className='account-icon' edge="end">
           <AccountCircleIcon />
         </IconButton>
 
@@ -138,7 +168,7 @@ const Header = () => {
         </Menu>
 
         {/* Drawer for mobile menu */}
-        <Drawer anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
+        <Drawer anchor="right" PaperProps={{sx:{width:250}}} open={drawerOpen} onClose={() => toggleDrawer(false)}>
           {drawerItems}
         </Drawer>
       </Toolbar>
