@@ -15,11 +15,11 @@ export default function DashboardLayout({params,  children }) {
       }, [])
 
     return(
-        <div style={{position:'relative', paddingBottom:'20px', color:'white'}}>
+        <div style={{position:'relative', paddingBottom:'20px'}}>
           <Header />
           <img style={{position:'absolute',  top:'0', width: '100%', minHeight:'100vh', height:'100%', objectFit:'cover'}} src="/site-assets/be-the-one-bg.jpg" />
 
-          <div style={{position:'relative', textShadow:'2px 2px 4px rgba(0, 0, 0, 0.75)'}}>  
+          <div style={{position:'relative', color:'white', textShadow:'2px 2px 4px rgba(0, 0, 0, 0.75)'}}>  
 
           <Container maxWidth={'md'} >
             <h1>Be the One</h1>
