@@ -1,8 +1,19 @@
+'use client'
 import Header from "@/app/_components/_header"
 import { Container, Grid } from "@mui/material"
 
+import { useEffect } from "react"
+
 export default function DashboardLayout({params,  children }) {
     
+    useEffect(() => {
+
+        if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
+          document.querySelector('.footer-fixed').style.display = "block"
+        }
+    
+      }, [])
+
     return(
         <>
           <Header />
