@@ -41,7 +41,8 @@
     "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
-    "react-places-autocomplete": "^7.3.0"
+    "react-places-autocomplete": "^7.3.0",
+    "verify-apple-id-token": "^3.1.2"
   },
   "devDependencies": {
     "@types/node": "20.12.7",

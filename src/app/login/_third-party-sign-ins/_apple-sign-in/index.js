@@ -34,7 +34,7 @@ const MyAppleSigninButton = () => (
     /** Skips loading the apple script if true */
     skipScript={false} // default = undefined
     /** Apple image props */
-    iconProp={{ style: { marginTop: '10px' } }} // default = undefined
+    iconProp={{ style: { marginTop: '0px' } }} // default = undefined
     /** render function - called with all props - can be used to fully customize the UI by rendering your own component  */
   />
 );
