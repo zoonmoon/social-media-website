@@ -42,20 +42,20 @@ const LoggedOutHeader = () => {
       </ListItem>
       <SupportSiteButton  type={'list_item'}/>
       <ListItem button>
-        <Link href="/pages/be-the-one" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link href="/pages/be-the-one" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Be the One" />
         </Link>
       </ListItem>
 
 
       <ListItem button>
-        <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Privacy Policy" />
         </Link>
       </ListItem>
 
       <ListItem button>
-        <Link href="/pages/terms-of-use" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link href="/pages/terms-of-use" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Terms of Use" />
         </Link>
       </ListItem>
