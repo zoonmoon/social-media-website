@@ -21,8 +21,6 @@ export  async function POST(request) {
         const loggedIn = await handleLogin(sub, 'google', name, picture)
         
         if(loggedIn === true){
-            
-
 
             return new Response(JSON.stringify({ success: true }), {
                 headers: {
