@@ -21,7 +21,7 @@ export async function POST(request) {
     if(typeof(decodedJWT.name) != "undefined"){
         name = decodedJWT.name 
     }else{
-        name = email.split('@')[0]
+        name = decodedJWT.email.split('@')[0]
     }
 
     const loggedIn = await handleLogin(sub, 'apple', name, picture)
