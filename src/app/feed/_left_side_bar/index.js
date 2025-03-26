@@ -12,9 +12,6 @@ export default function LeftSideBar({profileStats, handleFeedTypeFilterChange=()
                     : <></>
             }
             <GroupsDropdown handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
-            <div style={{marginTop: '20px'}}>
-                <NonStickyFooter />
-            </div>
         </div>
     )
 }
