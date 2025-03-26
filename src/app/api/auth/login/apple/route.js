@@ -15,7 +15,6 @@ export async function POST(request) {
 
     try{
 
-
         const decodedJWT = await verifyAppleToken({
             idToken: id_token,
             clientId: "art.artxpress.app", // or ["app1ClientId", "app2ClientId"]
@@ -24,7 +23,6 @@ export async function POST(request) {
     
         console.log(decodedJWT) 
     
-        return 
         
         const picture = ''
         let name = ''
