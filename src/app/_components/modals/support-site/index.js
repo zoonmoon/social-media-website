@@ -269,7 +269,7 @@ export const SupportSiteButton = ({  type }) => {
     <>
       {
         type === 'list_item' ? (
-          <ListItem  onClick={handleOpen} disablePadding>
+      <ListItem  sx={{background:'green', color:'white'}} onClick={handleOpen} disablePadding>
           <ListItemButton>
               <ListItemText primary= {'Support Site'} />
           </ListItemButton>
@@ -279,7 +279,7 @@ export const SupportSiteButton = ({  type }) => {
           type === "button" ? (
             <>
               <Link onClick={handleOpen}  style={{ textDecoration: 'none', color: 'black' }} href={'#'}>
-                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                <Button variant={'outlined'} sx={{ margin: '0 10px' }}>
                   Support Site
                 </Button>
               </Link>

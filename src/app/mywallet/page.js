@@ -68,7 +68,7 @@ export default function User({params}){
                 <TableRow key={index}>
                   <TableCell>{index + 1}</TableCell> {/* Serial number */}
                   <TableCell>
-                        <Link href={'/users/'+s.supported_by}>
+                        <Link href={'#'}>
                             {s.supported_by}
                         </Link>                    
                     </TableCell> {/* Supported By */}

@@ -13,7 +13,10 @@ export async function GET(){
         
         let query = `SELECT * from supports s WHERE supported_to = '${username}' `;
 
-        const results = await executeQuery(connection, query) 
+        let results = await executeQuery(connection, query) 
+
+        results = results.map (r => ({...r, supported_by: 'anonymous'}))
+        
 
         return new Response(JSON.stringify({ success: true, supportHistory: results}), {
             headers: {
