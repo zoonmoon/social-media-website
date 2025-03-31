@@ -269,7 +269,7 @@ export const SupportSiteButton = ({  type }) => {
     <>
       {
         type === 'list_item' ? (
-      <ListItem  sx={{background:'green', color:'white'}} onClick={handleOpen} disablePadding>
+      <ListItem  sx={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'}} onClick={handleOpen} disablePadding>
           <ListItemButton>
               <ListItemText primary= {'Support Site'} />
           </ListItemButton>

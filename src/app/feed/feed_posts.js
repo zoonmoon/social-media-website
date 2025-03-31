@@ -3,6 +3,7 @@
 import Post from '../_components/post';
 import { Stack } from '@mui/material';
 import { useEffect } from 'react';
+import NonStickyFooter from '../_components/footer/non-fixed-footer';
 
 export default function FeedPosts({posts}) {
     useEffect(() => {
@@ -45,6 +46,14 @@ export default function FeedPosts({posts}) {
                                         </div>
                                     )}
                                 */}
+
+                                {/* Show footer after every 15th post */}
+                                {
+                                    (index + 1) % 15 === 0 && (
+                                        <NonStickyFooter />
+                                    ) 
+                                }
+
                             </div>
                         
                         )
