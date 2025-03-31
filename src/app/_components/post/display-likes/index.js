@@ -59,7 +59,7 @@ export default function DisplayLikes({ post_id }) {
               xs={12}
               sm={6}
             >
-              <div  style={{  borderRadius:'5px', border:'1px solid rgba(0, 0, 0, 0.1)', padding:'5px', cursor: "pointer", alignItems:'center',  display:'flex', gap: '10px' }}>
+              <div  style={{ cursor: "pointer", alignItems:'center',  display:'flex', gap: '10px' }}>
                 <Avatar
                   alt={liker.name}
                   src={liker.profile_pic_src || ""}

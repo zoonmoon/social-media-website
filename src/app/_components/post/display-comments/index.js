@@ -119,8 +119,9 @@ export default function DisplayComments({ commentsSubmitCallback, post: {is_edit
               key={index}
               item
               xs={12}
+              gap={1}
             >
-              <div style={{ borderRadius:'5px', border:'1px solid rgba(0, 0, 0, 0.1)', padding:'5px',}}>
+              <div>
                 <div 
                   style={{ alignItems:'center',  display:'flex', gap: '10px' }}
                 >

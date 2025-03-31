@@ -269,11 +269,23 @@ export const SupportSiteButton = ({  type }) => {
     <>
       {
         type === 'list_item' ? (
-      <ListItem  sx={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'}} onClick={handleOpen} disablePadding>
-          <ListItemButton>
-              <ListItemText primary= {'Support Site'} />
-          </ListItemButton>
-      </ListItem>
+<ListItem onClick={handleOpen} disablePadding>
+  <ListItemButton>
+    <ListItemText 
+      primary="Support Site"
+      primaryTypographyProps={{
+        sx: {
+          background: 'linear-gradient(to right, #009CFF, #FF8C00, #00C851)', // Blue → Orange → Green
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: 'bold'
+        }
+      }} 
+    />
+  </ListItemButton>
+</ListItem>
+
+
         ) : 
         
           type === "button" ? (
