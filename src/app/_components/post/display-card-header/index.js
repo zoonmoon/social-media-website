@@ -11,7 +11,7 @@ export default function DisplayCardHeader({p}){
     <CardHeader
         avatar={
           <Link href={'/users/'+p.posted_by_username} style={{textDecoration:'none'}}>
-            <Avatar src={p.profile_pic_src} aria-label="recipe">
+            <Avatar src={p.poster_profile_pic} aria-label="recipe">
               {
                 p.posted_by_name.split(' ').map(a => a[0]).join('')
               }

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, div, Typography } from '@mui/material';
 import Link from 'next/link';
 
 import { SupportSiteButton } from '../../modals/support-site';
 
 const NonStickyFooter = () => {
   return (
-    <Paper style={divStyle}> 
+    <div style={divStyle}> 
       <Box sx={{ textAlign: 'center'}}>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           <Link href="/pages/privacy-policy" style={linkStyle}><Typography variant="body2">Privacy Policy</Typography></Link>
@@ -15,7 +15,7 @@ const NonStickyFooter = () => {
           </Typography></Link>
         </Box>
       </Box>
-    </Paper>
+    </div>
   );
 };
 
@@ -27,7 +27,6 @@ const linkStyle = {
 
 
 const divStyle = {
-  background: 'white',
   padding: '5px 0',
   width: '100%'
 }

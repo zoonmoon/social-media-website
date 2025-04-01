@@ -88,9 +88,6 @@ export default function DisplayComments({ commentsSubmitCallback, post: {is_edit
             padding:'15px'
         }}
     >
-            <Avatar>
-                U
-            </Avatar>
             <TextField fullWidth
                 autoFocus
                 value={comment}
@@ -110,7 +107,7 @@ export default function DisplayComments({ commentsSubmitCallback, post: {is_edit
       <Divider>Comments</Divider>
       ) || ''}
 
-
+      
       <div style={{ padding: comments.length > 0 ? "15px" : '5px'}}>
 
         <Grid container spacing={2}>
@@ -119,11 +116,11 @@ export default function DisplayComments({ commentsSubmitCallback, post: {is_edit
               key={index}
               item
               xs={12}
-              gap={1}
+              gap={0}
             >
               <div>
                 <div 
-                  style={{ alignItems:'center',  display:'flex', gap: '10px' }}
+                  style={{   display:'flex', gap: '10px',padding:'10px', flex:1, borderRadius:'5px', background:'rgba(0,0,0, 0.05)' }}
                 >
                   <Avatar
                     onClick={()=>redirectToProfile(comment.username)}
@@ -132,13 +129,15 @@ export default function DisplayComments({ commentsSubmitCallback, post: {is_edit
                   >
                     {!comment.profile_pic_src ? comment.name.split(' ').map(w=>w[0]).join('').toUpperCase() : ""}
                   </Avatar>
-                  <Typography><strong>{comment.name}</strong></Typography>
+                  <div>
+                    <Typography><strong>{comment.name}</strong></Typography>
+
+                    <Typography>
+                      {comment.cmt}
+                    </Typography>
                 </div>
-                <div style={{paddingLeft:'50px'}}>
-                  <Typography>
-                    {comment.cmt}
-                  </Typography>
                 </div>
+
               </div>
             </Grid>
           ))}

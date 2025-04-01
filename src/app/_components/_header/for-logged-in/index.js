@@ -38,6 +38,13 @@ const Header = () => {
           <ListItemText primary="Feed" />
         </Link>
       </ListItem>
+
+      <ListItem button>
+        <Link href="/settings" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Settings" />
+        </Link>
+      </ListItem>
+      
       <ListItem button>
         <Link href="/pages/about-us" style={{ textDecoration: 'none', width: '100%', color: 'inherit' }}>
           <ListItemText primary="About us" />
@@ -132,20 +139,20 @@ const Header = () => {
         )}
 
         {/* Hamburger menu for mobile */}
-        {isMobile && (
+        {(
           <IconButton
             variant="plain"
             onClick={() => toggleDrawer(true)}
             edge="end"
           >
-            <MenuIcon />
+            <AccountCircleIcon />
           </IconButton>
         )}
 
         {/* Account icon (no Link here, it's still clickable for the menu) */}
-        <IconButton variant="plain" onClick={handleMenuClick} className='account-icon' edge="end">
+        {/* <IconButton variant="plain" onClick={handleMenuClick} className='account-icon' edge="end">
           <AccountCircleIcon />
-        </IconButton>
+        </IconButton> */}
 
         {/* Menu for account actions */}
         <Menu

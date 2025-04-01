@@ -37,13 +37,16 @@ export default function NestedList() {
             component="nav"
             aria-labelledby="nested-list-subheader"
         >
-            <ListItemButton>
-                <ListItemIcon>
-                <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Basic Information" />
-                <ChevronRightIcon />
-            </ListItemButton>
+            <Link href={'/settings/personal-information'} style={{color:'black', textDecoration:'none', textDecorationColor:'none'}}>
+
+                <ListItemButton>
+                    <ListItemIcon>
+                    <AccountCircleIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Personal Information" />
+                    <ChevronRightIcon />
+                </ListItemButton>
+            </Link>
             <Link href={'/settings/receiving-account'} style={{color:'black', textDecoration:'none', textDecorationColor:'none'}}>
                 <ListItemButton>
                     <ListItemIcon>

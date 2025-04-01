@@ -24,7 +24,7 @@ export default function FeedPosts({posts}) {
 
     return (
         <>        
-            <Stack container spacing={2}>
+            <Stack container spacing={1}>
                 {
                     posts.map((post, index) => {
                         return(

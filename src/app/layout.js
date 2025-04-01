@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
             />
             {children}
           </GoogleOAuthProvider>
-        <div className="fixed-footer">
+        <div style={{marginTop:'30px'}}>
           <Footer />
         </div>
       </body>

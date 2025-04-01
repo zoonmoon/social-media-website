@@ -143,13 +143,16 @@ export default function ProfileBasicInfo({username}){
                                 <SupportButton type={'button'} toBeSupportedID={username} firstName={basicInfo.userInfo.name.split(' ')[0].toUpperCase()} />
                             </Stack>
                         ): (
-                            <Button 
-                                variant={'solid'} 
-                                sx={{display:'inline-flex'}}
-                                startDecorator={<EditIcon /> }
-                            >
-                                Edit Profile
-                            </Button>
+                            <Link href={'/settings/personal-information'}>
+                                <Button 
+                                    variant={'solid'} 
+                                    sx={{display:'inline-flex'}}
+                                    startDecorator={<EditIcon /> }
+                                >
+                                    Edit Profile
+                                </Button>
+                            </Link>
+
                         )
                     }
                 </div>
