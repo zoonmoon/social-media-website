@@ -28,7 +28,7 @@ function timeAgoShort(dateStr) {
 }
 
 
-export async function GET(request){
+export async function GET(){
     let connection = false
     try{
 
