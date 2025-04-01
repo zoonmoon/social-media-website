@@ -94,7 +94,7 @@ export default function User({params}){
         <Paper sx={{padding: '15px', marginTop: '20px'}}>
 
             <Alert severity={'info'}>
-                Click on "Save" button at bottom of the page after making changes. Username will remain same even if name is changed.
+                Click on &quot;Save&quot; button at bottom of the page after making changes. Username will remain same even if name is changed.
             </Alert>
 
             <Stack spacing={2} sx={{marginBottom:'20px', marginTop:'10px'}}>
