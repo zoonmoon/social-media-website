@@ -1,6 +1,6 @@
 import { databaseConnection, executeQuery } from "@/app/api/utils";
 import { getLoggedInUsername } from "@/app/api/utils";
-
+import Notification from "@/app/api/notifications/utils";
 export async function POST(request, {params}){
     let connection = false
     try{
@@ -23,6 +23,23 @@ export async function POST(request, {params}){
 
         const result = await executeQuery(connection, query) 
         console.log(result)
+
+
+
+        let query3 = `SELECT username from posts where id = '${post_id}' ;`
+
+        let results = await executeQuery(connection, query3) 
+
+        let postOwner =  results[0].username 
+
+        if(postOwner != username){
+
+            const noti = new Notification(connection) 
+
+            await noti.save(postOwner, username, 'post_comment', post_id)
+    
+        }
+
 
         let query2 = `SELECT cmt, pc.username, parent_id, pc.id , profile_pic_src, name  FROM post_comments pc
             INNER JOIN user_more_info umi ON pc.username = umi.username

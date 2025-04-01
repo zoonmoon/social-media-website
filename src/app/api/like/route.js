@@ -1,5 +1,7 @@
 import { databaseConnection, executeQuery, getLoggedInUsername } from "../utils";
 
+import Notification from "../notifications/utils";
+
 export async function POST(request){
     let connection = false
     try{
@@ -17,6 +19,21 @@ export async function POST(request){
         let query = `INSERT INTO post_likes ( post_id, username) VALUES('${post_id}', '${username}')`;
 
         await executeQuery(connection, query) 
+
+
+        let query2 = `SELECT username from posts where id = '${post_id}' ;`
+
+        let results = await executeQuery(connection, query2) 
+
+        let postOwner =  results[0].username 
+
+        if(postOwner != username){
+
+            const noti = new Notification(connection) 
+    
+            await noti.save(postOwner, username, 'post_like', post_id)
+    
+        }
 
         return new Response(JSON.stringify({ success: true}), {
             headers: {

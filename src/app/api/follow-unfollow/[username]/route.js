@@ -1,5 +1,6 @@
 import { databaseConnection, executeQuery, getLoggedInUsername } from "../../utils";
 
+import Notification from "../../notifications/utils";
 
 export async function POST(request, {params}){
     let connection = false
@@ -20,6 +21,10 @@ export async function POST(request, {params}){
         let query = `INSERT INTO followers ( username, follower) VALUES('${followee}', '${follower}')`;
 
         await executeQuery(connection, query) 
+
+        const noti = new Notification(connection) 
+    
+        await noti.save(followee, follower, 'follow', follower)
 
         return new Response(JSON.stringify({ success: true}), {
             headers: {

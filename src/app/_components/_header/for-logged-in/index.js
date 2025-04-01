@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Container, Drawer, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -6,13 +6,28 @@ import { useTheme } from '@mui/material/styles';
 import Link from 'next/link'; // Import Link from Next.js
 import { Button } from '@mui/joy';
 import { SupportSiteButton } from '../../modals/support-site';
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 
+import CircleIcon from '@mui/icons-material/Circle';
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const [hasAnyUnread, setHasAnyUnread] = useState(false)
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen size
+
+  async function fetchNoti(){
+    const notis = await fetch('/api/notifications')
+    const notisJson  = await notis.json()
+    const unreadNotis = notisJson.notifications.filter(n => n.is_read == 0)
+    setHasAnyUnread(unreadNotis.length > 0)
+  }
+
+  useEffect( () => {
+
+    fetchNoti()
+
+  }, [])
 
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -140,13 +155,36 @@ const Header = () => {
 
         {/* Hamburger menu for mobile */}
         {(
-          <IconButton
+          <div style={{display:'flex', gap:'10px'}}>
+            <Link href='/notifications'>
+            <IconButton
             variant="plain"
-            onClick={() => toggleDrawer(true)}
             edge="end"
+            sx={{position:'relative'}}
           >
-            <AccountCircleIcon />
+            <CircleNotificationsIcon color={hasAnyUnread ? 'error' : ''} />
+            {
+              hasAnyUnread ? <>
+                          <div style={{position:'absolute', color:'red', right: '0px', top: 0}}>
+              <CircleIcon fontSize={'small'} />
+            </div>
+              </> : <></>
+            }
+
           </IconButton>
+          </Link>
+
+          <IconButton
+          variant="plain"
+          onClick={() => toggleDrawer(true)}
+          edge="end"
+        >
+          <AccountCircleIcon />
+        </IconButton>
+          </div>
+
+
+
         )}
 
         {/* Account icon (no Link here, it's still clickable for the menu) */}
