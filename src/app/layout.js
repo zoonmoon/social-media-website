@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 
         <link rel="canonical" href="https://www.artxpress.art" />
 
-        <meta property="og:title" content="ArtXpress - Supporting Positive Expressions of Art" />
+        <meta property="og:title" content="ArtXpress - Supporting Positive Expressions of Artist" />
         <meta property="og:description" content="A community supporting artists' positive expressions of art." />
         <meta property="og:image" content="https://www.artxpress.art/site-assets/logo.png" />
         <meta property="og:url" content="https://www.artxpress.art" />

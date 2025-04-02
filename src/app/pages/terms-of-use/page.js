@@ -1,5 +1,6 @@
 import Header from "@/app/_components/_header"
 import { Container, Grid } from "@mui/material"
+import Link from "next/link"
 
 export default function DashboardLayout({params,  children }) {
     
@@ -130,7 +131,7 @@ export default function DashboardLayout({params,  children }) {
 
 <div>
     <h2>12. Contact Us</h2>
-    <p>For questions, concerns, or support, contact Beaver Entertainment, LLC at: [Contact web page of artXpress.art]</p>
+    <p>For questions, concerns, or support, <Link href="/pages/contact-us">Contact</Link> Beaver Entertainment, LLC</p>
     <p>Thank you for joining artXpress.art! Together, we are building a supportive and creative community that empowers artists and inspires the world.</p>
 </div>
 
