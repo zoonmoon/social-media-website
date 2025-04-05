@@ -33,6 +33,7 @@ export default function DashboardLayout({params,  children }) {
                     <li>We are grateful for your positive comments and critiques of art.</li>
                     <li>We reserve the right to remove any art or comments at our sole discretion.</li>
                     <li>Our members (artists and viewers) positive feelings and trust from us is of the utmost importance.</li>
+                    <li>Maximum file upload size is 5mb</li>
                     <li>Please allow your true light to shine here to inspire, encourage, empower, and intrigue.</li>
                     <li>Thank You, Arty</li>
                 </ul>
