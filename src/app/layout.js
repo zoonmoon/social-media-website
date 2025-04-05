@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="https://www.artxpress.art/site-assets/logo.png" />
         <meta property="og:url" content="https://www.artxpress.art" />
         <meta property="og:type" content="website" />
-
+        
         <meta name="description" content="A community supporting artists' positive expressions of art." />
         <meta name="keywords" content="art, artists, paintings, digital art, written word, support artists, support arts, support the arts, contemporary art, family-friendly art, modern art, online art gallery" />
 
