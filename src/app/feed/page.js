@@ -150,9 +150,9 @@ export default function Feed(){
   }, [])
 
   function isFooterVisible() {
-    const count = posts.length;
+    const count = posts.length - 4;
     console.log(posts.length)
-    const block = Math.floor(count / 15);
+    const block = count > 0 ?  Math.floor(count / 15) : 0;
     return block % 2 === 1;
   }
 
