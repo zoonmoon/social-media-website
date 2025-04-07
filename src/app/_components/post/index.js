@@ -69,7 +69,7 @@ export default function Post({post}) {
         <LikeShareCommentButtons handleDisplayChange={handleDisplayChange} p={p} isLiked={isLiked} handleLikeUnlike={handleLikeUnlike} isLikingOrUnliking={isLikingOrUnliking} />
         {
             displayType == 'likes'
-                ?   <DisplayLikes 
+                ?   <DisplayLikes
                         post_id={p.id}
                     />
                 :   displayType == 'comments'

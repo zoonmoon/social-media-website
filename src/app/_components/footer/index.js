@@ -8,7 +8,10 @@ const Footer = () => {
 };
 
 const divStyle = {
-  width: '100%'
+  width: '100%',
+  position: 'fixed',
+  bottom: '0px',
+  background: "white"
 }
 
 export default Footer;

@@ -149,14 +149,22 @@ export default function Feed(){
     fetchStats();
   }, [])
 
+  function isFooterVisible() {
+    const count = posts.length;
+    console.log(posts.length)
+    const block = Math.floor(count / 15);
+    return block % 2 === 1;
+  }
 
   useEffect(() => {
 
-    if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
+    if(isFooterVisible()){
+      document.querySelector('.footer-fixed').style.display = "block"
+    }else{
       document.querySelector('.footer-fixed').style.display = "none"
     }
 
-  }, [])
+  }, [posts])
 
   return(
     <>

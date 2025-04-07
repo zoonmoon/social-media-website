@@ -48,11 +48,11 @@ export default function FeedPosts({posts}) {
                                 */}
 
                                 {/* Show footer after every 15th post */}
-                                {
+                                {/* {
                                     (index + 1) % 15 === 0 && (
                                         <NonStickyFooter />
                                     ) 
-                                }
+                                } */}
 
                             </div>
                         

@@ -9,7 +9,7 @@ function isValidEmail(email) {
 export async function POST(request){
     let connection = false
     try{
-
+        
         const {token_exists, username} = getLoggedInUsername()
 
         if(token_exists !== true) throw new Error("Please log in")
