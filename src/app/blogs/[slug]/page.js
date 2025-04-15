@@ -77,7 +77,15 @@ const BlogDetail = ({ blog }) => {
 const BlogPage = ({params}) => {
        const [blog, setBlog] = useState({})
        const [isLoading, setIsLoading] = useState(true) 
-   
+       
+       useEffect(() => {
+
+        if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
+          document.querySelector('.footer-fixed').style.display = "block"
+        }
+    
+      }, [])
+
        const fetchBlog = async () =>{
            try{
                
