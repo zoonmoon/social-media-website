@@ -72,9 +72,9 @@ export default function Blogs(){
                         <Grid item xs={12} md={4}> <LoadingPost /> </Grid>
                         <Grid item xs={12} md={4}> <LoadingPost /> </Grid>
                     </>) }
-                    {
+                    {   
                         blogs.map((blog, index) => ( 
-                            <Grid item xs={12} md={4}>
+                            <Grid key={index} item xs={12} md={4}>
                                 <BlogPost key={index} blogPost={blog} />
                             </Grid>
                         ))
