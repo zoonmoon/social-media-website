@@ -55,7 +55,7 @@ export default function RightSidebar(){
               </>) }
               {
                   blogs.map((blog, index) => ( 
-                      <Grid item xs={12}>
+                      <Grid key={index} item xs={12}>
                           <BlogPost key={index} blogPost={blog} />
                       </Grid>
                   ))
