@@ -19,8 +19,8 @@ const Header = () => {
   async function fetchNoti(){
     const notis = await fetch('/api/notifications')
     const notisJson  = await notis.json()
-    const unreadNotis = notisJson.notifications.filter(n => n.is_read == 0)
-    setHasAnyUnread(unreadNotis.length > 0)
+    const unreadNotis = notisJson?.notifications?.filter(n => n.is_read == 0)
+    setHasAnyUnread(unreadNotis?.length > 0)
   }
 
   useEffect( () => {
@@ -57,6 +57,12 @@ const Header = () => {
       <ListItem button>
         <Link href="/settings" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Settings" />
+        </Link>
+      </ListItem>
+      
+      <ListItem button>
+        <Link href="/blogs" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Blogs" />
         </Link>
       </ListItem>
       

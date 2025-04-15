@@ -113,5 +113,14 @@
     .account-icon{
         display: none;
     }
+    .right-side-bar{
+        display: none;
+    }
 }
 
+.ql-editor  {
+    resize: vertical;        /* Enable vertical resize */
+    overflow: auto;          /* Allow scroll if content overflows */
+    min-height: 200px !important;       /* Minimum height */
+    max-height: 800px;       /* Optional: max limit */
+}

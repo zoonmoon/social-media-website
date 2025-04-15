@@ -5,14 +5,14 @@ import MicIcon from '@mui/icons-material/Mic';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import { Skeleton } from '@mui/material';
+import Link from 'next/link';
 
 
 export default function PostUploadFormInitiator({handlePostUploadFormDisplay, data}){
 
     if(data?.is_logged_in === false){
-        return <>Please Login to Upload posts</>
+        return <>Please <Link href={'/login'}>Login</Link> to Upload posts</>
     }
-
     
     return(
         <>

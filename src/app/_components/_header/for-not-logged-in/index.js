@@ -30,6 +30,13 @@ const LoggedOutHeader = () => {
           <ListItemText primary="Feed" />
         </Link>
       </ListItem>
+
+      <ListItem button>
+        <Link href="/blogs" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Blogs" />
+        </Link>
+      </ListItem>
+
       <ListItem button>
         <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/pages/about-us">
           <ListItemText primary="About us" />

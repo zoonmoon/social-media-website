@@ -189,6 +189,7 @@ export default function Feed(){
               }
           </Grid>
           <Grid item xs={12} md={3}>
+            <RightSidebar />
           </Grid>
         </Grid>
       </Container>

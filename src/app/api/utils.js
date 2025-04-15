@@ -2,6 +2,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import mysql from 'mysql2';
 
+
+
 export  function generateRandomString(length=20) {
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -40,9 +42,9 @@ export async function databaseConnection(){
           }
       });
   });
-
-
 }
+
+
 
 export function executeQuery(connection, q) {
   return new Promise((resolve, reject) => {
@@ -94,6 +96,22 @@ export function getLoggedInUsername(){
   }else{
     return {token_exists: false, username: null}
   }
-
   
+}
+
+export function isAdmin(){
+
+  const adminUsernames = [
+    "artplaysapart-qti44dbnai",
+    "arjun-poudel-y5dzlugnhj"
+  ]
+
+  let {token_exists, username} = getLoggedInUsername() 
+
+  if(adminUsernames.includes(username) && username !== null ){
+    return true;
+  }
+
+  return false 
+
 }
