@@ -1,7 +1,7 @@
 import { databaseConnection, executeQuery, isAdmin } from "../../utils";
 
 
-export async function GET(request){
+export async function GET(){
     
     let connection = false 
     
