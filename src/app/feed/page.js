@@ -34,6 +34,8 @@ export default function Feed(){
 
   const handleNextPage = () => setPage(prevPage => prevPage + 1);
 
+  const [pageEndReached, setPageEndReached] = useState(false)
+
   async function fetchDashboard() {
     
     try {
@@ -62,11 +64,19 @@ export default function Feed(){
         
         const postsResponseJson = await postsResponse.json();
 
+        if(postsResponseJson.success == false ){
+          setPageEndReached(true)
+          throw new Error('')
+        }
+
         setPosts((prevPosts) => [
           ...prevPosts,
           ...(postsResponseJson.success ? postsResponseJson.posts : []),
         ]);
           
+        if(postsResponseJson.posts.length < 4){
+          setPageEndReached(true)
+        }
 
     } catch (error) {
         toast( error.message)
@@ -75,7 +85,7 @@ export default function Feed(){
     }
   }
 
-
+  
 
   useEffect(() => {
     // This function will run only once when the component mounts
@@ -84,7 +94,7 @@ export default function Feed(){
       const documentHeight = document.documentElement.scrollHeight;
       // alert(l/oading)
       console.log(scrollPosition, documentHeight, loading)
-      if ( (scrollPosition >= documentHeight - 100) && !loading) {
+      if ( (scrollPosition >= documentHeight - 100) && !loading && !pageEndReached) {
         handleNextPage()
       }
     };
@@ -102,6 +112,7 @@ export default function Feed(){
   useEffect(() => {
 
       fetchDashboard();
+      setPageEndReached(false)
 
   }, [feedTypeFilter, page]); 
 
