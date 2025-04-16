@@ -62,6 +62,8 @@ export  async function POST(req) {
 
         const paypalBillingEmailOfReceiver = results2[0].paypal_billing_email
 
+        const {token_exists, username} = getLoggedInUsername()
+
         if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == ""){
 
             const query_paypal_not_set = `INSERT INTO supports (
@@ -78,7 +80,7 @@ export  async function POST(req) {
                     'PAYPAL_NOT_SET - Receiveing artist does not have their paypal email set'
                 )
             `;
-
+            
             const results_paypal_not_set = await executeQuery(connection, query_paypal_not_set);
 
             throw new Error("Receiveing artist does not have their paypal email set")
@@ -87,7 +89,6 @@ export  async function POST(req) {
 
         await sendMoney(paypalBillingEmailOfReceiver, finalAmount, connection)
 
-        const {token_exists, username} = getLoggedInUsername()
 
         const query = `INSERT INTO supports (
                 supported_by,
@@ -110,6 +111,8 @@ export  async function POST(req) {
         });
 
     } catch (err) {
+
+        console.log(err.message) 
 
         return new Response(JSON.stringify({ success: false, msg: err.message  }), {
             headers: {
