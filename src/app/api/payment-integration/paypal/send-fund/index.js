@@ -1,4 +1,5 @@
 import paypal from '@paypal/payouts-sdk';
+import { executeQuery } from '@/app/api/utils';
 
 // Configure PayPal Environment
 const environment = new paypal.core.LiveEnvironment(
@@ -9,7 +10,7 @@ const environment = new paypal.core.LiveEnvironment(
 const client = new paypal.core.PayPalHttpClient(environment);
 
 // Create a Payout
-export async function sendMoney(recipientEmail, amount, currency = 'USD') {
+export async function sendMoney(recipientEmail, amount, connection, currency = 'USD') {
     const request = new paypal.payouts.PayoutsPostRequest();
 
     // Define the payout batch
@@ -40,6 +41,25 @@ export async function sendMoney(recipientEmail, amount, currency = 'USD') {
         console.log('Payout Created Successfully:', response.result);
         return response.result;
     } catch (error) {
+
+            const query_payout_error = `INSERT INTO supports (
+                supported_by,
+                supported_to,
+                amount, 
+                is_payout_success,
+                comment
+            ) VALUES (
+                '${username}',
+                '${artistId}',
+                ${finalAmount},
+                0,
+                'PAYPAL_PAYOUT_ERR - ${error.message.replace(/'/g, '')}' 
+            )
+        `;
+
+        const results_query_payout_error = await executeQuery(connection, query_payout_error);
+
+        
         console.error('Error Creating Payout:', error.message, error);
         throw error;
     }
