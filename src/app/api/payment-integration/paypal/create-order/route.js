@@ -39,9 +39,9 @@ export  async function POST(req) {
 
     try {
 
-        if(amount < 5){
-            throw new Error("Support fund can not be less than $5");
-        }
+        // if(amount < 5){
+        //     throw new Error("Support fund can not be less than $5");
+        // }
         
         const {token_exists, username} = getLoggedInUsername()
 
