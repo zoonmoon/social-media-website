@@ -20,6 +20,23 @@ const adminBlocks = [
 
 ]
 
+function truncateToTwo(num) {
+    return Math.trunc(num * 100) / 100;
+}
+
+function calculateOriginalAmount(finalAmount) {
+
+    let originalAmount = ((finalAmount + 0.74) / 0.8151);
+
+    // Return the original amount, commission, and total taxes deducted
+    return {
+        originalAmount: truncateToTwo(originalAmount),
+        commission: truncateToTwo((originalAmount * 0.15)),
+        totalTaxesDeducted: truncateToTwo(originalAmount - originalAmount * 0.15 - finalAmount )
+    };
+}
+
+
 export default function Admin(){
 
     const [transactions, setTransactions] = useState([])
@@ -92,7 +109,10 @@ export default function Admin(){
                                             <TableCell>SN</TableCell>
                                             <TableCell>Supported By</TableCell>
                                             <TableCell>Supported To</TableCell>
-                                            <TableCell>Payout Amount (USD)</TableCell>
+                                            <TableCell>Received (USD)</TableCell>
+                                            <TableCell>Commission (USD)</TableCell>
+                                            <TableCell>Taxes (USD)</TableCell>
+                                            <TableCell>Payout (USD)</TableCell>
                                             <TableCell>Status</TableCell>
                                             <TableCell>Comment</TableCell>
                                             <TableCell>Date</TableCell>
@@ -113,6 +133,9 @@ export default function Admin(){
                                                         @{s.supported_to}
                                                     </Link>                    
                                                 </TableCell> {/* Supported By */}
+                                                <TableCell>{calculateOriginalAmount(s.amount).originalAmount}</TableCell>
+                                                <TableCell>{calculateOriginalAmount(s.amount).commission}</TableCell>
+                                                <TableCell>{calculateOriginalAmount(s.amount).totalTaxesDeducted}</TableCell>
                                                 <TableCell>{s.amount.toFixed(2)}</TableCell> {/* Amount */}
                                                 <TableCell>
                                                     {
