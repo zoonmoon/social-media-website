@@ -22,7 +22,7 @@ const adminBlocks = [
 
 export default function Admin(){
 
-    const [hasAdminAccess, setHasAdminAccess] = useState(true)
+    const [hasAdminAccess, setHasAdminAccess] = useState(false)
     const [isLoading, setIsLoading] = useState(true) 
 
     const fetchAdminInfo  = async () => {
@@ -85,7 +85,7 @@ export default function Admin(){
                                         }
                                     </Grid>              
                                 ) : (
-                                    <Paper>
+                                    <Paper sx={{padding:'5px'}}>
                                         <h1>Not Authorized</h1>
                                     </Paper>
                                 )
