@@ -61,7 +61,7 @@ export async function POST(request, {params}){
                 thumbnail = VALUES(thumbnail),
                 updated_at = CURRENT_TIMESTAMP;
         `, [slug, title, content, username, thumbnail]);
-
+            
         let message= 'Blog created'
         return new Response(JSON.stringify({success:true, message}))
         

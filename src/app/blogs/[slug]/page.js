@@ -28,7 +28,7 @@ const BlogDetail = ({ blog }) => {
   } = blog;
 
   return (
-      <Paper elevation={3} sx={{ borderRadius: 3, overflow: 'hidden' }}>
+      <Paper  elevation={3} sx={{ borderRadius: 3, overflow: 'hidden' }}>
         {
             (thumbnail !== '' && thumbnail !== null ) && (
                 <Box
@@ -60,7 +60,7 @@ const BlogDetail = ({ blog }) => {
 
           <Divider sx={{ my: 3 }} />
 
-          <Box sx={{ typography: 'body1', lineHeight: 1.8 }}>
+          <Box className="blog-content-zoon" sx={{ typography: 'body1', lineHeight: 1.8 }}>
             {renderHTML(content)}
           </Box>
           <Divider sx={{ my: 3 }} />

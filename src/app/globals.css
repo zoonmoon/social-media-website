@@ -101,12 +101,20 @@
     opacity: 0.95;
 }
 
-
+.blog-content-zoon img{
+    width: 70%;
+    height: auto;
+}
 /* styles/custom.css */
 @media (max-width: 768px) {
     .left-side-bar-footer{
         display: none;
     }
+    
+.blog-content-zoon img{
+    width: 100%;
+    height: auto;
+}
     .fixed-footer{
         display: none;
     }
@@ -124,3 +132,4 @@
     min-height: 200px !important;       /* Minimum height */
     max-height: 800px;       /* Optional: max limit */
 }
+

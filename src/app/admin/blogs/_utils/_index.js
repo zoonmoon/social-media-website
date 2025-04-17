@@ -1,6 +1,6 @@
 'use client'
 import { Alert, Divider, Grid, Paper, Skeleton, Stack, TextField, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import toast from "react-hot-toast";
 import { pOSTRequest } from "@/app/_components/file_upload";
 import { Button } from "@mui/joy";
@@ -72,6 +72,24 @@ export default function BlogCreateOrEdit(
         }
     }
 
+
+    const modules = useMemo(() => ({
+        toolbar: [
+          [{ header: [1, 2, false] }],
+          ['bold', 'italic', 'underline', 'link'],
+          [{ list: 'ordered' }, { list: 'bullet' }],  // ✅ Lists here
+          ['image', 'code-block'],
+        ],
+      }), []);
+      
+      const formats = [
+        'header',
+        'bold', 'italic', 'underline',
+        'link',
+        'list', 'bullet',              // ✅ Must be here too
+        'image', 'code-block',
+      ];
+
     return(
 
         <div sx={{padding: '15px', marginTop: '20px'}}>
@@ -111,6 +129,8 @@ export default function BlogCreateOrEdit(
                     <ReactQuill
                         theme="snow"
                         value={blogContent}
+                        modules={modules}
+                        formats={formats}                
                         className="resizable-editor"
                         onChange={(val) => setBlogContent(val)}
                     />
