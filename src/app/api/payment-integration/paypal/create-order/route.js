@@ -14,6 +14,9 @@ const environment = new paypal.core.LiveEnvironment(
 
 const client = new paypal.core.PayPalHttpClient(environment);
 
+
+import logger from '@/app/api/utils/logger';
+
 export  async function POST(req) {
 
     let connection = false 
@@ -36,12 +39,8 @@ export  async function POST(req) {
             custom_id: artistId, // Store artist ID as custom metadata in the order
         }],
     });
-
+    
     try {
-
-        // if(amount < 5){
-        //     throw new Error("Support fund can not be less than $5");
-        // }
         
         const {token_exists, username} = getLoggedInUsername()
 
@@ -52,15 +51,16 @@ export  async function POST(req) {
 
         const results = await executeQuery(connection, query);
 
-        if(results.length == 0) throw new Error("Artist not eligible")
+        if(results.length == 0) throw new Error("Artist not eligible, artistid: "+artistId)
 
         const paypalBillingEmailOfReceiver = results[0].paypal_billing_email
 
         if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == ""){
-            throw new Error("Artist not eligible")
+
+            throw new Error("Artist not eligible: artistid: "+artistId)
         }
 
-        if(!token_exists) throw new Error("Login to support")
+        if(!token_exists) throw new Error("Login to support: to artist: " + artistId)
 
         const order = await client.execute(request);
 
@@ -72,6 +72,8 @@ export  async function POST(req) {
         });
 
     } catch (err) {
+
+        logger.info(err.message)
 
         return new Response(JSON.stringify({ success: false, msg: err.message  }), {
             headers: {

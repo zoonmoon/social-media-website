@@ -1,6 +1,8 @@
 import paypal from '@paypal/payouts-sdk';
 import { executeQuery } from '@/app/api/utils';
 
+import { getLoggedInUsername } from '@/app/api/utils';
+
 // Configure PayPal Environment
 const environment = new paypal.core.LiveEnvironment(
     process.env.PAYPAL_CLIENT_ID,  // Replace with your PayPal Client ID
@@ -10,7 +12,7 @@ const environment = new paypal.core.LiveEnvironment(
 const client = new paypal.core.PayPalHttpClient(environment);
 
 // Create a Payout
-export async function sendMoney(recipientEmail, amount, connection, currency = 'USD') {
+export async function sendMoney(recipientEmail, amount, connection, artistId, currency = 'USD') {
     const request = new paypal.payouts.PayoutsPostRequest();
 
     // Define the payout batch
@@ -35,6 +37,8 @@ export async function sendMoney(recipientEmail, amount, connection, currency = '
         ]
     });
 
+    const {token_exists, username} = getLoggedInUsername()
+
     try {
         // Execute the API request
         const response = await client.execute(request);
@@ -52,7 +56,7 @@ export async function sendMoney(recipientEmail, amount, connection, currency = '
             ) VALUES (
                 '${username}',
                 '${artistId}',
-                ${finalAmount},
+                ${amount},
                 0,
                 'PAYPAL_PAYOUT_ERR - ${error.message.replace(/'/g, '')}' 
             )

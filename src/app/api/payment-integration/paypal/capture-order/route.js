@@ -87,7 +87,7 @@ export  async function POST(req) {
         
         }
 
-        await sendMoney(paypalBillingEmailOfReceiver, finalAmount, connection)
+        await sendMoney(paypalBillingEmailOfReceiver, finalAmount, connection, artistId)
 
 
         const query = `INSERT INTO supports (

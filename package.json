@@ -43,7 +43,9 @@
     "react-hot-toast": "^2.4.1",
     "react-places-autocomplete": "^7.3.0",
     "react-quill": "^2.0.0",
-    "verify-apple-id-token": "^3.1.2"
+    "verify-apple-id-token": "^3.1.2",
+    "winston": "^3.17.0",
+    "winston-cloudwatch": "^6.3.0"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
