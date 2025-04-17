@@ -46,20 +46,25 @@ export async function POST(request, {params}){
 
         connection = await databaseConnection()
 
-        let results = await executeQuery(connection, query) 
+        // let results = await executeQuery(connection, query) 
 
-        let message;
 
-        if (results.affectedRows === 1) {
-            message = "Blog Created Successfully";
-        } else if (results.affectedRows === 2) {
-            message = "Blog Updated Successfully";
-        } else {
-            message = "No changes made to the blog";
-        }
 
+        const results = await connection.execute(`
+            INSERT INTO blogs (slug, title, content, author, status, thumbnail)
+            VALUES (?, ?, ?, ?, 'published', ?)
+            ON DUPLICATE KEY UPDATE
+                title = VALUES(title),
+                content = VALUES(content),
+                author = VALUES(author),
+                status = VALUES(status),
+                thumbnail = VALUES(thumbnail),
+                updated_at = CURRENT_TIMESTAMP;
+        `, [slug, title, content, username, thumbnail]);
+
+        let message= 'Blog created'
         return new Response(JSON.stringify({success:true, message}))
-
+        
     }catch(error){  
         
         return new Response(JSON.stringify({success:false, message: error.message}))

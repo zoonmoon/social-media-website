@@ -39,6 +39,7 @@ export async function sendMoney(recipientEmail, amount, connection, currency = '
         // Execute the API request
         const response = await client.execute(request);
         console.log('Payout Created Successfully:', response.result);
+
         return response.result;
     } catch (error) {
 
@@ -56,7 +57,7 @@ export async function sendMoney(recipientEmail, amount, connection, currency = '
                 'PAYPAL_PAYOUT_ERR - ${error.message.replace(/'/g, '')}' 
             )
         `;
-
+        
         const results_query_payout_error = await executeQuery(connection, query_payout_error);
 
         
