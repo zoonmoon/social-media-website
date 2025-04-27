@@ -1,6 +1,7 @@
 import { databaseConnection, generateRandomString, getLoggedInUsername } from "@/app/api/utils"
 import { isAdmin } from "@/app/api/utils"
 import { executeQuery } from "@/app/api/utils"
+export const dynamic = "force-dynamic";
 
 export async function POST(request, {params}){
     

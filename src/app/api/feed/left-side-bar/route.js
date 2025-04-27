@@ -7,7 +7,7 @@ import { getNumPostViewsCount } from "../../utils/user/stats/post-views";
 import { getNumPostLikesCount } from "../../utils/user/stats/likes";
 export const dynamic = "force-dynamic"
 
-export async function GET(request){
+export async function GET(){
     
     let connection = false
 
