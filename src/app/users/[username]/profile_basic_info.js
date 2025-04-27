@@ -126,6 +126,14 @@ export default function ProfileBasicInfo({username}){
                         {basicInfo.userInfo.name}
                     </strong>
                 </div>
+                {
+                    basicInfo.userInfo.bio.trim().length > 0 && (
+                        <div>
+                            {basicInfo.userInfo.bio}
+                        </div>
+                    )
+                }
+
                 <ProfileStats  data={basicInfo} />
                 <div>
                     {

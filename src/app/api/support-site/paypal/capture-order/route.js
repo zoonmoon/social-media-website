@@ -13,7 +13,6 @@ export  async function POST(req) {
 
     const { orderId } = await req.json(); // Get artistId from request body
 
-    console.log("orderid", orderId)
     
     const getRequest = new paypal.orders.OrdersGetRequest(orderId);
 
@@ -23,7 +22,6 @@ export  async function POST(req) {
         
         const amount = orderDetails.result.purchase_units[0].amount.value; // Extract amount
 
-        console.log("Order amount:", amount);
 
         const request = new paypal.orders.OrdersCaptureRequest(orderId);
 

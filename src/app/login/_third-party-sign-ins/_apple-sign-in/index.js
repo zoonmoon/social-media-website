@@ -28,7 +28,7 @@ const MyAppleSigninButton = () => (
     buttonExtraChildren="Continue with Apple"
     /** Extra controlling props */
     /** Called upon signin success in case authOptions.usePopup = true -- which means auth is handled client side */
-    onSuccess={(response) => console.log(response)} // default = undefined
+    onSuccess={(response) => {}} // default = undefined
     /** Called upon signin error */
     onError={(error) => console.error(error)} // default = undefined
     /** Skips loading the apple script if true */

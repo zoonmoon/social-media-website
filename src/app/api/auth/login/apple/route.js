@@ -21,7 +21,6 @@ export async function POST(request) {
             nonce: "nonce", // optional
         });
     
-        console.log(decodedJWT) 
     
         
         const picture = ''

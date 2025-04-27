@@ -42,7 +42,6 @@ export async function sendMoney(recipientEmail, amount, connection, artistId, cu
     try {
         // Execute the API request
         const response = await client.execute(request);
-        console.log('Payout Created Successfully:', response.result);
 
         return response.result;
     } catch (error) {

@@ -10,10 +10,12 @@ export default function DisplayCardMedia({p}){
     if(p.media_type.includes('video')){
       return(
         <CardMedia
+        onContextMenu={(e) => e.preventDefault()}  // Prevent right-click menu
           component={'video'}
           width="100%"
           controls={true}
           height="auto"
+          controlsList={'nodownload'}
           src={p.media_src}
           alt="Paella dish"
         />
@@ -22,7 +24,10 @@ export default function DisplayCardMedia({p}){
       return(
         <div style={{display:'flex', gap: '15px'}}>
           <div></div>
-          <audio controls style={{width: '100%'}}>
+          <audio 
+          controlsList='nodownload'
+  onContextMenu={(e) => e.preventDefault()}  // Prevent right-click menu
+          controls style={{width: '100%'}}>
             <source src={p.media_src} type={p.media_type} />
           </audio>
           <div></div>
@@ -31,11 +36,13 @@ export default function DisplayCardMedia({p}){
     }else if(p.media_type.includes('image')){
       return(
         <CardMedia
-          component={'img'}
+        onContextMenu={(e) => e.preventDefault()}  // Prevent right-click menu
+        component={'img'}
           width="100%"
+          controlsList={'nodownload'}
           height="auto"
           src={p.media_src}
-          alt="Paella dish"
+          alt={p.caption}
         />
       )
     }else{

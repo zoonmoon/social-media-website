@@ -16,7 +16,7 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
     
     return(
         <>
-            <Grid container spacing={2} sx={{alignItems:'center'}}>
+            <Grid container spacing={2}>
                 
                     {
                         data?.userInfo?.profile_pic_src 
@@ -45,19 +45,23 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
                         )
                     }
                 </Grid>
+
+
+
             </Grid>
             {
-                data?.userInfo?.profile_pic_src ? (
-                    <div style={{display:'flex', justifyContent: 'space-around', marginTop: '20px', }}>
-                        <ShortTextIcon />
-                        <InsertPhotoIcon />
-                        <VideoCameraBackIcon />
-                        <MicIcon />
-                    </div> 
-                ): (
-                    <></>
+                data?.userInfo?.profile_pic_src && (
+                    <div onClick={handlePostUploadFormDisplay} style={{display:'flex', cursor:'pointer', justifyContent: 'space-around', marginTop: '20px', }}>
+                    <ShortTextIcon />
+                    <InsertPhotoIcon />
+                    <VideoCameraBackIcon />
+                    <MicIcon />
+                </div> 
                 )
             }
+
+
+
        
         </>
     )

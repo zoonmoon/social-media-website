@@ -59,11 +59,8 @@ export default function BlogPost({blogPost}) {
       />
       
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant={'body1'} component="div">
           {blogPost.title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {getFirst10WordsFromHTML(blogPost.content)}...
         </Typography>
       </CardContent>
       </Link> 

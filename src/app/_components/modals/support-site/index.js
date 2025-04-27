@@ -79,7 +79,6 @@ const SupportModal = ({ open, handleClose }) => {
   const handleSuccess =() => setIsPaymentSuccess(true)
   const handleFailure = (err) => {
     setIsPaymentFailure(true) 
-    console.log(err)
   }
 
   if(isPaymentFailure){

@@ -1,4 +1,5 @@
 import { databaseConnection, executeQuery, getLoggedInUsername } from "../../utils";
+const mysql = require('mysql2');
 
 function isValidEmail(email) {
     // Regular expression to validate email
@@ -21,6 +22,8 @@ export async function POST(request){
         const name = data.get('name')
         const profile_pic = data.get('profile_pic')
         const cover_pic = data.get('cover_pic')
+        const bio = data.get('bio')
+        const escapedBio = mysql.escape(bio);
 
         if(name == null || name.trim().length == 0 ){
             throw new Error("Invalid data")
@@ -29,10 +32,11 @@ export async function POST(request){
         let query = `UPDATE user_more_info 
             SET name = '${name}',
             profile_pic_src = '${profile_pic}',
-            cover_pic_src = '${cover_pic}'
+            cover_pic_src = '${cover_pic}',
+            bio = ${escapedBio}
             WHERE username = '${username}'
         `;
-
+        
         await executeQuery(connection, query) 
 
         return new Response(JSON.stringify({ success: true}), {

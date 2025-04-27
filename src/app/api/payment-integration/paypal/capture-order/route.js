@@ -17,7 +17,6 @@ export  async function POST(req) {
 
     const { orderId, artistId } = await req.json(); // Get artistId from request body
 
-    console.log("orderid", orderId)
 
     const getRequest = new paypal.orders.OrdersGetRequest(orderId);
 
@@ -27,7 +26,6 @@ export  async function POST(req) {
         
         const amount = orderDetails.result.purchase_units[0].amount.value; // Extract amount
 
-        console.log("Order amount:", amount);
 
         const request = new paypal.orders.OrdersCaptureRequest(orderId);
 
@@ -39,19 +37,15 @@ export  async function POST(req) {
 
         let commission = 0.15 * amount;
         
-        console.log("commission", commission)
 
         let amountBusinessReceived = amount - ( (3.49 / 100) * amount + 0.49 );
 
-        console.log("amountBusinessReceived", amountBusinessReceived)
 
         let amountToBeSent = amountBusinessReceived - commission - 0.25 // 0.25 to compensate for payout fee
         
-        console.log("amountToBeSent", amountToBeSent)
 
         let finalAmount = Math.max(0, amountToBeSent).toFixed(2);
 
-        console.log("finalAmount", finalAmount)
 
         const query2 = `SELECT paypal_billing_email from user_more_info WHERE username="${artistId}"
         `;
@@ -111,8 +105,6 @@ export  async function POST(req) {
         });
 
     } catch (err) {
-
-        console.log(err.message) 
 
         return new Response(JSON.stringify({ success: false, msg: err.message  }), {
             headers: {

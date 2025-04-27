@@ -19,15 +19,12 @@ export  async function POST(request) {
 
         const results = await executeQuery(connection, query);
 
-        // console.log("results", results, query)
 
         if(results.length){
             const user = results[0]
             let match = await comparePassword(currentPassword, user.password)
-            console.log(match)
             if(match === true){
                 match = await comparePassword(newPassword, user.password)
-                console.log(match)
                 if(match === true){
                     throw new Error('New password should be different from current password')
                 }else{
@@ -49,7 +46,6 @@ export  async function POST(request) {
         }
 
     } catch (error) {
-        console.log(error)
         return new Response(JSON.stringify({ success: false, msg: error.message  }), {
             headers: {
                 "Content-Type": "application/json"

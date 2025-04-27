@@ -4,7 +4,6 @@ import Notification from "./utils";
 
 
 function timeAgoShort(dateStr) {
-    console.log("datestr", dateStr)
   const now = new Date();
   const date = new Date(dateStr); // Convert string to Date object
   
@@ -29,7 +28,6 @@ function timeAgoShort(dateStr) {
 
 
 export async function GET(request){
-    console.log(request)
     let connection = false
     try{
 

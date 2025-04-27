@@ -45,10 +45,7 @@ export async function POST(request, {params}){
         `
 
         connection = await databaseConnection()
-
         // let results = await executeQuery(connection, query) 
-
-
 
         const results = await connection.execute(`
             INSERT INTO blogs (slug, title, content, author, status, thumbnail)
@@ -85,8 +82,6 @@ export async function GET(request, {params}){
 
     let connection = false 
 
-    console.log(request)
-
     try{
 
         let query = `
@@ -121,7 +116,6 @@ export async function DELETE(request, { params }) {
 
     let connection = false;
 
-    console.log(request);
 
     try {
 

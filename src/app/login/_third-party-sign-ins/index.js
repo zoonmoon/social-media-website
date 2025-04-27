@@ -26,8 +26,6 @@ export default function ThirdPartySignIns(){
 
         if (appleIdToken) {
             
-            console.log("Apple ID Token:", appleIdToken);
-
             setIsLoggingToApple(true) 
 
             loginToApple(appleIdToken)

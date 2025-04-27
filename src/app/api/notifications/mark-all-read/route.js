@@ -4,7 +4,6 @@ import Notification from "./../utils";
 
 export async function GET(request){
     let connection = false
-    console.log(request)
     try{
 
         connection = await databaseConnection()

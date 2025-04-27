@@ -74,7 +74,6 @@ export default function UserPosts({username}){
           const scrollPosition = window.scrollY + window.innerHeight;
           const documentHeight = document.documentElement.scrollHeight;
           // alert(l/oading)
-          console.log(scrollPosition, documentHeight, isLoading)
           if ( (scrollPosition >= documentHeight - 100) && !isLoading && !end) {
             handleNextPage()
           }

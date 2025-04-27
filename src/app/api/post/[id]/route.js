@@ -103,7 +103,6 @@ export  async function GET(request, {params}) {
 
     }catch(error){
 
-        console.log(error)
         return new Response(JSON.stringify({ success: false, msg: error.message  }), {
             headers: {
                 "Content-Type": "application/json"
@@ -117,6 +116,7 @@ export  async function GET(request, {params}) {
         }
     }
 }
+const mysql = require('mysql2');
 
 export  async function PUT(request, {params}) {
 
@@ -131,12 +131,13 @@ export  async function PUT(request, {params}) {
         const data = await request.formData()
 
         const caption = data.get('caption')
+        const escapedCaption = mysql.escape(caption);
 
         const post_id = params.id
 
         // Save the title and filenames in the MySQL database
         let query = `UPDATE  posts
-            SET caption='${caption}' 
+            SET caption=${escapedCaption}
             WHERE id='${post_id}' AND username = '${username}'
         `;
 
@@ -144,7 +145,6 @@ export  async function PUT(request, {params}) {
 
         const editResponse = await executeQuery(connection, query);        
 
-        console.log(editResponse)
 
         if(editResponse.affectedRows != 1){
             throw new Error("Error updating post -" + query)

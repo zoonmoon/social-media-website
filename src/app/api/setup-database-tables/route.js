@@ -94,7 +94,7 @@ CREATE table post_views (
     `;
 
     let result = await executeQuery(connection, query)
-    console.log(result)
+    
 
     query = `
         CREATE TABLE IF NOT EXISTS user_more_info(
@@ -108,7 +108,7 @@ CREATE table post_views (
     `;
 
     result = await executeQuery(connection, query)
-    console.log(result)
+    
 
     query = `
         CREATE TABLE IF NOT EXISTS posts(
@@ -121,7 +121,6 @@ CREATE table post_views (
         )
     `;
     result = await executeQuery(connection, query)
-    console.log(result)
 
     
     query = `
@@ -135,10 +134,9 @@ CREATE table post_views (
         )
     `;
     result = await executeQuery(connection, query)
-    console.log(result)
+    
 
     connection.end(err => {
-        if(err) console.log(err);
     })
 
     return new Response(JSON.stringify({ success: false, msg: 'Setup'  }), {

@@ -13,8 +13,6 @@ export default function GoogleSignInButton() {
   const router = useRouter()
 
   const handleLoginSuccess = async (response) => {
-    console.log('Login Success:', response);
-
 
     try{
     
@@ -28,7 +26,6 @@ export default function GoogleSignInButton() {
 
       const googleSignInVerificationResponseJSON = await pOSTRequest(formData, '/api/auth/login/google/')
 
-      console.log(googleSignInVerificationResponseJSON)
 
       if(!(googleSignInVerificationResponseJSON.success)){
         throw new Error(googleSignInVerificationResponseJSON.msg)

@@ -45,7 +45,6 @@ export  async function handleLogin(social_login_id, social_login_type, name, pic
 
         let userInfo = await checkIfUserAlreadyExists(connection, social_login_id, social_login_type)
 
-        // console.log("results", results, query)
 
         if(userInfo.user_exists === true){ // user has already registered
             

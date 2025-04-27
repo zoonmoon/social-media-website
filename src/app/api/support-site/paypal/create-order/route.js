@@ -2,8 +2,6 @@ import paypal from '@paypal/checkout-server-sdk';
 
 import {  getLoggedInUsername } from '@/app/api/utils';
 
-console.log("PAYPAL_CLIENT_ID:", process.env.PAYPAL_CLIENT_ID);
-console.log("PAYPAL_CLIENT_SECRET:", process.env.PAYPAL_CLIENT_SECRET);
 
 const environment = new paypal.core.LiveEnvironment(
     process.env.PAYPAL_CLIENT_ID,

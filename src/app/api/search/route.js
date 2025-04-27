@@ -26,7 +26,6 @@ export  async function GET(request) {
         });
 
     } catch (error) {
-        console.log(error)
         return new Response(JSON.stringify({ success: false, msg: error.message  }), {
             headers: {
                 "Content-Type": "application/json"

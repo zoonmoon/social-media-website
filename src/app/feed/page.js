@@ -52,7 +52,6 @@ export default function Feed(){
 
         filters.push('page='+page) 
 
-        console.log("updating site url from fetchDashboard")
         updateSiteURL()
 
         let queryParams = filters.join('&') 
@@ -93,7 +92,6 @@ export default function Feed(){
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       // alert(l/oading)
-      console.log(scrollPosition, documentHeight, loading)
       if ( (scrollPosition >= documentHeight - 100) && !loading && !pageEndReached) {
         handleNextPage()
       }
@@ -162,7 +160,6 @@ export default function Feed(){
 
   function isFooterVisible() {
     const count = posts.length - 4;
-    console.log(posts.length)
     const block = count > 0 ?  Math.floor(count / 15) : 0;
     return block % 2 === 1;
   }

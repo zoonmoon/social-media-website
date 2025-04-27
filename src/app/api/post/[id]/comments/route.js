@@ -22,7 +22,6 @@ export async function POST(request, {params}){
         `;
 
         const result = await executeQuery(connection, query) 
-        console.log(result)
 
 
 

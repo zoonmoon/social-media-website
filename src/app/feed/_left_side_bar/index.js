@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function LeftSideBar({profileStats, handleFeedTypeFilterChange=()=>{}, feedTypeFilter=[] }){
 
-    console.log("prachanda", profileStats)
 
     return(
         <div className="left-side-bar">
@@ -20,7 +19,7 @@ export default function LeftSideBar({profileStats, handleFeedTypeFilterChange=()
                                 profileStats.userInfo.paypal_billing_email == null || 
                                 profileStats.userInfo.paypal_billing_email.trim().length == 0
                             ) ? 
-                            <Alert variant="filled" sx={{marginBottom:'20px'}} severity="error">
+                            <Alert variant="filled" sx={{marginBottom:'20px'}} severity={'info'}>
                                 <Link href='/settings/receiving-account' style={{color:'white'}}>Click here</Link> to setup your email that receives fund from your supporters.
                             </Alert>
                             : <></>

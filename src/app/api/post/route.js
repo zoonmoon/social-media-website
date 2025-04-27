@@ -2,6 +2,7 @@ import {generateRandomString, databaseConnection , executeQuery, getLoggedInUser
 import { S3Client } from '@aws-sdk/client-s3';
 import { Readable } from 'stream';
 import { Upload } from '@aws-sdk/lib-storage';
+const mysql = require('mysql2');
 
 export  async function POST(request) {
 
@@ -18,6 +19,9 @@ export  async function POST(request) {
         const data = await request.formData()
 
         const caption = data.get('caption')
+
+        const escapedCaption = mysql.escape(caption);
+
         const file_url_after_upload = data.get('file_url_after_upload')
         const media_type = data.get('media_type')
 
@@ -29,7 +33,7 @@ export  async function POST(request) {
         let query = `INSERT INTO posts 
             (id, username, caption) 
             VALUES 
-            ('${post_id}', '${loggedInUsername}', '${caption.replaceAll("'", "")}')
+            ('${post_id}', '${loggedInUsername}', ${escapedCaption})
         `;
 
         const connection = await databaseConnection();

@@ -13,6 +13,7 @@ export default function User({params}){
     const [name, setName] = useState('')
     const [profilePic, setProfilePic] = useState('')
     const [coverPic, setCoverPic] = useState('')
+    const [bio, setBio] = useState('')
 
     const [isLoading, setIsLoading] = useState(true) 
 
@@ -30,7 +31,7 @@ export default function User({params}){
                 setName(responseJSON.name || '') 
                 setProfilePic(responseJSON.profile_pic_src || '')
                 setCoverPic(responseJSON.cover_pic_src || '')
-
+                setBio(responseJSON.bio || '')
 
             }catch(error){
                 
@@ -74,7 +75,8 @@ export default function User({params}){
             formData.append('name', name)
             formData.append('profile_pic', profilePic)
             formData.append('cover_pic', coverPic)
-
+            formData.append('bio', bio)
+                
             const response = await pOSTRequest(formData, '/api/settings/personal-info')
 
             if(response.success == false){
@@ -123,7 +125,20 @@ export default function User({params}){
                         : <></>
                     }
                 </Grid>
-                <Divider></Divider>
+
+                <div>
+                    <Typography variant="h6">Bio <small><small>(250 characters max)</small></small></Typography>
+                    <TextField
+                        label=""
+                        variant="outlined"
+                        fullWidth
+                        sx={{marginTop:'5px'}}
+                        margin="normal"
+                        defaultValue={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                    />
+                </div>
+
                 <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={6}>
                         <Typography variant="h6">Cover Picture</Typography>
