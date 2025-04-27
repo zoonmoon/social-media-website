@@ -1,6 +1,6 @@
 import { databaseConnection, getLoggedInUsername } from "../utils";
-
 import Notification from "./utils";
+export const dynamic = "force-dynamic";
 
 
 function timeAgoShort(dateStr) {
@@ -27,7 +27,7 @@ function timeAgoShort(dateStr) {
 }
 
 
-export async function GET(request){
+export async function GET(){
     let connection = false
     try{
 
