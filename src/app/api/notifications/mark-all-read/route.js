@@ -1,6 +1,7 @@
 import { databaseConnection, getLoggedInUsername } from "../../utils";
 
 import Notification from "./../utils";
+export const dynamic = "force-dynamic";
 
 export async function GET(request){
     let connection = false
