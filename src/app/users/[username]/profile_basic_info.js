@@ -120,22 +120,22 @@ export default function ProfileBasicInfo({username}){
     return(
         <Paper sx={{paddingBottom:'20px'}}>
             <ProfilePicAndCoverPic basicInfo={basicInfo} />
-            <Stack spacing={1} sx={{paddingLeft:'30px'}}>
-                <div>
+            <Stack spacing={1} sx={{display:'flex', justifyContent:'center'}}>
+                <div style={{display:'flex', justifyContent:'center'}}>
                     <strong>
                         {basicInfo.userInfo.name}
                     </strong>
                 </div>
                 {
                     basicInfo.userInfo.bio.trim().length > 0 && (
-                        <div>
+                        <div style={{display:'flex', justifyContent:'center'}}>
                             {basicInfo.userInfo.bio}
                         </div>
                     )
                 }
 
                 <ProfileStats  data={basicInfo} />
-                <div>
+                <div style={{display:'flex', justifyContent:'center'}}>
                     {
                         basicInfo.viewing_oneself !== true ? (
                             <Stack direction={'row'} gap={'10px'}>
@@ -185,18 +185,17 @@ function ProfilePicAndCoverPic({basicInfo}){
             className="profile-pic"
             style={{
                 position:'absolute',
-                width: '100%',
-                left: '30px',
-                bottom: '5px'
+                bottom: '5px', 
+                left:'50%',
+                transform:'translateX(-50%)'
             }}
         >
-            <div
-                style={{position:'relative'}}
-            >
+            <div>
                 <img 
                     style={{
                         width: '100px',
                         height: '100px',
+                        left: '50%',
                         borderRadius: '50%',
                         border: '5px solid white',
                         objectFit:'cover' 
@@ -224,10 +223,10 @@ function ProfileStats({data}){
     <Box
         sx={{
           display: 'flex',
+          textAlign:'center',
+          justifyContent:'center'
         }}
       >
-
-        
         <Stack 
           direction={'row'} 
           sx={{justifyContent:'center',alignItems:'center'}}
