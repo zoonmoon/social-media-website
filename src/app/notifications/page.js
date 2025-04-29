@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import CheckIcon from '@mui/icons-material/Check';
 import { Button } from "@mui/joy";
 import CircleIcon from '@mui/icons-material/Circle';
+import toast from "react-hot-toast";
 export default function User({params}){
 
     const [notifications, setNotifications] = useState([])
@@ -17,6 +18,11 @@ export default function User({params}){
                 setIsLoading(true)
                 const notificationResp = await fetch('/api/notifications')
                 const notificationJSON = await notificationResp.json()
+                if(notificationJSON.success == false ) {
+                    toast(notificationJSON.msg)
+                    window.location.href= '/feed'
+                    return 
+                }
                 const notifications = notificationJSON.notifications 
                 setNotifications(notifications) 
             }catch(error){

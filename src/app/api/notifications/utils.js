@@ -26,7 +26,10 @@ class Notification {
 
     // Static method: Mark all notifications as read for a specific user
     static async getAllNotifications(connection, to_user) {
-        const query = `SELECT * from notifications  WHERE to_user = '${to_user}' ORDER BY id DESC  LIMIT 10 `;
+        const query = `SELECT caused_by_user, created_at, event, id,is_read,subject,to_user,
+   TIMESTAMPDIFF(SECOND, notifications.created_at, NOW())  AS created_ago_in_seconds
+
+        from notifications  WHERE to_user = '${to_user}' ORDER BY id DESC  LIMIT 10 `;
         const result = await executeQuery(connection, query)
         return result
     }
