@@ -1,6 +1,7 @@
 import { databaseConnection, executeQuery } from "@/app/api/utils";
 import { getLoggedInUsername } from "@/app/api/utils";
 import Notification from "@/app/api/notifications/utils";
+import mysql from 'mysql2'
 export async function POST(request, {params}){
     let connection = false
     try{
@@ -17,8 +18,10 @@ export async function POST(request, {params}){
 
         if(token_exists !== true) throw new Error("Please log in to comment")
         
+        const escapedComment = mysql.escape(comment);
+        
         let query = `INSERT INTO post_comments ( post_id, username, cmt, parent_id) 
-            VALUES('${post_id}', '${username}', '${comment}', ${parent_id} )
+            VALUES('${post_id}', '${username}', ${escapedComment}, ${parent_id} )
         `;
 
         const result = await executeQuery(connection, query) 
