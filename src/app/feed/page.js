@@ -128,11 +128,13 @@ export default function Feed(){
       setFeedTypeFilter([filterBy])
       setPage(1)
       setPosts([])
+      if(filterBy == '') setFeedTypeFilter([])
     }
+    
   }
 
-  const handlFilterUnselect = (filterby) => {
-    setFeedTypeFilter(feedTypeFilter.filter((item) => item !== filterby));
+  const handlFilterReset = () => {
+    setFeedTypeFilter([]);
     setPage(1)
     setPosts([])
   }
@@ -180,7 +182,7 @@ export default function Feed(){
         <Grid container spacing={4} sx={{marginTop: '1px'}}>
           <Grid item xs={12} md={3}>
             {
-              fetchingStats  ? <FeedLeftSidebarSkeleton /> :  <LeftSideBar feedTypeFilter={feedTypeFilter} handleFeedTypeFilterChange={handleFeedTypeFilterChange} profileStats={profileStats} />
+              fetchingStats  ? <FeedLeftSidebarSkeleton /> :  <LeftSideBar handlFilterReset={handlFilterReset} feedTypeFilter={feedTypeFilter} handleFeedTypeFilterChange={handleFeedTypeFilterChange} profileStats={profileStats} />
             }
           </Grid>
           <Grid item xs={12} md={6}>

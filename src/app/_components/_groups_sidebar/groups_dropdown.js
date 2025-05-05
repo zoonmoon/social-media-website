@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import groups from "./groups_data";
 import { MenuItem, Select, FormControl, InputLabel, Paper } from '@mui/material';
-
-export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFilter }) {
+import DeleteIcon from '@mui/icons-material/Delete';
+export default function GroupsDropdown({handleFilterReset, handleFeedTypeFilterChange, feedTypeFilter }) {
     const [selectedGroup, setSelectedGroup] = useState('');
 
     useEffect(()=>{
@@ -20,7 +20,7 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
             setSelectedGroup(feedTypeFilter[0])
         }
 
-        
+        console.log(feedTypeFilter)
     }, [feedTypeFilter])
 
     const handleChange = (event) => {
@@ -35,6 +35,18 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
                 <Select sx={{border:'none'}} value={selectedGroup} onChange={handleChange}
                     label={'Filter posts by'}
                 >
+                    {
+                        feedTypeFilter.length > 0 && (
+                            <MenuItem value={''}>
+                                <div onClick={handleFilterReset} style={{display:'flex', alignItems:'center', gap: '5px'}}>
+                                    <DeleteIcon />
+                                    <div>
+                                        Clear Filter
+                                    </div>
+                                </div>
+                            </MenuItem>
+                        )
+                    }
                     {groups.map((group, index) => (
                         <MenuItem key={index} value={group.key}>
                             <div style={{display:'flex', alignItems:'center', gap: '5px'}}>
@@ -43,7 +55,6 @@ export default function GroupsDropdown({ handleFeedTypeFilterChange, feedTypeFil
                                     {group.name}
                                 </div>
                             </div>
-
                         </MenuItem>
                     ))}
                 </Select>

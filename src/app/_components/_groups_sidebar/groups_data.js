@@ -7,19 +7,19 @@ const groups = [
     {
         name: "Visual",
         key: "visual",
-        icon: <PanoramaIcon fontSize="small" />,
+        icon: <PanoramaIcon />,
         image_src: '/site-assets/group_visual_art.jpeg'
     },
     {
         name: "Audio",
         key: "audio",
-        icon: <MicIcon fontSize="small" />,
+        icon: <MicIcon />,
         image_src: '/site-assets/group_audo_art.jpg'
     },
     {
         name: "Written Word",
         key: "written_word",
-        icon: <WysiwygIcon fontSize="small" />,
+        icon: <WysiwygIcon />,
         image_src: '/site-assets/group_visual_art.jpeg'
     }
 ];

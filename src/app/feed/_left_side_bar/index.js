@@ -6,7 +6,7 @@ import Link from "next/link";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AddAlertIcon from '@mui/icons-material/AddAlert';
-export default function LeftSideBar({profileStats, handleFeedTypeFilterChange=()=>{}, feedTypeFilter=[] }){
+export default function LeftSideBar({profileStats,handlFilterReset , handleFeedTypeFilterChange, feedTypeFilter }){
 
 
     return(
@@ -33,7 +33,7 @@ export default function LeftSideBar({profileStats, handleFeedTypeFilterChange=()
 
             
 
-            <GroupsDropdown handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+            <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
 
         </div>
     )
