@@ -122,9 +122,9 @@ const Header = () => {
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* Logo on the left */}
         <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-          <Link href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <a href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
             <img src="/site-assets/logo.png" width={'200'} height={'auto'} />
-          </Link>
+          </a>
         </Typography>
 
         {/* Menu items in the center (only shown on larger screens) */}
