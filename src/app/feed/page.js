@@ -113,9 +113,18 @@ export default function Feed(){
       if(filter){
         setFeedTypeFilter([filter])
       }
-      
+
       fetchDashboard(filter) ;
       setPageEndReached(false)
+
+      window.addEventListener('popstate', () => {
+        const params = new URLSearchParams(window.location.search);
+        const filter = params.get('filter');
+  
+        if(filter){
+          setFeedTypeFilter([filter])
+        }
+      })
 
   }, [page]); 
 
