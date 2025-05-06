@@ -36,7 +36,7 @@ export default function Feed(){
 
   const [pageEndReached, setPageEndReached] = useState(false)
 
-  async function fetchDashboard() {
+  async function fetchDashboard(filter) {
     
     try {
 
@@ -46,13 +46,11 @@ export default function Feed(){
         
         let filters = [];
 
-        if(feedTypeFilter.length){           
-          filters.push('feedTypeFilter='+feedTypeFilter.join('||'))
+        if(filter){           
+          filters.push('feedTypeFilter='+filter)
         }
 
         filters.push('page='+page) 
-
-        updateSiteURL()
 
         let queryParams = filters.join('&') 
         
@@ -109,34 +107,40 @@ export default function Feed(){
 
   useEffect(() => {
 
-      fetchDashboard();
+      const params = new URLSearchParams(window.location.search);
+      const filter = params.get('filter');
+
+      if(filter){
+        setFeedTypeFilter([filter])
+      }
+      
+      fetchDashboard(filter) ;
       setPageEndReached(false)
 
-  }, [feedTypeFilter, page]); 
+  }, [page]); 
 
 
-  const updateSiteURL = () => {
-    if(feedTypeFilter.length){ 
-      history.replaceState({}, '', '/feed?filter='+feedTypeFilter.join(',') ) 
-    }else{
-      history.replaceState({}, '', '/feed/')
-    }
+  const updateSiteURL = (filterby = '') => {
+    if (filterby.length > 0)
+      window.location.href = '/feed?filter=' + filterby   
+    else 
+      window.location.href = '/feed'
+
   }
 
   const handleFeedTypeFilterChange = (filterBy) => {
-    if(!(feedTypeFilter.includes(filterBy))){
-      setFeedTypeFilter([filterBy])
-      setPage(1)
-      setPosts([])
-      if(filterBy == '') setFeedTypeFilter([])
-    }
-    
+    // if(!(feedTypeFilter.includes(filterBy))){
+    //   setFeedTypeFilter([filterBy])
+    //   setPage(1)
+    //   setPosts([])
+    //   updateSiteURL(filterBy)
+    //   if(filterBy == '') setFeedTypeFilter([])
+    // }
+    updateSiteURL(filterBy)
   }
 
   const handlFilterReset = () => {
-    setFeedTypeFilter([]);
-    setPage(1)
-    setPosts([])
+    updateSiteURL() 
   }
 
 
