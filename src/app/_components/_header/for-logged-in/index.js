@@ -115,8 +115,6 @@ const Header = () => {
     </List>
   );
 
-
-
   return (
     <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
