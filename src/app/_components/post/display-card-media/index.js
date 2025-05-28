@@ -18,7 +18,7 @@ export default function DisplayCardMedia({p}){
           height="auto"
           controlsList={'nodownload'}
           src={p.media_src}
-          sx={{background:'black!important'}}
+          sx={{background:'#2e7d32!important'}}
           alt="Paella dish"
         />
       )
