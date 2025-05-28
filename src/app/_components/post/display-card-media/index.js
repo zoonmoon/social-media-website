@@ -1,4 +1,5 @@
 import CardMedia from '@mui/material/CardMedia';
+import { relative } from 'path';
 
 export default function DisplayCardMedia({p}){
     if(p.media_src === null){
@@ -17,6 +18,7 @@ export default function DisplayCardMedia({p}){
           height="auto"
           controlsList={'nodownload'}
           src={p.media_src}
+          sx={{background:'black!important'}}
           alt="Paella dish"
         />
       )
@@ -50,11 +52,16 @@ export default function DisplayCardMedia({p}){
       const googleDocsViewerUrl = `https://docs.google.com/gview?url=${p.media_src}&embedded=true`;
   
       return (
-        <iframe
-          src={googleDocsViewerUrl}
-          style={{ border: 'none', width: '100%', minHeight: '350px' }}
-          title="PDF Viewer"
-        />
+        <div style={{position:'relative'}}>
+          <div style={{position:'absolute', background:'transparent', zIndex:555, top: '-40px', right: '-40px', width:'150px', height: '150px', borderRadius: '50%'}}>
+          </div>
+          <iframe
+            src={googleDocsViewerUrl}
+            style={{ border: 'none', width: '100%', minHeight: '350px' }}
+            title="PDF Viewer"
+          />
+        </div>
+
       );
     }
   }
