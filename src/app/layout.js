@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRSY9GB8Y4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)}
+  function gtag(){window.dataLayer.push(arguments)}
   gtag(&quot;js&quot;, new Date());
   gtag(&quot;config&quot;, &quot;G-MRSY9GB8Y4&quot;);
 </script>
