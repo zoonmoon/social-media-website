@@ -45,16 +45,13 @@ export default function RootLayout({ children }) {
       <meta name="author" content="artxpress.art" />
       <meta name="canonical" content="https://www.artxpress.art/feed"/>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRSY9GB8Y4"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)}
-        gtag("js", new Date());
-
-        gtag("config", "G-MRSY9GB8Y4");
-      </script>
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MRSY9GB8Y4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag(&quot;js&quot;, new Date());
+  gtag(&quot;config&quot;, &quot;G-MRSY9GB8Y4&quot;);
+</script>
 
 
 
