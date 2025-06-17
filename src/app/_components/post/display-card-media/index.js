@@ -38,7 +38,7 @@ export default function DisplayCardMedia({p}){
     }else if(p.media_type.includes('image')){
       return(
         <CardMedia
-        onContextMenu={(e) => e.preventDefault()}  // Prevent right-click menu
+        // onContextMenu={(e) => e.preventDefault()}  // Prevent right-click menu
         component={'img'}
           width="100%"
           controlsList={'nodownload'}
