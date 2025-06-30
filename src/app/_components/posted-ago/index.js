@@ -1,5 +1,5 @@
 export default function calculatePostedAgo(seconds) {
-
+    return ''
     if(seconds < 60){
         return 'just now'
     }

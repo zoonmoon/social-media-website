@@ -11,6 +11,7 @@ export default function DashboardLayout({params,  children }) {
     if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
       document.querySelector('.footer-fixed').style.display = "block"
     }
+    document.body.style.backgroundColor = 'white'
 
   }, [])
   
@@ -18,7 +19,7 @@ export default function DashboardLayout({params,  children }) {
         <>
           <Header />
           <Container>
-                <div style={{position:'fixed', zIndex:-1, top:0, left:0 , width:'100%', height: '100%', backgroundSize:'cover', backgroundImage: 'url("/site-assets/about-us-bg.jpg")', backgroundRepeat:'repeat'}}>
+                <div style={{position:'fixed', zIndex:-1, top:300, left:0 , width:'100%', height: '100%', backgroundSize:'cover', backgroundImage: 'url("/site-assets/about-us-bg.jpg")', backgroundRepeat:'repeat'}}>
                 </div>
             <section>
                 <h1>About</h1>
