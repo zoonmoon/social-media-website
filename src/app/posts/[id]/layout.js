@@ -13,7 +13,11 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
   )
 //  console.log(post)
   return {
-    title: post.post.caption
+    title: post.post.posted_by_name + ' shares on ArtXpress.Art',
+    description: post.post.caption,
+    openGraph: {
+      images: [post.post.media_type.includes('image') ? post.post.media_src: ''],
+    },
   }
 }
 
