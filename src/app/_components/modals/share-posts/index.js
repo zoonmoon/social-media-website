@@ -109,7 +109,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 
 const ShareButton = ({ postID }) => {
   const [open, setOpen] = useState(false);
-  const shareLink = `${window.location.hostname}/posts/${postID}`;
+  const shareLink = `https://${window.location.hostname}/posts/${postID}`;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen
 
