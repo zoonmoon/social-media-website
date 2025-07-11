@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 import LoadingPost from '@/app/_components/_loading-post';
 import Alert from '@mui/material/Alert';
 
+
+
 export default function ViewProfile({params}){
 
     const [post, setPost] = useState({})

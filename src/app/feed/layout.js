@@ -1,4 +1,15 @@
 import Header from "../_components/_header"
+
+
+export async function generateMetadata({params}) {
+
+//  console.log(post)
+  return {
+    title: "Social Platform for Artists | Digital Art, Dance & Music Community Site"
+  }
+}
+
+
 export default function DashboardLayout({ children }) {
     return( 
         <>
