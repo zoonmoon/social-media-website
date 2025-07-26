@@ -1,9 +1,17 @@
 import ShareIcon from '@mui/icons-material/Share';
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogTitle, IconButton, Box, Button } from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Box,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import EmailIcon from '@mui/icons-material/Email';
+import SmsIcon from '@mui/icons-material/Sms';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Button as BtnJoy } from '@mui/joy';
 
@@ -14,20 +22,20 @@ const SocialButton = ({ children, href }) => (
     target="_blank"
     rel="noopener noreferrer"
     style={{
-      backgroundColor: '#ffffff', // White background
+      backgroundColor: '#ffffff',
       borderRadius: '50%',
       padding: '12px',
       margin: '10px',
-      boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)', // Added shadow
+      boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
       transition: 'background-color 0.3s ease, transform 0.2s ease',
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.backgroundColor = '#f0f0f0'; // Hover effect
-      e.currentTarget.style.transform = 'scale(1.05)'; // Slightly enlarge on hover
+      e.currentTarget.style.backgroundColor = '#f0f0f0';
+      e.currentTarget.style.transform = 'scale(1.05)';
     }}
     onMouseLeave={(e) => {
-      e.currentTarget.style.backgroundColor = '#ffffff'; // Revert hover
-      e.currentTarget.style.transform = 'scale(1)'; // Revert scaling
+      e.currentTarget.style.backgroundColor = '#ffffff';
+      e.currentTarget.style.transform = 'scale(1)';
     }}
   >
     {children}
@@ -44,22 +52,21 @@ const ShareModal = ({ open, handleClose, shareLink }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Define the sharing URLs
-  const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareLink)}&title=Check%20out%20this%20post`;
-  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareLink)}`;
-  const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`Check out this post: ${shareLink}`)}`;
+  // Define share URLs
+  const smsShareUrl = `sms:?&body=${encodeURIComponent(`Check out this post: ${shareLink}`)}`;
+  const emailShareUrl = `mailto:?subject=Check this out&body=${encodeURIComponent(`Check out this post: ${shareLink}`)}`;
 
   return (
     <Dialog
       open={open}
       onClose={handleClose}
       aria-labelledby="share-dialog-title"
-      maxWidth="sm" // Adjusted maxWidth for a wider modal
+      maxWidth="sm"
       PaperProps={{
         style: {
           borderRadius: '20px',
           padding: '30px',
-          maxWidth: '800px', // Set maximum width to 800px for a wider look
+          maxWidth: '800px',
         },
       }}
       sx={{
@@ -71,15 +78,12 @@ const ShareModal = ({ open, handleClose, shareLink }) => {
         Share this Post
       </DialogTitle>
       <DialogContent>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <SocialButton href={whatsappShareUrl}>
-            <WhatsAppIcon style={{ color: '#25D366', fontSize: '36px' }} />
+        <Box display="flex" gap={4} justifyContent="center" alignItems="center">
+          <SocialButton href={smsShareUrl}>
+            <SmsIcon style={{ color: '#1DA1F2', fontSize: '36px' }} />
           </SocialButton>
-          <SocialButton href={facebookShareUrl}>
-            <FacebookIcon style={{ color: '#3b5998', fontSize: '36px' }} />
-          </SocialButton>
-          <SocialButton href={linkedInShareUrl}>
-            <LinkedInIcon style={{ color: '#0077B5', fontSize: '36px' }} />
+          <SocialButton href={emailShareUrl}>
+            <EmailIcon style={{ color: '#D44638', fontSize: '36px' }} />
           </SocialButton>
         </Box>
         <Box display="flex" justifyContent="center" mt={2}>
@@ -104,14 +108,11 @@ const ShareModal = ({ open, handleClose, shareLink }) => {
   );
 };
 
-import { useMediaQuery, useTheme } from '@mui/material';
-
-
 const ShareButton = ({ postID }) => {
   const [open, setOpen] = useState(false);
-  const shareLink = `https://${window.location.hostname}/posts/${postID}`;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const shareLink = `https://${window.location.hostname}/posts/${postID}`;
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -125,13 +126,12 @@ const ShareButton = ({ postID }) => {
         color="neutral"
         startDecorator={<ShareIcon />}
       >
-        {isMobile ? '' : 'Share'} {/* Conditionally render text */}
+        {isMobile ? '' : 'Share'}
       </BtnJoy>
 
       <ShareModal open={open} handleClose={handleClose} shareLink={shareLink} />
     </>
   );
 };
-
 
 export default ShareButton;
