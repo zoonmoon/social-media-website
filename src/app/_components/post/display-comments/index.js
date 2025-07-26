@@ -137,10 +137,11 @@ const CommentEditModal = ({ open, comment , handleClose, post_id, handleEdit}) =
             onChange={(e) => setCaption(e.target.value)}
             defaultValue={caption}
             disabled={isLoading  }
-            rows="3"
+            rows="4"
             style={{
               overflow: 'hidden',
-              fontSize: '20px',
+              fontSizeAdjust: '20px',
+              fontSize: '20px!important',
               width: '100%',
               marginTop: '20px',
               outline: 'none',
@@ -223,7 +224,7 @@ const CommentEditorTrigger = ({ comment }) => {
             <textarea 
                 rows={4}
                 value={comment}
-                style={{width:'100%', border:'1px solid rgba(0,0,0,0.6)', borderRadius:'10px', padding:'10px'}}
+                style={{width:'100%', fontSize:'16px', border:'1px solid rgba(0,0,0,0.6)', borderRadius:'10px', padding:'10px'}}
                 disabled={isSubmittingComment}
                 placeholder="Write a comment"
                 onChange={(e) => setComment(e.target.value)}
