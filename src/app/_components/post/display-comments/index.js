@@ -140,8 +140,7 @@ const CommentEditModal = ({ open, comment , handleClose, post_id, handleEdit}) =
             rows="4"
             style={{
               overflow: 'hidden',
-              fontSizeAdjust: '20px',
-              fontSize: '20px!important',
+              fontSize: '20px',
               width: '100%',
               marginTop: '20px',
               outline: 'none',
