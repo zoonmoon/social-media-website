@@ -16,9 +16,9 @@ export  async function POST(request) {
 
     try {
 
-        const {token_exists, username} = getLoggedInUsername()
+        // const {token_exists, username} = getLoggedInUsername()
 
-        if(!token_exists){throw new Error("User not logged in")}
+        // if(!token_exists){throw new Error("User not logged in")}
         
         const data = await request.formData()
 

@@ -50,7 +50,7 @@ export async function POST(request, {params}){
         let query2Resp = await executeQuery(connection, query2) 
 
         query2Resp = query2Resp[0]
-        return new Response(JSON.stringify({ success: true, cmt: {...query2Resp }}), {
+        return new Response(JSON.stringify({ success: true, cmt: {...query2Resp , is_editable: true}}), {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -93,12 +93,28 @@ export async function GET(request, {params}){
 
         let likesResponse = await executeQuery(connection, query) 
 
-        return new Response(JSON.stringify({  success: true, moreDataExists:false, comments: likesResponse  }), {
-            headers: {
-                "Content-Type": "application/json"
-            },
-            status: 200
-        });
+        let isLoggedIn = false 
+
+        const {token_exists, username} = getLoggedInUsername()
+
+        if(token_exists === true ) isLoggedIn = true 
+        
+
+        return new Response(
+            JSON.stringify(
+                {  
+                    success: true, 
+                    moreDataExists:false, 
+                    comments: likesResponse.map(c => ({...c, is_editable: ( isLoggedIn && username === c.username )  ? true  : false}))
+                }
+            ), 
+            {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                status: 200
+            }
+        );
 
     }catch(error){
         return new Response(JSON.stringify({ success: false, msg: error.message  }), {
