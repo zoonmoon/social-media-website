@@ -73,7 +73,9 @@ export  async function GET(request, {params}) {
         let posts  = await executeQuery(connection, query);
         
         const post_ids = posts.map(post => `'${post.id}'`).join(',')
-                
+        
+        console.log("postids", post_ids)
+
         let query2 = `SELECT  COUNT(post_id) AS likes_count, post_id  FROM post_likes WHERE post_id IN ( ${post_ids}) GROUP BY post_id `;
         
         const post_id_vs_likes = {}

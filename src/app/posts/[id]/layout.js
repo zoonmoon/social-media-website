@@ -12,6 +12,13 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
     res.json()
   )
 //  console.log(post)
+  if(post.success == false){
+    return {
+      title: '404 Not Found',
+      description: 'The post has been deleted',
+    }
+  }
+
   return {
     title: post.post.posted_by_name + ' shares on ArtXpress.Art',
     description: post.post.caption,
