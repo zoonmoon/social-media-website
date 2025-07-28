@@ -36,6 +36,7 @@ export default function ViewProfile({params}){
     }, []); 
 
     if(!isLoading && !post){
+      window.location.href = '/feed'
         return(
             <Alert severity="error">This post no longer exists.</Alert>
         )
