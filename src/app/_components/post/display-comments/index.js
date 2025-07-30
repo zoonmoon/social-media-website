@@ -137,9 +137,8 @@ const CommentEditModal = ({ open, comment , handleClose, post_id, handleEdit}) =
             onChange={(e) => setCaption(e.target.value)}
             defaultValue={caption}
             disabled={isLoading  }
-            rows="4"
+            rows="10"
             style={{
-              overflow: 'hidden',
               fontSize: '20px',
               width: '100%',
               marginTop: '20px',
