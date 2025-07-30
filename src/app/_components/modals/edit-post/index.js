@@ -74,7 +74,6 @@ const PostEditModal = ({ open, handleClose, post }) => {
             disabled={isLoading  }
             rows="3"
             style={{
-              overflow: 'hidden',
               fontSize: '20px',
               width: '100%',
               marginTop: '20px',
