@@ -19,11 +19,23 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
     }
   }
 
+  let ogImage = ''
+
+  if(post.post.media_type.includes('image')){
+    ogImage = post.post.media_src
+  }else if(post.post.media_type.includes('video')){
+    ogImage = 'https://artxpress.art/og/ogmedia-video.jpg'
+  }else if(post.post.media_type.includes('audio')){
+    ogImage = 'https://artxpress.art/og/ogmedia-audio.jpg'
+  }else if(post.post.media_type.includes('application')){
+    ogImage = 'https://artxpress.art/og/ogmedia-writtenword.jpg'
+  }
+
   return {
     title: post.post.posted_by_name + ' shares on ArtXpress.Art',
     description: post.post.caption,
     openGraph: {
-      images: [post.post.media_type.includes('image') ? post.post.media_src: ''],
+      images: [ogImage],
     },
   }
 }
