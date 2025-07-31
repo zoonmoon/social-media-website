@@ -24,11 +24,11 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
   if(post.post.media_type.includes('image')){
     ogImage = post.post.media_src
   }else if(post.post.media_type.includes('video')){
-    ogImage = 'https://artxpress.art/og/ogmedia-video.jpg'
+    ogImage = 'https://artxpress.art/site-assets/og/ogmedia-video.jpg'
   }else if(post.post.media_type.includes('audio')){
-    ogImage = 'https://artxpress.art/og/ogmedia-audio.jpg'
+    ogImage = 'https://artxpress.art/site-assets/og/ogmedia-audio.jpg'
   }else if(post.post.media_type.includes('application')){
-    ogImage = 'https://artxpress.art/og/ogmedia-writtenword.jpg'
+    ogImage = 'https://artxpress.art/site-assets/og/ogmedia-writtenword.jpg'
   }
 
   return {
