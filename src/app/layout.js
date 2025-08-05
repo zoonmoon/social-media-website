@@ -33,10 +33,10 @@ export default function RootLayout({ children }) {
 
 
       {/* <title>Social Platform for Artists | Digital Art, Dance & Music Community Site</title> */}
-      <meta name="description" content="Join the USA leading social platform for artists to showcase digital art, dance, literature and music. Connect with creators, grow your audience, and share your talent with a vibrant creative community."/>
-      <meta name="keywords" content="social platform for artists, best art sharing platform, artwork websites, Artist Social & Portfolio Platform, Art Marketing Platform, social media platform for artist, Art Sharing community site, Digital Art Sharing community site, dance Sharing community site, literature Sharing community site, music Sharing community site, Art That Makes You Love, Express Yourself Through Art, Connect with other artists, get feedback on your work, spoken word community, express yourself through music, express yourself through writing" />
+      <meta name="description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join ArtXpress.Art—express, share & shine!"/>
+      <meta name="keywords" content="social platform for artists, best art sharing platform, artwork websites, Support artists, Artist Social & Portfolio Platform, Art Marketing Platform, social media platform for artist, Art Sharing community site, Digital Art Sharing community site, dance Sharing community site, literature Sharing community site, music Sharing community site, Art That Makes You Love, Express Yourself Through Art, Connect with other artists, get feedback on your work, spoken word community, express yourself through music, express yourself through writing" />
       {/* <meta property="og:title" content="Social Platform for Artists | Digital Art, Dance & Music Community Site" /> */}
-      <meta property="og:description" content="Join the USA leading social platform for artists to showcase digital art, dance, literature and music. Connect with creators, grow your audience, and share your talent with a vibrant creative community." />
+      <meta property="og:description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join ArtXpress.Art—express, share & shine!" />
       <meta property="og:type"content="website" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="artxpress" />
