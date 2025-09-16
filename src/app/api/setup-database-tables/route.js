@@ -127,6 +127,7 @@ CREATE table post_views (
         CREATE TABLE IF NOT EXISTS posts_media(
             id VARCHAR(255),
             post_id VARCHAR(255),
+            thumbnail VARCHAR(1000),
             media_src VARCHAR(5000),
             media_type VARCHAR(5000),
             PRIMARY KEY(id),

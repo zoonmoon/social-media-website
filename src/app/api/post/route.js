@@ -24,6 +24,7 @@ export  async function POST(request) {
 
         const file_url_after_upload = data.get('file_url_after_upload')
         const media_type = data.get('media_type')
+        const thumbnail = data.get('thumbnail')
 
         let media_src = file_url_after_upload
 
@@ -31,9 +32,9 @@ export  async function POST(request) {
 
         // Save the title and filenames in the MySQL database
         let query = `INSERT INTO posts 
-            (id, username, caption) 
+            (id, username, caption, thumbnail) 
             VALUES 
-            ('${post_id}', '${loggedInUsername}', ${escapedCaption})
+            ('${post_id}', '${loggedInUsername}', ${escapedCaption}, '${thumbnail}')
         `;
 
         const connection = await databaseConnection();
