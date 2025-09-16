@@ -20,17 +20,18 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
   }
 
   let ogImage = ''
+  let thumbnail = post.post.thumbnail
 
   if(post.post.media_type.includes('image')){
     ogImage = post.post.media_src
   }else if(post.post.media_type.includes('video')){
-    ogImage = 'https://www.artxpress.art/site-assets/og/ogmedia-video.jpg'
+    ogImage = thumbnail ? thumbnail :  'https://www.artxpress.art/site-assets/og/ogmedia-video.jpg'
   }else if(post.post.media_type.includes('audio')){
-    ogImage = 'https://www.artxpress.art/site-assets/og/ogmedia-audio.jpg'
+    ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-audio.jpg'
   }else if(post.post.media_type.includes('application')){
-    ogImage = 'https://www.artxpress.art/site-assets/og/ogmedia-writtenword.jpg'
+    ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-writtenword.jpg'
   }
-
+  
   return {
     title: post.post.posted_by_name + ' shares on ArtXpress.Art',
     description: post.post.caption,

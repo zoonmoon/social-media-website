@@ -60,7 +60,7 @@ export default function User({params}){
 
     const coverPicSuccess = (img_url_after_upload) => setCoverPic(img_url_after_upload)
     const profilePicSuccess = (img_url_after_upload) => setProfilePic(img_url_after_upload)
-
+    
     const submitData = async () => {
         try{
             

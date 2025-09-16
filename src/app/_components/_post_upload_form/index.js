@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Box, Avatar, Divider  } from '@mui/material';
+import { Modal, Box, Avatar, Divider, Stack  } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import Button from '@mui/joy/Button';
 import CloseIcon from '@mui/icons-material/Close';
@@ -20,6 +20,7 @@ const PostUploadForm = ({ onClose }) => {
   
   const [caption, setCaption] = useState('')
   const [media, setMedia] = useState(false)
+  const [thumbnail, setThumbnail] = useState('')
   const [fileName, setFileName] = useState('')
   const [isUploadSuccess, setIsUploadSuccess] = useState(false)
   const [post_id, setPostID] = useState('')
@@ -29,6 +30,8 @@ const PostUploadForm = ({ onClose }) => {
   const [fileUploadProgressValue, setFileUploadProgressValue] = useState(0)
 
   const [isUploading, setIsUploading] = useState(false)
+
+  const thumbnailUploadSuccess = (img_url_after_upload) => setThumbnail(img_url_after_upload)
 
   const handlePostUpload =  () => {
 
@@ -70,10 +73,13 @@ const PostUploadForm = ({ onClose }) => {
       if(media !== false)
         media_type = media.type
 
+
+
       const formData = new FormData();
       formData.append('file_url_after_upload', file_url_after_upload);
       formData.append('caption', caption);
       formData.append('media_type', media_type);
+      formData.append('thumbnail', thumbnail.length > 0 ? thumbnail : file_url_after_upload);
 
       const result = await pOSTRequest(formData, '/api/post/')
 
@@ -256,11 +262,31 @@ const PostUploadForm = ({ onClose }) => {
               </Button>
             </div>
             : 
-            <div style={{marginBottom: '20px', marginTop: '20px'}}>
-              <span>{fileName}</span> <span  onClick={handleMediaChangeLinkClick} style={{ display: isUploading ?'none': '', marginLeft: '10px', fontStyle:'italic', cursor:'pointer', borderBottom: '1px dotted black', paddingBottom: '2px'}}>Change Media</span>
-            </div>
+            <Stack direction={'column'} divider={<Divider />}>
 
+              <div style={{marginBottom: '20px', marginTop: '20px'}}>
+                <span>{fileName}</span> <span  onClick={handleMediaChangeLinkClick} style={{ display: isUploading ?'none': '', marginLeft: '10px', fontStyle:'italic', cursor:'pointer', borderBottom: '1px dotted black', paddingBottom: '2px'}}>Change Media</span>
+              </div>
+              {
+                (media && !(media?.type.includes('image'))) && (
+                  <div style={{marginTop:'20px', marginBottom:'20px', display:'flex', justifyContent:'center'}}>
+                    <div style={{display:'flex',gap:'20px', alignItems:'center'}}>
+                      <div>Thumbnail</div>
+                      {thumbnail.trim().length > 0 && (
+                        <img style={{width:'50px', height:'50px'}} src={thumbnail} />
+                      )}
+                      <div style={{display: isUploading ? 'none': 'flex'}}>
+                        <UploadMediaWidget onSuccess={thumbnailUploadSuccess} uploadButtonText="Save Post Thumbnail" 
+                          buttonText={thumbnail.trim().length > 0 ? 'Change' : 'Add Thumbnail'} />
+                      </div>
+
+                    </div>
+                  </div>  
+                )
+              }
+            </Stack>
         }
+
         <Divider></Divider>
 
         {
@@ -274,7 +300,16 @@ const PostUploadForm = ({ onClose }) => {
               loading={isUploading}
               onClick={handlePostUpload}
               component="label"
-              disabled={!media && !caption.length}
+              disabled={
+                media
+                  ? (
+                    media?.type?.includes('image') 
+                      ? false
+                      : thumbnail.trim().length == 0
+                  ): (
+                    caption.trim().length == 0
+                  )
+              }
               sx={{ marginTop: '20px', minWidth: '250px'  }}
             >
               Post
@@ -290,6 +325,7 @@ const PostUploadForm = ({ onClose }) => {
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 import Link from 'next/link';
+import UploadMediaWidget from '../_media-upload';
 
 const UploadSuccessMessage =  ({post_id, onClose}) => {
 

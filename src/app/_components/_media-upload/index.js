@@ -12,7 +12,7 @@ import uploadToS3 from '../_upload-to-s3';
 
 import ProgressBar from '../_progress-bar';
 
-const UploadMediaWidget = ({ onSuccess }) => {
+const UploadMediaWidget = ({ onSuccess, buttonText="Change", uploadButtonText="Upload" }) => {
   
   const [media, setMedia] = useState(false)
   const [fileName, setFileName] = useState('')
@@ -160,13 +160,13 @@ const UploadMediaWidget = ({ onSuccess }) => {
                 disabled={!media}
                 sx={{ marginTop: '20px', minWidth: '250px'  }}
               >
-                Upload
+                {uploadButtonText}
               </Button>
             )
           }
         </Box>
       </Modal>
-      <Button variant={'outlined'} onClick={() => setIsOpen(!isOpen)}>Change</Button>
+      <Button variant={'outlined'} onClick={() => setIsOpen(!isOpen)}>{buttonText}</Button>
     </>
   );
 };

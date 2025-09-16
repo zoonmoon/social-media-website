@@ -13,6 +13,7 @@ export  async function GET(request, {params}) {
         const query = `
         SELECT 
             p.id AS id,
+            p.thumbnail,
             p.username AS posted_by_username,
             umi.name as posted_by_name,
             umi.profile_pic_src as poster_profile_pic,
