@@ -28,7 +28,7 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
     ogImage = thumbnail ? thumbnail :  'https://www.artxpress.art/site-assets/og/ogmedia-video.jpg'
   }else if(post.post.media_type.includes('audio')){
     ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-audio.jpg'
-  }else if(post.post.media_type.includes('application')){
+  }else if(post.post.media_type.includes('application') || post.post.media_type.includes('text')){
     ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-writtenword.jpg'
   }
   
