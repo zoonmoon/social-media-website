@@ -66,7 +66,7 @@ export default function Post({post}) {
         <DisplayCardHeader p={p}/>
         <DisplayCardContent caption={p.caption} />
         <DisplayCardMedia p={p} />
-        {p.thumbnail != null && (
+        {p.thumbnail != null && !p.media_type.includes('video') && (
           <img style={{width:'100%', marginTop:p.media_type.includes('audio') ? '10px': '0', height:'auto'}} src={p.thumbnail}   />
         )}
         <ShowNumLikesAndComments handleDisplayChange={handleDisplayChange} likes={numLikes} comments={numComments} />
