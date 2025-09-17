@@ -41,7 +41,6 @@ export default function RootLayout({ children }) {
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="artxpress" />
       <meta property="og:url" content="https://www.artxpress.art/feed" />
-      <meta property="og:image" content="https://www.artxpress.art/site-assets/logo.png" />
       <meta name="author" content="artxpress.art" />
       <meta name="canonical" content="https://www.artxpress.art/feed"/>
 
