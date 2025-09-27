@@ -150,7 +150,7 @@ export default function LatestArtistOfMonth() {
 
         // Check cookie
         const dismissedId = getCookie("dismissed_artist_id");
-        if (dismissedId && dismissedId === latestArtist.id.toString()) {
+        if (dismissedId  &&  dismissedId === latestArtist.id.toString()) {
           setDismissed(true);
         }
       }
@@ -180,7 +180,8 @@ export default function LatestArtistOfMonth() {
     }
   };
 
-  if (loading || dismissed || !artist) return null;
+// Only hide on mobile if dismissed
+  if (isMobile && dismissed) return null;
 
   return (
     <Card sx={{ maxWidth: 500, cursor: 'pointer', margin: "15px auto", position: 'relative' }}>
