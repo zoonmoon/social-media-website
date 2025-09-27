@@ -88,7 +88,8 @@
 /* styles/custom.css */
 @media (min-width: 992px) {
     .left-side-bar{
-        position: fixed;
+        position: sticky;
+        top: 0px;
         width: 250px;
     }
 }
@@ -132,4 +133,6 @@
     min-height: 200px !important;       /* Minimum height */
     max-height: 800px;       /* Optional: max limit */
 }
+
+
 

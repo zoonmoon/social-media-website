@@ -135,7 +135,7 @@ export default function ProfileBasicInfo({username}){
                 }
 
                 <ProfileStats  data={basicInfo} />
-                <div style={{display:'flex', justifyContent:'center'}}>
+                <div style={{display:'flex', gap:'30px', justifyContent:'center'}}>
                     {
                         basicInfo.viewing_oneself !== true ? (
                             <Stack direction={'row'} gap={'10px'}>
@@ -151,6 +151,7 @@ export default function ProfileBasicInfo({username}){
                                 <SupportButton type={'button'} toBeSupportedID={username} firstName={basicInfo.userInfo.name.split(' ')[0].toUpperCase()} />
                             </Stack>
                         ): (
+                            
                             <Link href={'/settings/personal-information'}>
                                 <Button 
                                     variant={'solid'} 
@@ -162,7 +163,31 @@ export default function ProfileBasicInfo({username}){
                             </Link>
 
                         )
+
                     }
+{
+  basicInfo.is_admin && (
+    <Button
+      variant="outlined"
+      size="small"
+      onClick={() => {
+        if (basicInfo?.userInfo?.username) {
+          navigator.clipboard.writeText(basicInfo.userInfo.username)
+            .then(() => {
+              toast("Username copied"); // or Snackbar
+            })
+            .catch(err => {
+              console.error("Failed to copy: ", err);
+            });
+        }
+      }}
+    >
+      Copy Username
+    </Button>
+  )
+}
+
+
                 </div>
             </Stack>
         </Paper>

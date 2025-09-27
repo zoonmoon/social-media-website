@@ -4,6 +4,7 @@ import { getNumFollowers } from "@/app/api/utils/user/stats/followers";
 import { getNumFollowings } from "@/app/api/utils/user/stats/followings";
 import { getNumPostLikesCount } from "@/app/api/utils/user/stats/likes";
 import { logProfileView } from "@/app/api/utils/log/profile-views";
+import { isAdmin } from "@/app/api/utils";
 
 export async function GET(request, {params}){
     
@@ -43,6 +44,7 @@ export async function GET(request, {params}){
         return new Response(JSON.stringify(
             {
                 success: true, 
+                is_admin: isAdmin(),
                 isFollowing: isFollowing,
                 viewing_oneself: viewee === username,
                 is_logged_in: token_exists,

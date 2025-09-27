@@ -1,4 +1,4 @@
-import { databaseConnection, getLoggedInUsername } from "../utils";
+import { databaseConnection, getLoggedInUsername, isAdmin } from "../utils";
 import Notification from "./utils";
 export const dynamic = "force-dynamic";
 
@@ -60,7 +60,7 @@ export async function GET(){
         notifications = notifications.map(n => ({...n, created_at: timeAgoShort(n.created_ago_in_seconds)}))
 
 
-        return new Response(JSON.stringify({ success: true, notifications}), {
+        return new Response(JSON.stringify({ success: true, is_admin: isAdmin(), notifications}), {
             headers: {
                 "Content-Type": "application/json"
             },

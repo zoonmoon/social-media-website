@@ -16,10 +16,13 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen size
 
+  const [isAdmin, setIsAdmin] = useState(false) 
+
   async function fetchNoti(){
     const notis = await fetch('/api/notifications')
     const notisJson  = await notis.json()
     const unreadNotis = notisJson?.notifications?.filter(n => n.is_read == 0)
+    setIsAdmin(notisJson.is_admin)
     setHasAnyUnread(unreadNotis?.length > 0)
   }
 
@@ -59,6 +62,23 @@ const Header = () => {
           <ListItemText primary="Settings" />
         </Link>
       </ListItem>
+
+      {
+        isAdmin && (
+        <ListItem button>
+          <Link href="/admin" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+            <ListItemText primary="Admin Portal" />
+          </Link>
+        </ListItem>
+        )
+      }
+
+      <ListItem button>
+        <Link href="/artists-of-months" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Artists of the Months" />
+        </Link>
+      </ListItem>
+
       
       <ListItem button>
         <Link href="/blogs" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
@@ -89,6 +109,7 @@ const Header = () => {
           <ListItemText primary="Privacy Policy" />
         </Link>
       </ListItem>
+
 
       <ListItem button>
         <Link href="/pages/terms-of-use" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
@@ -132,7 +153,21 @@ const Header = () => {
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 Feed
               </Button>
-            </Link>            
+            </Link>    
+
+                  {
+                    isAdmin && (
+      
+
+            <Link href="/admin" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button variant="plain" sx={{ margin: '0 10px' }}>
+                Admin Portal
+              </Button>
+            </Link>
+
+                    )
+                  }
+
             <Link href="/settings" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 Settings

@@ -192,7 +192,7 @@ export default function Feed(){
   return(
     <>
       <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{marginTop: '1px'}}>
+        <Grid container columnSpacing={4} rowSpacing={2} sx={{marginTop: '1px'}}>
           <Grid item xs={12} md={3}>
             {
               fetchingStats  ? <FeedLeftSidebarSkeleton /> :  <LeftSideBar handlFilterReset={handlFilterReset} feedTypeFilter={feedTypeFilter} handleFeedTypeFilterChange={handleFeedTypeFilterChange} profileStats={profileStats} />

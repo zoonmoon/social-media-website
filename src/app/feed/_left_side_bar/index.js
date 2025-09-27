@@ -6,34 +6,45 @@ import Link from "next/link";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AddAlertIcon from '@mui/icons-material/AddAlert';
+import LatestArtistOfMonth from "./latest_artist_of_month";
 export default function LeftSideBar({profileStats,handlFilterReset , handleFeedTypeFilterChange, feedTypeFilter }){
 
 
     return(
-        <div className="left-side-bar">
-            {
-                profileStats.is_logged_in == true 
-                    ? <>
-                        <PPandCover data={profileStats} />
+        <div className="left-side-bar" >
 
-                        {
-                            (
-                                profileStats.userInfo.paypal_billing_email == null || 
-                                profileStats.userInfo.paypal_billing_email.trim().length == 0
-                            ) ? 
-                            <Alert variant="filled" sx={{marginBottom:'20px'}} severity={'success'} icon={<NotificationsIcon />}>
-                                <Link href='/settings/receiving-account' style={{color:'white'}}>Click here</Link> to setup your email that receives fund from your supporters.
-                            </Alert>
-                            : <></>
-                        }
-                    </>   
-                    
-                    : <></>
-            }
+            <div >
 
-            
 
-            <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+                {
+                    profileStats.is_logged_in == true 
+                        ? <>
+                            <PPandCover data={profileStats} />
+
+                            {
+                                (
+                                    profileStats.userInfo.paypal_billing_email == null || 
+                                    profileStats.userInfo.paypal_billing_email.trim().length == 0
+                                ) ? 
+                                <Alert variant="filled" sx={{marginBottom:'20px'}} severity={'success'} icon={<NotificationsIcon />}>
+                                    <Link href='/settings/receiving-account' style={{color:'white'}}>Click here</Link> to setup your email that receives fund from your supporters.
+                                </Alert>
+                                : <></>
+                            }
+                        </>   
+                        
+                        : <></>
+                }
+
+                
+
+                <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+
+                <LatestArtistOfMonth />
+
+            </div>
+
+
 
         </div>
     )

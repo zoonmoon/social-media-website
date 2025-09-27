@@ -5,6 +5,8 @@ import { Container, Grid, Paper, Skeleton, Typography } from "@mui/material";
 import Link from "next/link";
 import ArticleIcon from '@mui/icons-material/Article';
 import PaidIcon from '@mui/icons-material/Paid';
+import  VerifiedUserTwoTone from "@mui/icons-material/VerifiedUserTwoTone";
+import Person4Icon from '@mui/icons-material/Person4';
 
 const adminBlocks = [
     {
@@ -16,6 +18,11 @@ const adminBlocks = [
         link: '/blogs',
         title: "Blogs",
         icon: <ArticleIcon  fontSize={'large'} />
+    },
+    {
+        link: '/artists-of-months',
+        title: "Artists of Months",
+        icon: <Person4Icon  fontSize={'large'} />
     },
 
 ]
