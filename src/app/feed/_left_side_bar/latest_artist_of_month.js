@@ -150,7 +150,7 @@ export default function LatestArtistOfMonth() {
 
         // Check cookie
         const dismissedId = getCookie("dismissed_artist_id");
-        if (dismissedId  &&  dismissedId === latestArtist.id.toString()) {
+        if (dismissedId && dismissedId === latestArtist.id.toString()) {
           setDismissed(true);
         }
       }
@@ -180,9 +180,10 @@ export default function LatestArtistOfMonth() {
     }
   };
 
-// Only hide on mobile if dismissed
-  if (isMobile && dismissed) return null;
 
+  if (loading) { return ( <Box sx={{ display: "flex", marginTop:'20px', justifyContent: "center", p: 4, background:'white' }}> <CircularProgress /> </Box> ); }
+    if (  dismissed && isMobile) return null;
+  
   return (
     <Card sx={{ maxWidth: 500, cursor: 'pointer', margin: "15px auto", position: 'relative' }}>
       {isMobile && (
