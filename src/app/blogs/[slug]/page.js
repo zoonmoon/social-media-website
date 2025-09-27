@@ -5,7 +5,8 @@ import {
   Typography,
   Container,
   Paper,
-  Divider
+  Divider,
+  Stack
 } from '@mui/material';
 import Header from '@/app/_components/_header';
 import LoadingPost from '@/app/_components/_loading-post';
@@ -64,9 +65,35 @@ const BlogDetail = ({ blog }) => {
             {renderHTML(content)}
           </Box>
           <Divider sx={{ my: 3 }} />
-          <p>
-            {'<-'}<Link style={{color:'unset', paddingLeft:'2px'}} href={'/blogs'}>Back to Blogs</Link>
-          </p>
+          <Stack
+            spacing={1}
+            direction={'row'}
+            divider={<Divider />}
+          >
+            <p>
+              {'<-'}<Link style={{color:'unset', paddingLeft:'2px'}} href={'/blogs'}>Back to Blogs</Link>
+            </p>
+            <p>|</p>
+
+<p>
+  <Link
+    href="/blogs"
+    style={{ color: 'unset' }}
+    onClick={(e) => {
+      e.preventDefault();
+      const url = window.location.href;
+      navigator.clipboard.writeText(url)
+        .then(() => {toast('Blog Link Copied')})
+        .catch(() => {}); // navigate even if copy fails
+    }}
+  >
+    Share Blog
+  </Link>
+</p>
+
+
+          </Stack>
+
         </Box>
       </Paper>
   );

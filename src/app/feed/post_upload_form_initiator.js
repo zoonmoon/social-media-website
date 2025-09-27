@@ -4,14 +4,17 @@ import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import MicIcon from '@mui/icons-material/Mic';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
-import { Skeleton } from '@mui/material';
+import { Skeleton, Typography } from '@mui/material';
 import Link from 'next/link';
 
 
 export default function PostUploadFormInitiator({handlePostUploadFormDisplay, data}){
 
     if(data?.is_logged_in === false){
-        return <>Please <Link href={'/login'}>Login</Link> to Upload posts</>
+        return <div style={{textAlign:'center'}}>
+            <Typography><strong>ArtXpress.Art</strong></Typography>
+            <Typography sx={{marginTop:'10px'}}>Connect, Create, and Thrive as Artists</Typography>
+        </div>
     }
     
     return(
