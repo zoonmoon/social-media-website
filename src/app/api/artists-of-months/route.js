@@ -65,7 +65,7 @@ export async function PUT(request) {
         connection = await databaseConnection();
         const query = `UPDATE artists_of_the_month SET 
                         username = '${username || ''}', 
-                        title = '${title || ''}', 
+                        title = '${title || ''}'
                        WHERE id = ${id}`;
         await executeQuery(connection, query);
 
