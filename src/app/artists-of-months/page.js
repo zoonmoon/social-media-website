@@ -253,7 +253,7 @@ if (loading) {
 
         <Typography sx={{marginTop:'10px'}} variant="body2" color="text.secondary">
           <Link href={`/users/${artist.username}`} passHref style={{ textDecoration: "none", color: "inherit" }}>
-            <Button>View Artist's Profile</Button>
+            <Button>View Artist Profile</Button>
           </Link>
         </Typography>
 
