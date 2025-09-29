@@ -88,8 +88,6 @@
 /* styles/custom.css */
 @media (min-width: 992px) {
     .left-side-bar{
-        position: sticky;
-        top: 0px;
         width: 250px;
     }
 }

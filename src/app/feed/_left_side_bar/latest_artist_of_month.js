@@ -197,7 +197,7 @@ export default function LatestArtistOfMonth() {
       )}
 
       <div style={{ textAlign: 'center', display: 'flex',  justifyContent: isMobile?'left':'center', alignItems: 'center', gap: '8px', padding: '10px' }}> 
-        <Typography>Artist of the Month</Typography>
+        <Typography variant={'h6'}><strong>Artist of the Month</strong></Typography>
         <LaunchIcon />
       </div>
 
@@ -205,14 +205,14 @@ export default function LatestArtistOfMonth() {
         {artist.image_url && (
           <CardMedia
             component="img"
-            height="150"
+            height="auto"
             image={artist.image_url}
             sx={{ objectFit: "cover" }}
           />
         )}
         <CardContent sx={{ textAlign: 'center' }}>
           <Link href={'/artists-of-months'}>
-            <Button>View All</Button>
+            <Button className="view-all-customn">View All</Button>
           </Link>
         </CardContent>
       </CardActionArea>
