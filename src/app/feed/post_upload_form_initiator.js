@@ -12,8 +12,8 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
 
     if(data?.is_logged_in === false){
         return <div style={{textAlign:'center'}}>
-            <Typography><strong>ArtXpress.Art</strong></Typography>
-            <Typography sx={{marginTop:'10px'}}>Connect, Create, and Thrive as Artists</Typography>
+            <Typography variant={'h4'}><strong>ArtXpress.Art</strong></Typography>
+            <Typography sx={{marginTop:'10px'}}><strong>Connect, Create, and Thrive as Artists</strong></Typography>
         </div>
     }
     
