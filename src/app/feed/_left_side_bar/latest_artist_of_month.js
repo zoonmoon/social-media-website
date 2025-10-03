@@ -184,6 +184,8 @@ export default function LatestArtistOfMonth() {
   if (loading) { return ( <Box sx={{ display: "flex", marginTop:'20px', justifyContent: "center", p: 4, background:'white' }}> <CircularProgress /> </Box> ); }
     if (  dismissed && isMobile) return null;
   
+    if(!artist) return 
+
   return (
     <Card sx={{ maxWidth: 500, cursor: 'pointer', margin: "15px auto", position: 'relative' }}>
       {isMobile && (
