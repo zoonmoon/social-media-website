@@ -55,17 +55,17 @@ export default function RootLayout({ children }) {
           `,
         }}
       />
-
+        <Script
+            strategy="afterInteractive" // Script loads after page becomes interactive
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7180492942755368"
+            crossOrigin="anonymous"
+        />
 
       </head>
 
       <body  style={{backgroundColor: 'rgba(0, 0, 0, 0.1)', overflowX: 'hidden!important'}} className={inter.className}>
         {/* AdSense Script */}
-        <Script
-            strategy="afterInteractive" // Script loads after page becomes interactive
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
-            crossOrigin="anonymous"
-        />
+
           <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
             <Toaster  position="bottom-center" 
               toastOptions={{

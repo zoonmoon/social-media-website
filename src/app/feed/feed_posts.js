@@ -33,7 +33,7 @@ export default function FeedPosts({posts}) {
                                 <Post post={post} key={index} />
                                 
                                 {/* Show Ad after every 5th post */}
-                                {/*
+                                
                                     {(index + 1) % 2 === 0 && (
                                         <div key={`ad-${index}`}>
                                             <ins class="adsbygoogle"
@@ -45,7 +45,6 @@ export default function FeedPosts({posts}) {
 
                                         </div>
                                     )}
-                                */}
 
                                 {/* Show footer after every 15th post */}
                                 {/* {
