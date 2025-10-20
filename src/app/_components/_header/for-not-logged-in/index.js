@@ -35,6 +35,11 @@ const LoggedOutHeader = () => {
           <ListItemText primary="Artist of the Month" />
         </Link>
       </ListItem>
+      <ListItem button>
+        <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/blogs/earn-money-online-here-5ih3z">
+          <ListItemText primary="Earn Income" />
+        </Link>
+      </ListItem>
 
       <ListItem button>
         <Link href="/blogs" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
@@ -91,7 +96,7 @@ const LoggedOutHeader = () => {
         {/* Logo on the left */}
         <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
           <Link href='/feed'>
-            <img src="/site-assets/logo.png" width={'200'} height={'auto'} />
+            <img src="/site-assets/logo.png" width={'150'} height={'auto'} />
           </Link>
         </Typography>
 
@@ -104,6 +109,13 @@ const LoggedOutHeader = () => {
                   Feed
                 </Button>
               </Link>
+
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/blogs/earn-money-online-here-5ih3z'}>
+                <Button variant='plain' sx={{ margin: '0 10px' }}>
+                  Earn Income
+                </Button>
+              </Link>
+
 
 
               <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/about-us'}>

@@ -63,6 +63,14 @@ const Header = () => {
         </Link>
       </ListItem>
 
+      <ListItem button>
+        <Link href="/blogs/earn-money-online-here-5ih3z" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Earn Income" />
+        </Link>
+      </ListItem>
+
+
+
       {
         isAdmin && (
         <ListItem button>
@@ -142,7 +150,7 @@ const Header = () => {
         {/* Logo on the left */}
         <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
           <a href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <img src="/site-assets/logo.png" width={'200'} height={'auto'} />
+            <img src="/site-assets/logo.png" width={'150'} height={'auto'} />
           </a>
         </Typography>
 
@@ -154,6 +162,14 @@ const Header = () => {
                 Feed
               </Button>
             </Link>    
+
+            <Link href="/blogs/earn-money-online-here-5ih3z" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button variant="plain" sx={{ margin: '0 10px' }}>
+                Earn Income
+              </Button>
+            </Link>    
+
+
 
                   {
                     isAdmin && (
