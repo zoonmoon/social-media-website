@@ -159,6 +159,7 @@ export default function Feed(){
 
 
   useEffect(()=> {
+history.replaceState(null, "", "/");
     async function fetchStats(){
       try{
         const userInfoJSON = await getRequest('/api/feed/left-side-bar')
