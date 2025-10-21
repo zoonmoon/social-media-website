@@ -4,7 +4,7 @@ import Header from "@/app/_components/_header"
 export async function generateMetadata({params}) {
   const id = (await params).id
   // fetch post information
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://artxpress.art';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yourarton.com';
 const url =  (new URL(`/api/post/${id}`, baseUrl)).href
     console.log("api url", url)
 
@@ -25,15 +25,15 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
   if(post.post.media_type.includes('image')){
     ogImage = post.post.media_src
   }else if(post.post.media_type.includes('video')){
-    ogImage = thumbnail ? thumbnail :  'https://www.artxpress.art/site-assets/og/ogmedia-video.jpg'
+    ogImage = thumbnail ? thumbnail :  'https://www.yourarton.com/site-assets/og/ogmedia-video.jpg'
   }else if(post.post.media_type.includes('audio')){
-    ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-audio.jpg'
+    ogImage = thumbnail ? thumbnail : 'https://www.yourarton.com/site-assets/og/ogmedia-audio.jpg'
   }else if(post.post.media_type.includes('application') || post.post.media_type.includes('text')){
-    ogImage = thumbnail ? thumbnail : 'https://www.artxpress.art/site-assets/og/ogmedia-writtenword.jpg'
+    ogImage = thumbnail ? thumbnail : 'https://www.yourarton.com/site-assets/og/ogmedia-writtenword.jpg'
   }
   
   return {
-    title: post.post.posted_by_name + ' shares on ArtXpress.Art',
+    title: post.post.posted_by_name + ' shares on yourarton.com',
     description: post.post.caption,
     openGraph: {
       images: [ogImage],

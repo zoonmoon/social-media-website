@@ -20,12 +20,12 @@ export default function RootLayout({ children }) {
 
 <meta name="google-adsense-account" content="ca-pub-7180492942755368"></meta>
 
-        <link rel="canonical" href="https://www.artxpress.art" />
+        <link rel="canonical" href="https://www.yourarton.com" />
 
         {/* <meta property="og:title" content="ArtXpress - Supporting Positive Expressions of Artist" /> */}
         {/* <meta property="og:description" content="A community supporting artists' positive expressions of art." /> */}
-        {/* <meta property="og:image" content="https://www.artxpress.art/site-assets/logo.png" /> */}
-        {/* <meta property="og:url" content="https://www.artxpress.art" /> */}
+        {/* <meta property="og:image" content="https://www.yourarton.com/site-assets/logo.png" /> */}
+        {/* <meta property="og:url" content="https://www.yourarton.com" /> */}
         {/* <meta property="og:type" content="website" /> */}
         
         {/* <meta name="description" content="A community supporting artists' positive expressions of art." /> */}
@@ -35,16 +35,16 @@ export default function RootLayout({ children }) {
 
 
       {/* <title>Social Platform for Artists | Digital Art, Dance & Music Community Site</title> */}
-      <meta name="description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join ArtXpress.Art—express, share & shine!"/>
+      <meta name="description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join yourarton.com—express, share & shine!"/>
       <meta name="keywords" content="social platform for artists, best art sharing platform, artwork websites, Support artists, Artist Social & Portfolio Platform, Art Marketing Platform, social media platform for artist, Art Sharing community site, Digital Art Sharing community site, dance Sharing community site, literature Sharing community site, music Sharing community site, Art That Makes You Love, Express Yourself Through Art, Connect with other artists, get feedback on your work, spoken word community, express yourself through music, express yourself through writing" />
       {/* <meta property="og:title" content="Social Platform for Artists | Digital Art, Dance & Music Community Site" /> */}
-      <meta property="og:description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join ArtXpress.Art—express, share & shine!" />
+      <meta property="og:description" content="Discover artwork websites & digital art sharing community sites where creativity dances! Join yourarton.com—express, share & shine!" />
       <meta property="og:type"content="website" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="artxpress" />
-      <meta property="og:url" content="https://www.artxpress.art/feed" />
-      <meta name="author" content="artxpress.art" />
-      <meta name="canonical" content="https://www.artxpress.art/feed"/>
+      <meta property="og:url" content="https://www.yourarton.com/feed" />
+      <meta name="author" content="yourarton.com" />
+      <meta name="canonical" content="https://www.yourarton.com/feed"/>
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRSY9GB8Y4"></script>
       <script
