@@ -13,7 +13,7 @@ export default function DashboardLayout({params,  children }) {
 
 
 
-<h1>Terms of Use for artXpress.art</h1>
+<h1>Terms of Use for YourArton.com</h1>
 <p><strong>Effective Date:</strong> January 1st, 2025<br /><strong>Last Updated:</strong> October 20, 2025</p>
 
 <p>Welcome to <strong>YourArton.com</strong>, operated by Beaver Entertainment, LLC! We are a social network dedicated to positive expressions of art and fostering connections between artists and those inspired by their work. By using our platform, you agree to these Terms of Use. Please read them carefully before participating.</p>

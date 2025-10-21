@@ -21,7 +21,7 @@ export default function DashboardLayout({params,  children }) {
      
       <div>
 
-<h1>Privacy Policy for artXpress.art Social Network</h1>
+<h1>Privacy Policy for YourArton.com Social Network</h1>
 <p><strong>Effective Date:</strong> October 20, 2025</p>
 
 <p>Welcome to <strong>YourArton.com</strong>, a social network dedicated to fostering creativity and positivity. Your privacy is important to us, and this Privacy Policy explains how we collect, use, and protect your information.</p>
