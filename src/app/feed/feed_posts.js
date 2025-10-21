@@ -39,7 +39,7 @@ export default function FeedPosts({posts}) {
                                             <ins class="adsbygoogle"
                                                 style={{display:'block'}}
                                                 data-ad-client="ca-pub-7180492942755368"
-                                                data-ad-slot="5671077774"
+                                                data-ad-slot="5330803639"
                                                 data-ad-format="auto"
                                                 data-full-width-responsive="true"></ins>
                                         </div>
