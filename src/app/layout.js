@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <head> 
 
 
-        <meta name="google-adsense-account" content="ca-pub-7180492942755368" />
+      <meta name="google-adsense-account" content="ca-pub-9451671239173411"></meta>
 
         <link rel="canonical" href="https://www.artxpress.art" />
 
@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
       />
         <Script
             strategy="afterInteractive" // Script loads after page becomes interactive
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7180492942755368"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9451671239173411"
             crossOrigin="anonymous"
         />
 
