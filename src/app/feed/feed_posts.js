@@ -34,7 +34,7 @@ export default function FeedPosts({posts}) {
                                 
                                 {/* Show Ad after every 5th post */}
                                 
-                                    {(index + 1) % 2 === 0 && (
+                                    {(index + 1) % 5 === 0 && (
                                         <div key={`ad-${index}`}>
                                             <ins class="adsbygoogle"
                                                 style={{display:'block'}}
