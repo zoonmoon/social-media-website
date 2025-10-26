@@ -94,11 +94,30 @@ const LoggedOutHeader = () => {
     <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* Logo on the left */}
-        <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-          <Link href='/feed'>
-            <img src="/site-assets/logo.png" width={'150'} height={'auto'} />
-          </Link>
-        </Typography>
+<Typography variant="h6" noWrap sx={{ flexGrow: 1, position: 'relative', display: 'inline-block' }}>
+  <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+    <img src="/site-assets/logo.png" width="150" height="auto" alt="Logo" />
+    <Box
+      sx={{
+        position: 'absolute',
+        top: 10,
+        right: -30,
+        bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+        background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+        color: 'white',
+        fontSize: '0.65rem',
+        fontWeight: 600,
+        px: 0.8,
+        py: '2px',
+        borderRadius: '9999px',
+        boxShadow: 1,
+      }}
+    >
+      Beta
+    </Box>
+  </a>
+</Typography>
+
 
         {/* Only show menu items in the center for larger screens */}
         {!isMobile && (

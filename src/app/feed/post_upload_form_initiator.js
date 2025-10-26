@@ -12,8 +12,12 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
 
     if(data?.is_logged_in === false){
         return <div style={{textAlign:'center'}}>
+            <h1>Join Our Art Community Network</h1>
             <Typography variant={'h4'}><strong>YourArton.com</strong></Typography>
             <Typography sx={{marginTop:'10px'}}><strong>Connect, Create, and Thrive as Artists</strong></Typography>
+            <Typography sx={{marginTop:'10px'}}>
+                Welcome to YourArtOn, a vibrant artist community network and social platform for artists where creativity thrives. Connect with fellow creatives, share your work, and join a creative art feed to showcase your talent. Our positive, artist community network and social platform for artists is designed so fans and friends can support creators, collaborate, and be inspired. Come join a creative art feed today and experience a community where artists and supporters grow together!
+            </Typography>
         </div>
     }
     

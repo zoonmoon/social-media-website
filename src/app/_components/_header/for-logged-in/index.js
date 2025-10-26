@@ -148,11 +148,29 @@ const Header = () => {
     <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* Logo on the left */}
-        <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-          <a href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <img src="/site-assets/logo.png" width={'150'} height={'auto'} />
-          </a>
-        </Typography>
+<Typography variant="h6" noWrap sx={{ flexGrow: 1, position: 'relative', display: 'inline-block' }}>
+  <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+    <img src="/site-assets/logo.png" width="150" height="auto" alt="Logo" />
+    <Box
+      sx={{
+        position: 'absolute',
+        top: 0,
+        right: -20,
+        bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+        background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+        color: 'white',
+        fontSize: '0.65rem',
+        fontWeight: 600,
+        px: 0.8,
+        py: '2px',
+        borderRadius: '9999px',
+        boxShadow: 1,
+      }}
+    >
+      Beta
+    </Box>
+  </a>
+</Typography>
 
         {/* Menu items in the center (only shown on larger screens) */}
         {!isMobile && (
