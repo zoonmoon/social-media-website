@@ -1,5 +1,5 @@
 'use client'
-import { Box, Paper, Stack, TextField, Typography } from "@mui/material"
+import { Box, Divider, Paper, Stack, TextField, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
 import {  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel } from '@mui/material';
@@ -80,6 +80,12 @@ export default function User({params}){
                 Save
               </Button>
             </Box>
+
+            <Divider sx={{margin:'20px 0'}}/>
+                    <Link href={'/blogs/earn-money-online-here-5ih3z'}>
+      <Button variant={'plain'}>How to Earn Income</Button>
+    </Link>
+
         </Paper>
     )
 }
