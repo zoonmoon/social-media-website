@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Container, Drawer, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Container, Drawer, List, ListItem, ListItemText, useMediaQuery, Box } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
@@ -154,8 +154,8 @@ const Header = () => {
     <Box
       sx={{
         position: 'absolute',
-        top: 0,
-        right: -20,
+        top: 10,
+        right: -30,
         bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
         background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
         color: 'white',
