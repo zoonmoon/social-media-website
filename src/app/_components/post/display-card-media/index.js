@@ -19,7 +19,7 @@ export default function DisplayCardMedia({p}){
           controlsList={'nodownload'}
           poster={p.thumbnail ? p.thumbnail : ''}
           src={p.media_src}
-          sx={{background: p.thumbnail ? '': '#2e7d32!important'}}
+          sx={{maxHeight:'80vh', objectFit:"contain", background: p.thumbnail ? '': '#000000!important'}}
           alt="Paella dish"
         />
       )
@@ -44,6 +44,7 @@ export default function DisplayCardMedia({p}){
           width="100%"
           controlsList={'nodownload'}
           height="auto"
+          sx={{maxHeight:'80vh', objectFit:"contain"}}
           src={p.media_src}
           alt={p.caption}
         />
