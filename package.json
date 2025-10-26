@@ -27,6 +27,7 @@
     "@supabase/supabase-js": "^2.44.2",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
+    "csvtojson": "^2.0.12",
     "dayjs": "^1.11.10",
     "google-auth-library": "^9.14.1",
     "jsonwebtoken": "^9.0.2",

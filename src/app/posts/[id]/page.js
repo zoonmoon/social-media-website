@@ -7,6 +7,7 @@ import LoadingPost from '@/app/_components/_loading-post';
 import Alert from '@mui/material/Alert';
 import { Card, Divider, Grid, Stack } from '@mui/material';
 import { Button } from '@mui/joy';
+import Link from 'next/link';
 
 
 
@@ -44,7 +45,7 @@ export default function ViewProfile({params}){
 
     return(
         <Container maxWidth={'lg'}>
-<Grid container sx={{gap: {md: '40px', xs: 0}}}>
+<Grid container spacing={3}>
   <Grid
     item
     xs={12}
@@ -56,6 +57,8 @@ export default function ViewProfile({params}){
     {isLoading ? (
       <></>
     ) : (
+      <>
+      
         <Card sx={{position: {sx: 'relative', md: 'sticky'}, top:'100px', borderRadius:'10px', marginBottom: '200px', marginTop: {xs: 0, md: '30px'}, padding: '10px', textAlign: 'center' }}>
           <Stack divider={<Divider />} gap={'10px'} >
             <div>
@@ -73,8 +76,17 @@ export default function ViewProfile({params}){
             <div>
               <Button fullWidth onClick={() => window.location.href='/users/'+post.posted_by_username}>View profile</Button>
             </div>
+            <div>
+                  <Link href={'/blogs/earn-money-online-here-5ih3z'}>
+      <Button>Earn Income</Button>
+    </Link>
+            </div>
           </Stack>
         </Card>
+
+ 
+
+        </>
     )}
   </Grid>
     
@@ -90,6 +102,8 @@ export default function ViewProfile({params}){
       {isLoading ? <LoadingPost /> : <Post post={post} />}
     </div>
   </Grid>
+
+
 </Grid>
 
         </Container>
