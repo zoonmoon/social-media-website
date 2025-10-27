@@ -19,7 +19,7 @@ export default function DisplayCardMedia({p}){
           controlsList={'nodownload'}
           poster={p.thumbnail ? p.thumbnail : ''}
           src={p.media_src}
-          sx={{maxHeight:'80vh', objectFit:"contain", background: p.thumbnail ? '': '#000000!important'}}
+          sx={{maxHeight:'80vh', objectFit:"contain", background:  '#000000!important'}}
           alt="Paella dish"
         />
       )
