@@ -12,7 +12,7 @@ import uploadToS3 from '../_upload-to-s3';
 
 import ProgressBar from '../_progress-bar';
 
-const UploadMediaWidget = ({ onSuccess, buttonText="Change", uploadButtonText="Upload" }) => {
+const UploadMediaWidget = ({ onSuccess, buttonText="Change", uploadButtonText="Upload", variant="outlined" }) => {
   
   const [media, setMedia] = useState(false)
   const [fileName, setFileName] = useState('')
@@ -166,7 +166,7 @@ const UploadMediaWidget = ({ onSuccess, buttonText="Change", uploadButtonText="U
           }
         </Box>
       </Modal>
-      <Button variant={'solid'} onClick={() => setIsOpen(!isOpen)}>{buttonText}</Button>
+      <Button variant={buttonText == "Add Thumbnail" ? 'solid': "outlined"} onClick={() => setIsOpen(!isOpen)}>{buttonText}</Button>
     </>
   );
 };
