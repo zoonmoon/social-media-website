@@ -166,7 +166,7 @@ const UploadMediaWidget = ({ onSuccess, buttonText="Change", uploadButtonText="U
           }
         </Box>
       </Modal>
-      <Button variant={buttonText == "Add Thumbnail" ? 'solid': "outlined"} onClick={() => setIsOpen(!isOpen)}>{buttonText}</Button>
+      <Button variant={buttonText == "Add Thumbnail Image" ? 'solid': "outlined"} onClick={() => setIsOpen(!isOpen)}>{buttonText}</Button>
     </>
   );
 };
