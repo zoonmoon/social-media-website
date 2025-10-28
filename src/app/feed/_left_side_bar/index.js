@@ -84,7 +84,6 @@ export default function LeftSideBar({profileStats,handlFilterReset , handleFeedT
                 
 
                 <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
-
                 <LatestArtistOfMonth />
 
             </div>

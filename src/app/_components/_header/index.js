@@ -26,17 +26,48 @@ export default function Header() {
 
 
     return (
-        <div className="header" style={{ backgroundColor: 'white', display: 'flex', minHeight: '70px', justifyContent: 'center', alignItems: 'center' }}>
-            {
-                isLoading
-                    ? (
-                        <Skeleton width={250} height={40}></Skeleton>
-                    ) : (
-                        isLoggedIn
-                            ? <LoggedInHeader />
-                            : <LoggedOutHeader />
-                    )
-            }
-        </div>
+        <>
+ {
+  !isLoading && (
+    <div
+      style={{
+        background: '#2174DD',
+        textAlign: 'center',
+        padding: '3px 10px 7px 10px',
+        color: 'white',
+      }}
+    >
+      <small>
+        Beta version –{' '}
+        <Link
+          href="/pages/contact-us"
+          style={{ color: 'white', textDecoration: 'underline' }}
+        >
+          Contact Us
+        </Link>{' '}
+        if you experience any glitches or have suggestions
+      </small>
+    </div>
+  )
+}
+
+
+            <div className="header" style={{ backgroundColor: 'white', display: 'flex', minHeight: '70px', justifyContent: 'center', alignItems: 'center' }}>
+
+
+                {
+                    isLoading
+                        ? (
+                            <Skeleton width={250} height={40}></Skeleton>
+                        ) : (
+                            isLoggedIn
+                                ? <LoggedInHeader />
+                                : <LoggedOutHeader />
+                        )
+                }
+            </div>
+
+        </>
+
     );
 }
