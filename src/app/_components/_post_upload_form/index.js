@@ -239,7 +239,7 @@ const PostUploadForm = ({ onClose }) => {
                 Audio
                 <input
                   type="file"
-                  accept="audio/*"
+                  // accept="audio/*"
                   style={{ display: 'none' }}
                   onChange={handleFileChange}
                 />
