@@ -20,21 +20,21 @@ const url =  (new URL(`/api/post/${id}`, baseUrl)).href
   }
 
   let ogImage = ''
-  let thumbnail = post.post.thumbnail
+  let thumbnail = post?.post?.thumbnail
 
-  if(post.post.media_type.includes('image')){
+  if(post?.post?.media_type?.includes('image')){
     ogImage = post.post.media_src
-  }else if(post.post.media_type.includes('video')){
+  }else if(post?.post?.media_type?.includes('video')){
     ogImage = thumbnail ? thumbnail :  'https://www.yourarton.com/site-assets/og/ogmedia-video.jpg'
-  }else if(post.post.media_type.includes('audio')){
+  }else if(post?.post?.media_type?.includes('audio')){
     ogImage = thumbnail ? thumbnail : 'https://www.yourarton.com/site-assets/og/ogmedia-audio.jpg'
-  }else if(post.post.media_type.includes('application') || post.post.media_type.includes('text')){
+  }else if(post?.post?.media_type?.includes('application') || post?.post?.media_type?.includes('text')){
     ogImage = thumbnail ? thumbnail : 'https://www.yourarton.com/site-assets/og/ogmedia-writtenword.jpg'
   }
   
   return {
-    title: post.post.posted_by_name + ' shares on yourarton.com',
-    description: post.post.caption,
+    title: post?.post?.posted_by_name + ' shares on yourarton.com',
+    description: post?.post?.caption,
     openGraph: {
       images: [ogImage],
     },

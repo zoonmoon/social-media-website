@@ -47,16 +47,20 @@ export  async function POST(req) {
 
         const results = await executeQuery(connection, query);
 
-        if(results.length == 0) throw new Error("Artist not eligible, artistid: "+artistId)
+        if(results.length == 0) 
+          throw new Error("This artist cannot receive support at the moment. We've notified them about the issue. Thank you for supporting our artists.");
+
+        
+            console.log(results)
 
         const paypalBillingEmailOfReceiver = results[0].paypal_billing_email
 
-        if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == ""){
+        if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == "")
 
-            throw new Error("Artist not eligible: artistid: "+artistId)
-        }
+              throw new Error("This artist cannot receive support at the moment. We've notified them about the issue. Thank you for supporting our artists.");
+        
 
-        if(!token_exists) throw new Error("Login to support: to artist: " + artistId)
+        if(!token_exists) throw new Error("Please login to support artists")
 
         const order = await client.execute(request);
 

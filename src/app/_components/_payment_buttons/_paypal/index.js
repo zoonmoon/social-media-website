@@ -26,10 +26,17 @@ const PaypalButton = ({ amount, artistId, handleSuccess, handleFailure }) => {
             .then((res) => res.json())
             .then((orderData) => {
               if(orderData.success == false){
-                toast(orderData.msg)
+                // toast(orderData.msg)
+                  throw new Error(orderData.msg || "Failed");
               }
               return orderData.id; // Return the PayPal order ID
-            });
+            })
+            .catch((err) => {
+              console.error('PayPal order creation error:', err);
+              // toast.error(err.message);
+              throw err; // important: rethrow for PayPal SDK
+          });
+
         },
         onApprove: (data, actions) => {
           // Capture the payment after user approval
@@ -47,6 +54,7 @@ const PaypalButton = ({ amount, artistId, handleSuccess, handleFailure }) => {
             });
         },
         onError: (err) => {
+          console.log(err)
           handleFailure(err)
         },
       }).render('#paypal-button-container');

@@ -24,6 +24,7 @@ const SupportModal = ({ open, handleClose, firstName, toBeSupportedID }) => {
   const [customAmount, setCustomAmount] = useState('');
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false) 
   const [isPaymentFailure, setIsPaymentFailure] = useState(false) 
+  const [paymentFailureMessage, setPaymentFailureMessage] = useState('')
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -77,8 +78,9 @@ const SupportModal = ({ open, handleClose, firstName, toBeSupportedID }) => {
   const handleSuccess =() => setIsPaymentSuccess(true)
   const handleFailure = (err) => {
     setIsPaymentFailure(true) 
+    setPaymentFailureMessage(err.message)
   }
-
+  
   if(isPaymentFailure){
     return(
       <Dialog
@@ -114,7 +116,7 @@ const SupportModal = ({ open, handleClose, firstName, toBeSupportedID }) => {
             </div>
             <Divider></Divider>
             <Typography sx={{textAlign:'center'}}>
-              Please try again later
+              {paymentFailureMessage}
             </Typography>
           </Stack>
         </DialogContent>

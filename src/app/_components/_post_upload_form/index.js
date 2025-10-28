@@ -277,7 +277,7 @@ const PostUploadForm = ({ onClose }) => {
                       )}
                       <div style={{display: isUploading ? 'none': 'flex'}}>
                         <UploadMediaWidget onSuccess={thumbnailUploadSuccess} uploadButtonText="Save Post Thumbnail" 
-                          buttonText={thumbnail.trim().length > 0 ? 'Change' : 'Add Thumbnail'} />
+                          buttonText={thumbnail.trim().length > 0 ? 'Change' : 'Add Thumbnail Image'} />
                       </div>
 
                     </div>
