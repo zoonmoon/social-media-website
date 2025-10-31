@@ -15,6 +15,7 @@ export default function LeftSideBar({profileStats,handlFilterReset , handleFeedT
   const sidebarRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("auto");
   const [isHovered, setIsHovered] = useState(false);
+  const[isOverflowing, setIsOverflowing] = useState(false)
 
   useEffect(() => {
     const updateHeight = () => {
@@ -23,6 +24,12 @@ export default function LeftSideBar({profileStats,handlFilterReset , handleFeedT
         const windowHeight = window.innerHeight;
         const calculatedHeight = windowHeight - sidebarTop - 20; // 20px for margin/padding buffer
         setMaxHeight(`${calculatedHeight}px`);
+
+      const el = sidebarRef.current;
+      const isOverflowing = el.scrollHeight > el.clientHeight;
+      setIsOverflowing(isOverflowing)
+      console.log('Sidebar is overflowing:', isOverflowing);
+
       }
     };
 
@@ -36,7 +43,7 @@ export default function LeftSideBar({profileStats,handlFilterReset , handleFeedT
         ref={sidebarRef}
         style={{
             maxHeight,
-            overflowY: isHovered ? "auto":"",
+            overflowY: (isOverflowing && isHovered ) ? "auto" :"hidden",
             paddingRight: "15px",
             transition: "max-height 0.3s ease",
         }}
