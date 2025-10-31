@@ -42,6 +42,7 @@ export default function ArtistsOfMonthPage() {
   const [editArtist, setEditArtist] = useState(null);
 
   const [formData, setFormData] = useState({ username: "", title: "", image_url: "" });
+  
   const [formErrors, setFormErrors] = useState({ username: "", title: "", image_url: "" });
 
   const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
@@ -78,8 +79,8 @@ export default function ArtistsOfMonthPage() {
     }
 
     if (!formData.title.trim()) {
-      errors.title = "Title is required";
-      isValid = false;
+      // errors.title = "Title is required";
+      // isValid = false;
     }
 
     if (formData.image_url && !/^https?:\/\/.+\..+/.test(formData.image_url)) {
@@ -121,7 +122,7 @@ const handleAdd = async () => {
 
 
 const handleEdit = async () => {
-  if (!formData.title.trim() || !formData.username.trim()) {
+  if ( !formData.username.trim()) {
     setFormErrors({
       ...formErrors,
       title: !formData.title.trim() ? "Title is required" : "",
@@ -295,7 +296,7 @@ if (loading) {
           <TextField
             autoFocus
             margin="dense"
-            label="Username"
+            label="Username ( Copy it from artist's profile )"
             fullWidth
             value={formData.username}
             error={!!formErrors.username}

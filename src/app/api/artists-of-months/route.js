@@ -29,7 +29,7 @@ export async function POST(request) {
         const body = await request.json();
         const { username, title, image_url } = body;
 
-        if (!username || !title) {
+        if (!username ) {
             return new Response(JSON.stringify({ success: false, message: "Username and title are required" }), { status: 400 });
         }
 
@@ -41,7 +41,13 @@ export async function POST(request) {
             status: 201,
             headers: { 'Content-Type': 'application/json' }
         });
+
+
+        
     } catch (error) {
+        if(error.message.includes('foreign key')){
+            error.message = "Incorrect username. Please visit artist of the month's profile and copy username."
+        }
         return new Response(JSON.stringify({ success: false, error: error.message }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }

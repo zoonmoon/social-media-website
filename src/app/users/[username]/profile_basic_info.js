@@ -128,14 +128,14 @@ export default function ProfileBasicInfo({username}){
                 </div>
                 {
                     basicInfo.userInfo.bio.trim().length > 0 && (
-                        <div style={{display:'flex', justifyContent:'center'}}>
+                        <div style={{display:'flex', marginBottom:'5px', padding:'5px 20px', justifyContent:'center'}}>
                             {basicInfo.userInfo.bio}
                         </div>
                     )
                 }
 
                 <ProfileStats  data={basicInfo} />
-                <div style={{display:'flex', gap:'30px', justifyContent:'center'}}>
+                <div style={{display:'flex', marginTop:'20px', gap:'30px', justifyContent:'center'}}>
                     {
                         basicInfo.viewing_oneself !== true ? (
                             <Stack direction={'row'} gap={'10px'}>

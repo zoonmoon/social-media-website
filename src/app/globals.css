@@ -85,11 +85,21 @@
     flex: 1;
 }
 
+.left-side-bar:hover{
+    max-height: 70vh;
+    overflow-y: scroll;
+    padding-right: 15px;
+}
+
 /* styles/custom.css */
 @media (min-width: 992px) {
     .left-side-bar{
         width: 250px;
+        position:fixed
     }
+
+
+
 }
 
 .header {

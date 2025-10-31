@@ -198,7 +198,7 @@ export default function LatestArtistOfMonth() {
         </IconButton>
       )}
 
-      <div style={{ textAlign: 'center', display: 'flex',  justifyContent: isMobile?'left':'center', alignItems: 'center', gap: '8px', padding: '10px' }}> 
+      <div onClick={() => router.push("/artists-of-months")} style={{ textAlign: 'center', display: 'flex',  justifyContent: isMobile?'left':'center', alignItems: 'center', gap: '8px', padding: '10px' }}> 
         <Typography variant={'h6'}><strong>Artist of the Month</strong></Typography>
         <LaunchIcon />
       </div>
