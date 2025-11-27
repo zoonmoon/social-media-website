@@ -64,8 +64,8 @@ export async function generateMissingPayPalEmail(toName, toEmail) {
   const settingsUrl = "https://www.yourarton.com/settings/receiving-account";
 
   
-  return {
-    to: toEmail,
+  return await sendEmail( {
+     to: toEmail,
     subject: "Action Required: Set Up Your PayPal Receiving Account",
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -111,5 +111,5 @@ export async function generateMissingPayPalEmail(toName, toEmail) {
         </p>
       </div>
     `
-  };
+});
 }

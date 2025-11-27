@@ -144,3 +144,802 @@
 
 
 
+
+/* Layout */
+.email-composer {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Left panel */
+.composer-panel {
+  flex: 1;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Preview panel */
+.preview-panel {
+  flex: 1;
+  background: #fafafa;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Add Component Button */
+.add-block-btn {
+  padding: 10px 18px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: 0.2s ease;
+}
+
+.add-block-btn:hover {
+  background: #005ec2;
+}
+
+/* Block container */
+.block-item {
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* Block actions */
+.block-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.block-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.block-btn:hover {
+  background: #efefef;
+}
+
+.block-btn.delete {
+  color: #d11a2a;
+  border-color: #d11a2a;
+}
+
+.block-btn.delete:hover {
+  background: #ffe6e6;
+}
+
+/* Text input block */
+.text-block-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  outline: none;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.text-block-input:focus {
+  border-color: #0070f3;
+}
+
+/* RICH TEXT BLOCK */
+.rich-text-block {
+  min-height: 140px;
+  border: 1px solid #ccc;
+  padding: 14px;
+  border-radius: 10px;
+  background: white;
+  font-size: 15px;
+  line-height: 1.6;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.rich-text-block:focus {
+  border-color: #0070f3;
+}
+
+/* Image block */
+.image-preview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+}
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup content */
+.popup-box {
+  background: white;
+  padding: 22px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.popup-box h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.popup-option {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.popup-option:hover {
+  background: #efefef;
+  border-color: #bbb;
+}
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: white;
+  padding: 22px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.popup-option {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.popup-option:hover {
+  background: #efefef;
+  border-color: #bbb;
+}
+
+.email-composer {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.composer-panel {
+  width: 50%;
+}
+
+.preview-panel {
+  width: 50%;
+  border-left: 2px solid #eee;
+  padding-left: 20px;
+}
+
+.add-block-btn {
+  padding: 10px 18px;
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.block-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.block-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.block-btn {
+  padding: 6px 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.block-btn.delete {
+  border-color: #d33;
+  color: #d33;
+}
+
+.preview-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 500px;
+  border: 1px solid #ddd;
+}
+
+.preview-block {
+  margin-bottom: 20px;
+}
+
+.rich-text-block {
+  min-height: 140px;
+  border: 1px solid #ccc;
+  padding: 14px;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.rich-text-block:focus {
+  border-color: #0070f3;
+  background: #fff;
+}
+
+.text-block-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.text-block-input:focus {
+  border-color: #0070f3;
+}
+
+
+.email-composer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 24px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 2/3 width */
+.composer-panel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 1/3 width */
+.preview-panel {
+  flex: 1;
+  border-left: 2px solid #eee;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Blocks */
+.block-item {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Block action buttons */
+.block-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.block-btn {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.block-btn.delete {
+  border-color: #d33;
+  color: #d33;
+}
+
+/* Add button */
+.add-block-btn {
+  padding: 10px 14px;
+  background: #0070f3;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Preview content box */
+.preview-content {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.preview-block {
+  margin-bottom: 20px;
+}
+
+/* Image preview */
+.image-preview {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.richtext-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.richtext-toolbar button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+
+.toolbar-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toolbar-btn.active {
+  background: #0070f3;
+  border-color: #0070f3;
+  color: white;
+}
+
+/* Fixed Bottom Bar */
+.composer-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+
+  background: #ffffff;
+  border-top: 1px solid #ddd;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  z-index: 9999;
+  padding: 0 20px;
+}
+
+/* Divider line between buttons */
+.bottom-divider {
+  width: 1px;
+  height: 60%;
+  background: #ccc;
+}
+
+/* Buttons */
+.bottom-btn {
+  padding: 10px 22px;
+  height: 36px;
+
+  background: #0070f3;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.bottom-btn:hover {
+  background: #0059c9;
+}
+
+.preview-btn {
+  background: #00a86b;
+}
+
+.preview-btn:hover {
+  background: #008a57;
+}
+
+/* Entire layout */
+.email-composer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* LEFT SIDE (scrolls) */
+.composer-panel {
+  flex: 2;
+  padding-right: 20px;
+  padding-bottom: 80px; /* for bottom bar */
+}
+
+/* RIGHT SIDE FIXED */
+.preview-panel-fixed {
+  position: fixed;
+  right: 0;
+  top: 150;
+
+  width: 33%;
+  height: 300px;
+
+  background: #fafafa;
+  border-left: 2px solid #eee;
+
+  padding: 20px;
+  overflow-y: auto;
+
+  box-sizing: border-box;
+}
+
+/* Content box inside preview */
+.preview-content-fixed {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  /* min-height: 400px; */
+}
+
+/* Blocks inside preview */
+.preview-block {
+  margin-bottom: 20px;
+}
+
+/* Make room on the left so composer panel doesn’t hide behind sidebar */
+.composer-panel {
+  width: 400px!important;
+}
+
+
+/* Whole layout */
+.email-composer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* LEFT PANEL (scrolling) – FIXED */
+.composer-panel {
+  margin-right: 33%;       /* MAKE SPACE FOR FIXED PREVIEW */
+  padding-right: 20px;
+  padding-bottom: 80px;    /* space for bottom bar */
+  box-sizing: border-box;
+}
+
+/* RIGHT FIXED PREVIEW */
+.preview-panel-fixed {
+  position: fixed;
+  right: 0;
+  top: 150;
+
+  width: 33%;
+  height: 70vh;
+
+  background: #fafafa;
+  border-left: 2px solid #eee;
+
+  padding: 20px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+/* Preview inner content */
+.preview-content-fixed {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.preview-block {
+  margin-bottom: 20px;
+}
+
+
+/* OVERLAY */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  z-index: 99999;
+}
+
+/* MODAL BOX */
+.modal-box {
+  background: white;
+  width: 700px;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+/* LABEL */
+.modal-label {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* SUBJECT INPUT */
+.modal-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* PREVIEW AREA */
+.modal-preview {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 300px;
+  margin-bottom: 90px; /* space for fixed button */
+}
+
+/* FIXED BOTTOM BAR */
+.modal-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background: white;
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* CONFIRM BUTTON */
+.modal-confirm-btn {
+  padding: 12px 24px;
+  background: #008f4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-confirm-btn:hover {
+  background: #00763f;
+}
+
+
+/* DARK BACKDROP — THIS SCROLLS (NOT THE MODAL CONTENT) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+
+  overflow-y: auto;         /* <--- SCROLL HERE, NOT INSIDE BOX */
+  padding: 40px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  z-index: 99999;
+}
+
+/* CLEAN WHITE MODAL BOX */
+.modal-box {
+  background: white;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+/* LABEL */
+.modal-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* SUBJECT INPUT */
+.modal-input {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* PREVIEW CONTENT INSIDE */
+.modal-preview {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 300px;
+  width:100%;
+  margin-bottom: 150px;
+  box-sizing: border-box;
+}
+
+/* FIXED BOTTOM BUTTON INSIDE BOX */
+.modal-bottom-bar {
+  position: fixed;
+  bottom: 50;
+
+  padding: 15px 0;
+  background: white;
+
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+/* SEND BUTTON */
+.modal-confirm-btn {
+  background: #008f4f;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-confirm-btn:hover {
+  background: #00763f;
+}
+
+
+/* SUCCESS SCREEN */
+.success-wrapper {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.success-icon {
+  width: 90px;
+  height: 90px;
+  background: #28c76f;
+  color: white;
+  border-radius: 50%;
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-close-btn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* SENDING SPINNER */
+.sending-wrapper {
+  text-align: center;
+  padding: 40px;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #0070f3;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

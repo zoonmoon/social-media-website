@@ -78,29 +78,12 @@ export  async function POST(req) {
             
             const results_paypal_not_set = await executeQuery(connection, query_paypal_not_set);
 
-
-            const query3 = `SELECT * from users WHERE username="${artistId}"
-            `;
-            
-            const results3 = await executeQuery(connection, query3);
-
-            if(results3.length > 0) {
-                let usremail = results3[0].email
-                if(usremail){
-                    if(usremail.trim().length > 0){
-                        await generateMissingPayPalEmail(results2[0].name, usremail)
-                    }
-                }
-            }
-
-
-
             throw new Error("Receiveing artist does not have their paypal email set")
         
         }
 
         await sendMoney(paypalBillingEmailOfReceiver, finalAmount, connection, artistId)
-
+        
 
         const query = `INSERT INTO supports (
                 supported_by,
@@ -123,6 +106,8 @@ export  async function POST(req) {
         });
 
     } catch (err) {
+
+        console.log("hellor bro")
 
         return new Response(JSON.stringify({ success: false, msg: err.message  }), {
             headers: {

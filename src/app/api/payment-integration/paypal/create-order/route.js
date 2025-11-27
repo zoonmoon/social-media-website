@@ -1,7 +1,7 @@
 import paypal from '@paypal/checkout-server-sdk';
 
 import { databaseConnection, getLoggedInUsername, executeQuery } from '@/app/api/utils';
-
+import { generateMissingPayPalEmail } from '@/app/api/utils/email';
 
 const environment = new paypal.core.LiveEnvironment(
     process.env.PAYPAL_CLIENT_ID,
@@ -11,7 +11,6 @@ const environment = new paypal.core.LiveEnvironment(
 const client = new paypal.core.PayPalHttpClient(environment);
 
 
-import logger from '@/app/api/utils/logger';
 
 export  async function POST(req) {
 
@@ -42,22 +41,56 @@ export  async function POST(req) {
 
         connection = await databaseConnection() 
 
-        const query = `SELECT paypal_billing_email from user_more_info WHERE username="${artistId}"
+        const query = `SELECT * from user_more_info WHERE username="${artistId}"
         `;
 
         const results = await executeQuery(connection, query);
 
-        if(results.length == 0) 
-          throw new Error("This artist cannot receive support at the moment. We've notified them about the issue. Thank you for supporting our artists.");
+        if(results.length == 0){
+        
 
+      
+
+            throw new Error("This artist cannot receive support at the moment. We've notified them about the issue. Thank you for supporting our artists.");
+        
+        }
         
             console.log(results)
 
         const paypalBillingEmailOfReceiver = results[0].paypal_billing_email
 
-        if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == "")
+        if(paypalBillingEmailOfReceiver == null || paypalBillingEmailOfReceiver == ""){
+
+
+    const query3 = `SELECT * from users WHERE username="${artistId}"
+            `;
+            
+            const results3 = await executeQuery(connection, query3);
+
+            if(results3.length > 0) {
+                let usremail = results3[0].email
+                if(usremail){
+                    if(usremail.trim().length > 0){
+                        await generateMissingPayPalEmail(results[0].name || 'User', usremail)
+                                                          console.log("payement email insert alret success inner if")
+                            console.log("sending emial to", usremail)
+                    }else{
+                                                          console.log("payement email insert if if if alret failed inner if")
+
+                    }
+
+                }else{
+                                  console.log("payement email insert alret failed inner if")
+  
+                }
+            }else{
+                console.log("payement email insert alret failed")
+            }
 
               throw new Error("This artist cannot receive support at the moment. We've notified them about the issue. Thank you for supporting our artists.");
+
+        }
+
         
 
         if(!token_exists) throw new Error("Please login to support artists")
@@ -73,7 +106,7 @@ export  async function POST(req) {
 
     } catch (err) {
 
-        logger.info(err.message)
+        console.log(err)
 
         return new Response(JSON.stringify({ success: false, msg: err.message  }), {
             headers: {

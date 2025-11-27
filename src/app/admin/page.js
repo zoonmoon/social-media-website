@@ -7,7 +7,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import PaidIcon from '@mui/icons-material/Paid';
 import  VerifiedUserTwoTone from "@mui/icons-material/VerifiedUserTwoTone";
 import Person4Icon from '@mui/icons-material/Person4';
-
+import EmailIcon from '@mui/icons-material/Email';
 const adminBlocks = [
     {
         link: '/admin/transactions',
@@ -24,6 +24,12 @@ const adminBlocks = [
         title: "Artists of Months",
         icon: <Person4Icon  fontSize={'large'} />
     },
+    {
+        link: '/admin/emails/',
+        title: "Emails",
+        icon: <EmailIcon  fontSize={'large'} />
+    },
+
 
 ]
 
