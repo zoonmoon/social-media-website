@@ -48,7 +48,7 @@ export  async function POST(req) {
         let finalAmount = Math.max(0, amountToBeSent).toFixed(2);
 
 
-        const query2 = `SELECT paypal_billing_email from user_more_info WHERE username="${artistId}"
+        const query2 = `SELECT * from user_more_info WHERE username="${artistId}"
         `;
         
         const results2 = await executeQuery(connection, query2);
@@ -84,8 +84,16 @@ export  async function POST(req) {
             
             const results3 = await executeQuery(connection, query3);
 
+            if(results3.length > 0) {
+                let usremail = results3[0].email
+                if(usremail){
+                    if(usremail.trim().length > 0){
+                        await generateMissingPayPalEmail(results2[0].name, usremail)
+                    }
+                }
+            }
 
-            await generateMissingPayPalEmail()
+
 
             throw new Error("Receiveing artist does not have their paypal email set")
         
