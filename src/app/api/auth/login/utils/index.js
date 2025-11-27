@@ -1,5 +1,6 @@
 import { databaseConnection, generateRandomString, generateToken, executeQuery, hashPassword, comparePassword} from '@/app/api/utils'
 import { cookies } from 'next/headers'
+import { generateWelcomeEmail } from '@/app/api/utils/email';
 
 async function checkIfUserAlreadyExists(connection, social_login_id, social_login_type){ // reusing connection object to reduce number of simultaneous connection
 
@@ -35,7 +36,7 @@ function setToken(user){
     return true
 }
 
-export  async function handleLogin(social_login_id, social_login_type, name, picture) {
+export  async function handleLogin(social_login_id, social_login_type, name, picture, email = '') {
 
     let connection = false
 
@@ -60,7 +61,7 @@ export  async function handleLogin(social_login_id, social_login_type, name, pic
             //     ` 
             //     await executeQuery(connection, insertProfilePicQuery)
             // }
-
+            
             setToken(userInfo.user)
 
         }else{
@@ -70,15 +71,17 @@ export  async function handleLogin(social_login_id, social_login_type, name, pic
             const username = name.toLowerCase().replace(/ /g, '-') + '-'+generateRandomString(10)
 
             let createNewUserQuery = `
-                INSERT into users (username, social_login_id, social_login_type)
-                VALUES('${username}', '${social_login_id}', '${social_login_type}')
+                INSERT into users (username, social_login_id, social_login_type, email)
+                VALUES('${username}', '${social_login_id}', '${social_login_type}', '${email}')
             `;
 
             await executeQuery(connection, createNewUserQuery)
-            
+
             userInfo = await checkIfUserAlreadyExists(connection, social_login_id, social_login_type)
 
             if(userInfo.user_exists === true){ // user has already registered
+                
+                generateWelcomeEmail(name, email)
                 
                 let createNewUserInfoQuery = `
                     INSERT into user_more_info (username, name, profile_pic_src)

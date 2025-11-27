@@ -16,9 +16,9 @@ export  async function POST(request) {
         });
         
         // Get the user information from the payload
-        const {sub, name, picture} = ticket.getPayload(); // sub is id of that user in google platform
+        const {sub, name, picture, email} = ticket.getPayload(); // sub is id of that user in google platform
         
-        const loggedIn = await handleLogin(sub, 'google', name, '')
+        const loggedIn = await handleLogin(sub, 'google', name, '', email)
         
         if(loggedIn === true){
 
