@@ -62,7 +62,8 @@ export async function generateWelcomeEmail(toName, toEmail) {
 
 export async function generateMissingPayPalEmail(toName, toEmail) {
   const settingsUrl = "https://www.yourarton.com/settings/receiving-account";
-    
+
+  
   return {
     to: toEmail,
     subject: "Action Required: Set Up Your PayPal Receiving Account",
