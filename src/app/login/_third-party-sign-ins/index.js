@@ -51,7 +51,19 @@ export default function ThirdPartySignIns(){
     
             if (result.success === true ) {
                 toast("Login successful");
-                window.location.href ="/feed"
+                
+                const params = new URLSearchParams(window.location.search);
+                
+                if (params.has("on_login_redirect_to")) {
+                    const redirectTo = params.get("on_login_redirect_to");
+                    console.log("Redirect param exists:", redirectTo);
+                    window.location.href=redirectTo
+                }else{
+                    window.location.href ="/feed"
+                }
+
+                
+
             } else {
                 throw new Error('Login Failed')
             }

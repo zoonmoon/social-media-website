@@ -33,9 +33,16 @@ export default function GoogleSignInButton() {
     
       toast("Login successful, redirecting...")
 
+                const params = new URLSearchParams(window.location.search);
 
-      window.location.href = '/feed';
-      
+        if (params.has("on_login_redirect_to")) {
+            const redirectTo = params.get("on_login_redirect_to");
+            console.log("Redirect param exists:", redirectTo);
+            window.location.href=redirectTo
+        }else{
+            window.location.href ="/feed"
+        }
+
     
 
     }catch(error){

@@ -11,7 +11,7 @@ export default function User({params}){
 
     const [paypal_billing_email, setPaypalBillingEmail] = useState('')
     const [isLoading, setIsLoading] = useState(true) 
-
+    const [isSuccess, setIsSuccess] = useState(true)
     const [isSaving, setIsSaving] = useState(false)
 
     useEffect(()=> {
@@ -22,7 +22,10 @@ export default function User({params}){
                 const response = await fetch('/api/settings/receiving-account')
                 const paypal_billing_email_json = await response.json()
                 setPaypalBillingEmail(paypal_billing_email_json.paypal_billing_email)
-
+                if(paypal_billing_email_json?.msg == "Please log in"){
+                    setIsSuccess(false)
+                    window.location.href ="/login?on_login_redirect_to=/settings/receiving-account"
+                }
             }catch(error){
                 
             }finally{
@@ -34,7 +37,7 @@ export default function User({params}){
 
     }, [])
 
-    if(isLoading){
+    if(isLoading || !isSuccess){
         return <h1>Please Wait</h1>
     }
 
