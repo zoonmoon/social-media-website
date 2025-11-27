@@ -59,3 +59,56 @@ export async function generateWelcomeEmail(toName, toEmail) {
     html
   });
 }
+
+export async function generateMissingPayPalEmail(toName, toEmail) {
+  const settingsUrl = "https://www.yourarton.com/settings/receiving-account";
+    
+  return {
+    to: toEmail,
+    subject: "Action Required: Set Up Your PayPal Receiving Account",
+    html: `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2>Hello ${toName},</h2>
+        
+        <p>
+          Someone recently attempted to support you on <strong>YourArton.com</strong>, 
+          but we could not process the contribution because your 
+          <strong>PayPal receiving account is not set up yet</strong>.
+        </p>
+
+        <p>
+          To start receiving support from your fans and community, 
+          please add your PayPal email address to your receiving account settings.
+        </p>
+
+        <p>
+          Simply follow the link below to update your receiving account 
+          and enable supporters to send you money.
+        </p>
+
+        <div style="margin: 30px 0;">
+          <a 
+            href="${settingsUrl}" 
+            style="
+              background-color: #4CAF50;
+              color: white;
+              padding: 12px 20px;
+              text-decoration: none;
+              border-radius: 6px;
+              font-weight: bold;
+            "
+          >
+            Set Up PayPal Receiving Account
+          </a>
+        </div>
+
+       
+
+        <p style="margin-top: 40px;">
+          Best regards,<br/>
+          <strong>YourArton Team</strong>
+        </p>
+      </div>
+    `
+  };
+}

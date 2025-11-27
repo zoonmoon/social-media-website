@@ -2,6 +2,7 @@ import paypal from '@paypal/checkout-server-sdk';
 import { databaseConnection, executeQuery, getLoggedInUsername } from '@/app/api/utils';
 
 import { sendMoney } from '../send-fund';
+import { generateMissingPayPalEmail } from '@/app/api/utils/email';
 
 const environment = new paypal.core.LiveEnvironment(
     process.env.PAYPAL_CLIENT_ID,
@@ -76,6 +77,15 @@ export  async function POST(req) {
             `;
             
             const results_paypal_not_set = await executeQuery(connection, query_paypal_not_set);
+
+
+            const query3 = `SELECT * from users WHERE username="${artistId}"
+            `;
+            
+            const results3 = await executeQuery(connection, query3);
+
+
+            await generateMissingPayPalEmail()
 
             throw new Error("Receiveing artist does not have their paypal email set")
         
