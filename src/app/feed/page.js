@@ -201,7 +201,7 @@ history.replaceState(null, "", "/");
           </Grid>
           <Grid item xs={12} md={6}>
 
-              <Paper sx={{paddingTop: {md: '20px', xs: '20px'}, paddingBottom: '20px', paddingLeft: '20px', paddingRight:'20px' }}>
+              <Paper sx={{display: {xs:'none', md: 'block'}, paddingTop: {md: '20px', xs: '20px'}, paddingBottom: '20px', paddingLeft: '20px', paddingRight:'20px' }}>
                 <PostUploadFormInitiator data={profileStats} handlePostUploadFormDisplay={handlePostUploadFormDisplay} />
               </Paper>
               <Divider sx={{marginBottom: '20px'}} />
