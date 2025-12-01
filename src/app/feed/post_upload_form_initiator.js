@@ -10,6 +10,8 @@ import Link from 'next/link';
 
 export default function PostUploadFormInitiator({handlePostUploadFormDisplay, data}){
 
+    console.log(data)
+
     if(data?.is_logged_in === false){
         return <div style={{textAlign:'center'}}>
             <h1>Join Our Art Community Network</h1>
@@ -39,14 +41,17 @@ export default function PostUploadFormInitiator({handlePostUploadFormDisplay, da
                 <Grid item xs onClick={handlePostUploadFormDisplay}>
                     {
                         data?.userInfo?.profile_pic_src ? (
-                            <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
-                                <div class="light-bg-on-hover" style={{flexGrow:'1', padding:'12px 20px', curspor:'pointer', border:'1px solid rgba(0, 0, 0, 0.5)', borderRadius: '35px'}} >
-                                    What do you positively think about this art?
-                                </div>
-                                <div>
-                                    <img style={{borderRadius:'50%', cursor:'pointer'}} width={'50px'} src="/site-assets/upload-icon.jpg" />
+                            <div>
+                                <div style={{ marginBottom:'10px', textAlign:'center'}}>Upload your art here, {data?.userInfo?.name?.split(" ")?.[0] || "friend"}.</div>
+                                <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
+                                    <div class="light-bg-on-hover" style={{flexGrow:'1', textAlign:'center',  padding:'12px 20px', curspor:'pointer', border:'1px solid rgba(0, 0, 0, 0.5)', borderRadius: '35px'}} >
+                                        
+                                        What do you positively think about this art, {data?.userInfo?.name?.split(" ")?.[0] || "friend"}?
+                                    </div>
+                                 
                                 </div>
                             </div>
+        
                         ): (
                             <Skeleton variant="rounded" width={'100'} height={50} />
                         )
