@@ -47,7 +47,11 @@ export default function BlogPost({blogPost}) {
 
   return (
     <Card>
-      <Link href={'/blogs/'+blogPost.slug} style={{textDecoration:'none', color:'unset'}}>
+      <Link 
+  href={`/blogs/${encodeURIComponent(blogPost.slug)}`} 
+  style={{ textDecoration: 'none', color: 'unset' }}
+>
+
       <CardMedia
         component="img"
         alt="green iguana"
