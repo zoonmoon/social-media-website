@@ -27,11 +27,16 @@ export async function POST(request, {params}){
         
         const thumbnail = data.get('thumbnail')
         
-        if(slug == 'new' || slug == '' || slug == 'null' || !slug){
+        if (!slug || slug === 'new' || slug === '' || slug === 'null') {
 
-            slug = title.toLowerCase().replace(/ /g, '-') + '-'+generateRandomString(5)
-
+            slug = title
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9]+/g, '-')   // replace all non-alphanumeric with hyphen
+                .replace(/^-+|-+$/g, '')       // remove starting/ending hyphens
+                + '-' + generateRandomString(5);
         }
+
 
         let query = `
             INSERT INTO blogs (slug, title, content, author, status, thumbnail)
