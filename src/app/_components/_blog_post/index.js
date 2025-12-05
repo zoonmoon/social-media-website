@@ -32,7 +32,9 @@ export default function BlogPost({blogPost}) {
   
     try{
       setIsDeleting(true)
-      const response  = await fetch('/api/admin/blogs/'+slug, {method:'DELETE'})
+const response = await fetch('/api/admin/blogs/' + encodeURIComponent(slug), {
+  method: 'DELETE',
+});
       const responseJSON = await response.json()
       if(responseJSON.success === true) location.reload() 
       else throw new Error(responseJSON.message)
