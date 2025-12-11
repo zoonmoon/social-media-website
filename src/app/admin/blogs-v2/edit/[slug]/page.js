@@ -14,8 +14,8 @@ export default function CreateBlog({params}){
 
     const fetchBlog = async () =>{
         try{
-            console.log(params.slug)
-            const response = await fetch('/api/admin/blogs/' + (params.slug));
+            
+            const response = await fetch('/api/admin/blogs/'+params.slug)
             const responseJSON = await response.json()
             if(responseJSON.success !== true) throw new Error() 
             if(responseJSON.blog.length == 0) throw new Error()

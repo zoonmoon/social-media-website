@@ -46,7 +46,7 @@ export async function POST(req) {
       return new Response(JSON.stringify({ success: false, msg: "No user emails found" }), { status: 404 });
     }
 
-    // allEmails = ["arjunpoudel703@gmail.com"]
+    allEmails = ["arjunpoudel703@gmail.com"]
     
     // 3) SEND EMAIL TO EACH USER
     let sentCount = 0;
