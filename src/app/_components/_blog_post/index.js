@@ -74,7 +74,7 @@ const response = await fetch('/api/admin/blogs/' + encodeURIComponent(slug), {
         blogPost.editable && (
           <CardActions>
             <Link  href = {'/admin/blogs/edit/'+encodeURIComponent(blogPost.slug)}><Button disabled={isDeleting} size="small">Edit</Button></Link>
-            <Button disabled={isDeleting} size="small" onClick={() => deleteBlog(encodeURIComponent(blogPost.slug))}>Delete</Button>
+            <Button disabled={isDeleting} size="small" onClick={() => deleteBlog(blogPost.slug)}>Delete</Button>
           </CardActions>
         )
       }
