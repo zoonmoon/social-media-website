@@ -30,7 +30,7 @@ const BlogDetail = ({ blog }) => {
 
   return (
       <Paper  elevation={3} sx={{ borderRadius: 3, overflow: 'hidden' }}>
-        {
+        {/* {
             (thumbnail !== '' && thumbnail !== null ) && (
                 <Box
                 component="img"
@@ -43,7 +43,7 @@ const BlogDetail = ({ blog }) => {
                 }}
               />
             )
-        }
+        } */}
 
         <Box p={4}>
           <Typography variant="h3" fontWeight={600} gutterBottom>
@@ -52,7 +52,7 @@ const BlogDetail = ({ blog }) => {
 
           <Box display="flex" alignItems="center" mb={2}>
             <Box>
-              <Link style={{color:'unset'}} href={'/users/'+author}><Typography variant="subtitle2">@{author}</Typography></Link>
+              {/* <Link style={{color:'unset'}} href={'/users/'+author}><Typography variant="subtitle2">@{author}</Typography></Link> */}
               <Typography variant="caption" color="text.secondary">
                 {new Date(created_at).toLocaleDateString()}
               </Typography>
@@ -136,7 +136,7 @@ const BlogPage = ({params}) => {
 
        return(
         <>
-            <Header />
+            
             <Container maxWidth={'lg'} sx={{marginTop:'20px', marginBottom:'100px'}}>
                              <div style={{position:'fixed', zIndex:-1, top:0, left:0 , width:'100%', height: '100%', backgroundSize:'cover', backgroundImage: 'url("/site-assets/feed-bg.jpg")', backgroundRepeat:'repeat'}}>
                 </div>

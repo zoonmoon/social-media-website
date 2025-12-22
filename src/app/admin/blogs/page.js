@@ -60,7 +60,7 @@ export default function Blogs(){
                     <Typography variant="h5">Blogs</Typography>
                     {
                         hasAccess && (
-                            <Link href={'/admin/blogs/create'}>
+                            <Link href={'/admin/blogs-v2/create'}>
                                 <Button>Create New Blog</Button>
                             </Link>
                         )

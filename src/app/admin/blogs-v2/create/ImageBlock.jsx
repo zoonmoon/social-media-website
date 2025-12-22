@@ -1,12 +1,13 @@
 import UploadMediaWidget from "@/app/_components/_media-upload";
 
-export default function ImageBlock({ id, content, onChange }) {
+export default function ImageBlock({ id, content, onChange, label='' }) {
   const handleSuccess = (url) => {
     onChange(id, url);
   };
 
   return (
     <div className="image-block">
+      {label?.trim()?.length > 0 ? <div><strong>{label}</strong></div> : <></> }
       {content ? (
         <div>
         <img

@@ -89,7 +89,7 @@ const Header = () => {
 
       
       <ListItem button>
-        <Link href="/blogs" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+        <Link href="/blogs-v2" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Blogs" />
         </Link>
       </ListItem>

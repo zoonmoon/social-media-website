@@ -1,13 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-export default function PreviewModal({id, blocks, html, onClose }) {
+export default function PreviewModal({id, blocks, html, title, meta_title, thumbnail, meta_description, onClose }) {
   const [subject, setSubject] = useState("");
   const [status, setStatus] = useState("editing"); 
 
   // editing | sending | success
   const [successInfo, setSuccessInfo] = useState({
-    total_users: 0,
     message: ""
   });
 
@@ -18,8 +17,8 @@ export default function PreviewModal({id, blocks, html, onClose }) {
   }, []);
   
 const handleSend = async () => {
-  if (!subject.trim()) {
-    alert("Subject is required!");
+  if (!title?.trim()) {
+    alert("Title is required!");
     return;
   }
 
@@ -28,35 +27,46 @@ const handleSend = async () => {
   setStatus("sending");
 
   try {
+    const isUpdate = Boolean(id);
+
     const res = await fetch("/api/admin/blogs-v2", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ subject, html }),
+      method: isUpdate ? "PUT" : "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: isUpdate ? id : undefined,
+        title,
+        meta_title,
+        meta_description,
+        thumbnail,
+        html,
+        blocks,
+      }),
     });
 
     const data = await res.json();
 
-    if (!data.success) {
+    if (!res.ok || !data.success) {
       console.error(data);
-      alert("Error: " + data.msg);
+      alert(data.msg || "Error publishing blog");
       setStatus("editing");
       return;
     }
 
-    // STORE DETAILS TO DISPLAY
     setSuccessInfo({
-      total_users: data.total_users || 0,
-      message: data.message || "Success"
+      message: data.message || "Success",
     });
 
     setStatus("success");
 
   } catch (err) {
     console.error(err);
-    alert("Network error sending emails.");
+    alert("Network error publishing blog.");
     setStatus("editing");
   }
 };
+
 
 
   return (
@@ -69,10 +79,8 @@ const handleSend = async () => {
 {status === "success" && (
   <div className="success-wrapper">
     <div className="success-icon">✓</div>
-    <h2>Email Sent Successfully!</h2>
-    <p><strong>Delivered to {successInfo.total_users} users.</strong></p>
-
-    <button className="modal-close-btn" onClick={onClose}>
+    <h2>Blog published Successfully!</h2>
+    <button className="modal-close-btn" onClick={() => window.location.reload()}>
       Close
     </button>
   </div>
@@ -85,7 +93,7 @@ const handleSend = async () => {
         {status === "sending" && (
           <div className="sending-wrapper">
             <div className="loader"></div>
-            <h3>Sending email...</h3>
+            <h3>Publishing...</h3>
           </div>
         )}
 
@@ -94,25 +102,14 @@ const handleSend = async () => {
         {/* ----------------------------------------------------- */}
         {status === "editing" && (
           <>
-            <h2>Email Preview</h2>
-
-            <label className="modal-label">Email Subject *</label>
-            <input
-              className="modal-input"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              placeholder="Enter subject..."
-            />
-
+            <h2>Blog Preview</h2>
             <div
-                
               className="modal-preview"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-
             <div className="modal-bottom-bar">
               <button className="modal-confirm-btn" onClick={handleSend}>
-                Confirm Send
+                Continue
               </button>
             </div>
           </>

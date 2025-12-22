@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useEffect, useState } from "react";
 
-export default function RichTextBlock({ id, content, onChange }) {
+export default function RichTextBlock({ id, content, onChange, label='' }) {
   const ref = useRef();
 
   const [isBold, setIsBold] = useState(false);
@@ -88,6 +88,7 @@ export default function RichTextBlock({ id, content, onChange }) {
 
   return (
     <div className="richtext-wrapper">
+      {label !='' ?<div style={{marginBottom:'15px'}}><strong>{label}</strong></div>: <></>}
       <div className="richtext-toolbar">
 
         <button

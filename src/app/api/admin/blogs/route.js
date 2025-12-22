@@ -9,7 +9,7 @@ export async function GET(request){
     try{
         
         let query = `
-            SELECT id, title, slug, author, created_at, status, thumbnail FROM blogs ORDER BY created_at DESC LIMIT 20
+            SELECT id, version, title, slug, author, created_at, status, thumbnail FROM blogs ORDER BY created_at DESC LIMIT 20
         `
 
         connection = await databaseConnection()

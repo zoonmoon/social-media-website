@@ -46,14 +46,20 @@ const response = await fetch('/api/admin/blogs/' + encodeURIComponent(slug), {
     }
   }
 
+  var href = blogPost.version == 1
+    ? `/blogs/${encodeURIComponent(blogPost.slug)}`
+    : `/blogs-v2/${encodeURIComponent(blogPost.slug)}`
+
+    var editHref = blogPost.version == 1
+    ? '/admin/blogs/edit/'+encodeURIComponent(blogPost.slug)
+    : '/admin/blogs-v2/edit/'+encodeURIComponent(blogPost.slug)
 
   return (
     <Card>
       <Link 
-  href={`/blogs/${encodeURIComponent(blogPost.slug)}`} 
-  style={{ textDecoration: 'none', color: 'unset' }}
->
-
+      href={href} 
+      style={{ textDecoration: 'none', color: 'unset' }}
+    >
       <CardMedia
         component="img"
         alt="green iguana"
@@ -63,7 +69,6 @@ const response = await fetch('/api/admin/blogs/' + encodeURIComponent(slug), {
           : blogPost.thumbnail
         }
       />
-      
       <CardContent>
         <Typography gutterBottom variant={'body1'} component="div">
           {blogPost.title}
@@ -73,12 +78,11 @@ const response = await fetch('/api/admin/blogs/' + encodeURIComponent(slug), {
       {
         blogPost.editable && (
           <CardActions>
-            <Link  href = {'/admin/blogs/edit/'+encodeURIComponent(blogPost.slug)}><Button disabled={isDeleting} size="small">Edit</Button></Link>
+            <Link  href = {editHref}><Button disabled={isDeleting} size="small">Edit</Button></Link>
             <Button disabled={isDeleting} size="small" onClick={() => deleteBlog(blogPost.slug)}>Delete</Button>
           </CardActions>
         )
       }
-
     </Card>
   );
 }
