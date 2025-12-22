@@ -107,7 +107,6 @@ export async function PUT(req) {
     const query = `
       UPDATE blogs SET
         title = ${connection.escape(title)},
-        slug = ${connection.escape(slug)},
         content = ${connection.escape(html)},
         author = ${connection.escape(author)},
         status = 'published',
