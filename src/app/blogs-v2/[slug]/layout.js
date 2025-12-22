@@ -17,18 +17,28 @@ const url =  (new URL(`/api/admin/blogs-v2/${slug}`, baseUrl)).href
 
 
 //  console.log(post)
-  if(posts.length == 0){
+  if(posts.blog.length == 0){
     return {
       title: '404 Not Found',
       description: 'The blog has been deleted',
     }
   }
 
-  let blogPost = posts[0]
+
+  console.log(posts)
+
+  let blogPost = posts.blog[0]
+
 
   let post = blogPost
 //   let ogImage = ''
-  let thumbnail = post?.thumbnail
+  
+
+console.log("hello arjun ")
+
+console.log(blogPost)
+
+let thumbnail = post?.thumbnail
 
  
   
