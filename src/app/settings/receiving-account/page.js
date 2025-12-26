@@ -85,7 +85,7 @@ export default function User({params}){
             </Box>
 
             <Divider sx={{margin:'20px 0'}}/>
-                    <Link href={'/blogs/earn-money-online-here-5ih3z'}>
+                    <Link href={'/blogs-v2/earn-money-online-here-creatives'}>
       <Button variant={'plain'}>How to Earn Income</Button>
     </Link>
 

@@ -64,7 +64,7 @@ const Header = () => {
       </ListItem>
 
       <ListItem button>
-        <Link href="/blogs/earn-money-online-here-5ih3z" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+        <Link href="/blogs-v2/earn-money-online-here-creatives" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Earn Income" />
         </Link>
       </ListItem>
@@ -181,7 +181,7 @@ const Header = () => {
               </Button>
             </Link>    
 
-            <Link href="/blogs/earn-money-online-here-5ih3z" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link href="/blogs-v2/earn-money-online-here-creatives" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 Earn Income
               </Button>
