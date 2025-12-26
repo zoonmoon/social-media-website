@@ -89,6 +89,7 @@ export default function User({params}){
       <Button variant={'plain'}>How to Earn Income</Button>
     </Link>
 
+
         </Paper>
     )
 }
