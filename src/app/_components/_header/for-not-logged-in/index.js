@@ -36,7 +36,7 @@ const LoggedOutHeader = () => {
         </Link>
       </ListItem>
       <ListItem button>
-        <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/blogs/earn-money-online-here-5ih3z">
+        <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/blogs-v2/earn-money-online-here-creatives">
           <ListItemText primary="Earn Income" />
         </Link>
       </ListItem>
@@ -129,7 +129,7 @@ const LoggedOutHeader = () => {
                 </Button>
               </Link>
 
-              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/blogs/earn-money-online-here-5ih3z'}>
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/blogs-v2/earn-money-online-here-creatives'}>
                 <Button variant='plain' sx={{ margin: '0 10px' }}>
                   Earn Income
                 </Button>

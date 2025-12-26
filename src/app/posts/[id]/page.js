@@ -77,7 +77,7 @@ export default function ViewProfile({params}){
               <Button fullWidth onClick={() => window.location.href='/users/'+post.posted_by_username}>View profile</Button>
             </div>
             <div>
-                  <Link href={'/blogs/earn-money-online-here-5ih3z'}>
+                  <Link href={'/blogs-v2/earn-money-online-here-creatives'}>
       <Button>Earn Income</Button>
     </Link>
             </div>
