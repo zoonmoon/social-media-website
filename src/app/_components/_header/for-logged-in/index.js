@@ -113,6 +113,12 @@ const Header = () => {
       </ListItem>
 
       <ListItem button>
+        <Link href="/pages/faq" style={{ textDecoration: 'none',width: '100%', color: 'inherit' }}>
+          <ListItemText primary="FAQs" />
+        </Link>
+      </ListItem>
+
+      <ListItem button>
         <Link href="/pages/privacy-policy" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Privacy Policy" />
         </Link>
@@ -174,7 +180,7 @@ const Header = () => {
 
         {/* Menu items in the center (only shown on larger screens) */}
         {!isMobile && (
-          <Container maxWidth="md" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Link href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 Feed
@@ -223,6 +229,14 @@ const Header = () => {
                 Be the One
               </Button>
             </Link>
+
+
+            <Link href="/pages/faq" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button variant="plain" sx={{ margin: '0 10px' }}>
+                FAQs
+              </Button>
+            </Link>
+
           </Container>
         )}
 

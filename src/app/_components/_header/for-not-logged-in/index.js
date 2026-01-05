@@ -64,7 +64,11 @@ const LoggedOutHeader = () => {
         </Link>
       </ListItem>
 
-
+      <ListItem button>
+        <Link href="/pages/faq" style={{ textDecoration: 'none',width: '100%', color: 'inherit' }}>
+          <ListItemText primary="FAQs" />
+        </Link>
+      </ListItem>
       <ListItem button>
         <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Privacy Policy" />
@@ -121,7 +125,7 @@ const LoggedOutHeader = () => {
 
         {/* Only show menu items in the center for larger screens */}
         {!isMobile && (
-          <Container maxWidth="md" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <div>
               <Link style={{ textDecoration: 'none', color: 'black' }} href={'/feed'}>
                 <Button variant='plain' sx={{ margin: '0 10px' }}>
@@ -153,6 +157,14 @@ const LoggedOutHeader = () => {
                   Be the One
                 </Button>
               </Link>
+
+              <Link href="/pages/faq" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Button variant="plain" sx={{ margin: '0 10px' }}>
+                  FAQs
+                </Button>
+              </Link>
+
+              
               {/* Log In Button wrapped in Link */}
               <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
                 <Button variant={'solid'} sx={{ marginLeft: '10px', minWidth: '100px' }}>
