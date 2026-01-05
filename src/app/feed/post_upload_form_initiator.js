@@ -6,25 +6,14 @@ import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import { Skeleton, Typography } from '@mui/material';
 import Link from 'next/link';
-
+import CreativesIntro from './creatives_intro';
 
 export default function PostUploadFormInitiator({handlePostUploadFormDisplay, data}){
 
     console.log(data)
 
     if(data?.is_logged_in === false){
-        return <div >
-            <h1>Creatives Wanted & Supported</h1>
-            <Typography sx={{marginTop:'10px'}}><strong>Set your creativity free and connect with others through:
-</strong></Typography>
-            <Typography sx={{marginTop:'10px', textAlign:'left'}}>
-<strong>Audio Art:</strong> singing, spoken word, music, interviews, and more.<br></br>
-<strong>Visual Art:</strong> painting, sketching, drawing, sculpture, graphic design, behind-the-scenes videos, dancing, stand-up, short films, and more.<br></br>
-<strong>Written Word:</strong> poems, short stories, personal narratives, creative writing, and more.<br></br>
-We are all artists.
-
-            </Typography>
-        </div>
+       return(<CreativesIntro />)
     }
     
     return(
