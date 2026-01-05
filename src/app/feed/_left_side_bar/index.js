@@ -10,7 +10,7 @@ import LatestArtistOfMonth from "./latest_artist_of_month";
 import PostUploadFormInitiator from "../post_upload_form_initiator";
 
 import { useRef, useState, useEffect } from "react";
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import PostUploadForm from "@/app/_components/_post_upload_form";
 export default function LeftSideBar({profileStats,handlFilterReset , handleFeedTypeFilterChange, feedTypeFilter }){
 
@@ -90,9 +90,15 @@ export default function LeftSideBar({profileStats,handlFilterReset , handleFeedT
                 }
 
                 
+                <Box sx={{display: {md: 'block', xs:'none'}}}>
+                    <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+                </Box>
 
                 <LatestArtistOfMonth />
-                <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+
+                <Box sx={{display: {md: 'none', xs:'block'}}}>
+                    <GroupsDropdown handlFilterReset={handlFilterReset} handleFeedTypeFilterChange={handleFeedTypeFilterChange} feedTypeFilter={feedTypeFilter} />
+                </Box>
 
             </div>
 
