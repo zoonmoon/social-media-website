@@ -176,7 +176,7 @@ const PostUploadForm = ({ onClose }) => {
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
           <textarea
-            placeholder='What do you positively think about this art?'
+            placeholder='What do you want people to feel when they experience your art?'
             onInput={(e) => handleTextAreaInput(e)}
             defaultValue={caption}
             disabled={isUploading  }

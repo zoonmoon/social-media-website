@@ -50,7 +50,7 @@ We are all artists.
                                 <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                                     <div class="light-bg-on-hover" style={{flexGrow:'1', textAlign:'center',  padding:'12px 20px', curspor:'pointer', border:'1px solid rgba(0, 0, 0, 0.5)', borderRadius: '35px'}} >
                                         
-                                        What do you positively think about this art, {data?.userInfo?.name?.split(" ")?.[0] || "friend"}?
+                                        What do you want people to feel when they experience your art, {data?.userInfo?.name?.split(" ")?.[0] || "friend"}?
                                     </div>
                                  
                                 </div>
