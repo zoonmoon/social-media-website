@@ -1,6 +1,7 @@
 'use client'
 import Header from "@/app/_components/_header"
-import { Container, Grid } from "@mui/material"
+import { Button } from "@mui/joy"
+import { Container, Divider, Grid, Stack } from "@mui/material"
 import Link from "next/link"
 import { useEffect } from "react"
 
@@ -22,7 +23,18 @@ export default function DashboardLayout({params,  children }) {
                 <div style={{position:'fixed', zIndex:-1, top:300, left:0 , width:'100%', height: '100%', backgroundSize:'cover', backgroundImage: 'url("/site-assets/about-us-bg.jpg")', backgroundRepeat:'repeat'}}>
                 </div>
             <section>
-                <h1>About</h1>
+                <Stack 
+                  spacing={2}
+                  divider={<Divider sx={{border: '1px solid rgba(0,0,0,0.1)'}} />}
+                  direction={{xs: 'column', md:'row'}} 
+                >
+                  <h1>About</h1>
+                  <div>
+                     <Link href={'/login'}>
+                      <Button variant={'solid'}> Share your art today</Button>
+                     </Link>
+                  </div>
+                </Stack>
                 <ul>
                     <li>yourarton.com is passionate about supporting Artists!</li>
                     <li>Art: the expression or application of human creative skill and imagination (such as painting, music, literature, and dance). We agree with this definition of art and have created a platform where multiple art forms and beyond can be shared.</li>

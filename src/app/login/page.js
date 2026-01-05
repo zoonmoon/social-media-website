@@ -9,8 +9,24 @@ import ThirdPartySignIns from './_third-party-sign-ins';
 import { Divider } from '@mui/material';
 import Header from '../_components/_header';
 
+import { useEffect, useState } from 'react';
 
 export default function LandingPage(){
+
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') { // Check if window (client-side) is available
+            const token = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('token='));
+        
+            if (token) {
+                window.location.href='/'
+            }
+        }
+    }, []);
+
+
 
     return (
         <div>
