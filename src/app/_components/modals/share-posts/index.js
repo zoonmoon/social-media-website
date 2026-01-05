@@ -53,8 +53,8 @@ const ShareModal = ({ open, handleClose, shareLink }) => {
   };
 
   // Define share URLs
-  const smsShareUrl = `sms:?&body=${encodeURIComponent(`Check out this post: ${shareLink}`)}`;
-  const emailShareUrl = `mailto:?subject=Check this out&body=${encodeURIComponent(`Check out this post: ${shareLink}`)}`;
+  const smsShareUrl = `sms:?&body=${encodeURIComponent(`See the latest art that someone like you created: ${shareLink}`)}`;
+  const emailShareUrl = `mailto:?subject=See the latest art that someone like you created&body=${encodeURIComponent(`See the latest art that someone like you created: ${shareLink}`)}`;
 
   return (
     <Dialog
