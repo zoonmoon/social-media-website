@@ -31,6 +31,7 @@ export default function RootLayout({ children }) {
         {/* <meta name="description" content="A community supporting artists' positive expressions of art." /> */}
         {/* <meta name="keywords" content="art, artists, paintings, digital art, written word, support artists, support arts, support the arts, contemporary art, family-friendly art, modern art, online art gallery" /> */}
 
+        <link rel="icon" href="/favicon.png" />
 
 
 
