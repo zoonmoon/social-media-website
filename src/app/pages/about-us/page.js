@@ -45,7 +45,7 @@ export default function DashboardLayout({params,  children }) {
                     <li>If our members’ creative expressions touch your heart (smile, laugh), please leave an encouraging comment, like, and/or support them by giving a monetary gift to help them on their journey.</li>
                     <li>As an artist, if you do not have a PayPal account to receive support from others, you can create a free PayPal account to add in your profile account here.</li>
                     <li>Viewers can give monetary gifts in US dollars via PayPal.</li>
-                    <li>If you are inspired by an artist’s creative skills here, you can give up to $19,000 per year, per person in 2025 per the IRS, tax free (gift tax). If you are married, you and your spouse can give up to $38,000 to the same person.</li>
+                    <li>If you are inspired by an artist’s creative skills here, you can give up to $19,000 per year, per person in 2026 per the IRS, tax free (gift tax). If you are married, you and your spouse can give up to $38,000 to the same person.</li>
                     <li>85% of the monetary gift will be given to the artist; a 15% fee will be used for maintenance of the site, help fund our services, and pay for the PayPal processing fees.</li>
                     <li>Visit often and know that you are free from any intrusion on your device (computer, tablet, phone, etc.) from yourarton.com.</li>
                     <li>Our members’ art is their art, not ours.</li>
