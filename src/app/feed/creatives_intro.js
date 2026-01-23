@@ -8,9 +8,9 @@ export default function CreativesIntro() {
   return (
     <Box>
       <Typography variant="h4" fontWeight={600}>
-        Creatives Wanted & Supported
+        Get Your Arton
       </Typography>
-
+      
       <Typography sx={{ mt: 1 }}>
         <strong>
           A creative home for visual, audio, and written artists to share work,
