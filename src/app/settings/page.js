@@ -1,5 +1,5 @@
 'use client'
-
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,7 +14,7 @@ import Link from 'next/link';
 import toast from 'react-hot-toast';
 
 import { useEffect } from 'react';
-
+import EmailNotificationSetting from './notifications/page';
 
 export default function NestedList() {
 
@@ -56,6 +56,19 @@ export default function NestedList() {
                     <ChevronRightIcon />
                 </ListItemButton>
             </Link>
+
+            <Link href={'/settings/notifications'} style={{color:'black', textDecoration:'none', textDecorationColor:'none'}}>
+                <ListItemButton>
+                    <ListItemIcon>
+                    <CircleNotificationsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Notifications" />
+                    <ChevronRightIcon />
+                </ListItemButton>
+            </Link>
+
+
+
         </List>
     </Paper>
   );

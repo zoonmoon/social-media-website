@@ -21,13 +21,25 @@ export async function POST(req) {
     connection = await databaseConnection();
 
     // 1) GET ALL USER EMAILS
-    const usersQuery = `SELECT email FROM users WHERE email IS NOT NULL AND email != ''`;
+    const usersQuery = `
+    
+    SELECT u.email
+FROM users u
+INNER JOIN user_more_info umi
+    ON u.username = umi.username
+WHERE u.email IS NOT NULL
+  AND u.email != ''
+  AND umi.has_unsubscribed = FALSE;
+
+    `;
     const users = await executeQuery(connection, usersQuery);
 
     // 2) GET ALL BILLING PAYPAL EMAILS
     const billingQuery = `SELECT paypal_billing_email FROM user_more_info 
                           WHERE paypal_billing_email IS NOT NULL 
-                          AND paypal_billing_email != ''`;
+                          AND paypal_billing_email != ''
+                          AND has_unsubscribed = FALSE
+                          `;
     const billingRows = await executeQuery(connection, billingQuery);
 
     // MERGE EMAILS
