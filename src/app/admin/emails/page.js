@@ -89,16 +89,31 @@ const [showPreview, setShowPreview] = useState(false);
 
   const [showPopup, setShowPopup] = useState(false);
 
-  const generateHTML = () => {
-    return blocks
-      .map((b) => {
-        if (b.type === "text") return `<p>${b.content}</p>`;
-        if (b.type === "richtext") return b.content;
-        if (b.type === "image") return `<img width="400" style="width:90%;max-width:400px;height:auto" src="${b.content}" />`;
-        return "";
-      })
-      .join("\n");
-  };
+const generateHTML = () => {
+  const content = blocks
+    .map((b) => {
+      if (b.type === "text") return `<p>${b.content}</p>`;
+      if (b.type === "richtext") return b.content;
+      if (b.type === "image")
+        return `<img width="400" style="width:90%;max-width:400px;height:auto" src="${b.content}" />`;
+      return "";
+    })
+    .join("\n");
+
+  const unsubscribeHTML = `
+    <hr style="margin:30px 0;" />
+    <p style="font-size:12px;color:#666;text-align:center;">
+      Don’t want to receive these emails?
+      <br />
+      <a href="https://yourarton.com/settings/notifications" target="_blank">
+        Unsubscribe or manage your email preferences
+      </a>
+    </p>
+  `;
+
+  return content + "\n" + unsubscribeHTML;
+};
+
   
   return (
     <div className="email-composer">
