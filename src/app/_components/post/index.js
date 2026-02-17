@@ -21,6 +21,7 @@ export default function Post({post}) {
   const [isLikingOrUnliking, setIsLikingOrUnliking] = useState(false)
   const [numLikes, setNumLikes] = useState(post.num_likes)
   const [numComments, setNumComments] = useState(post.num_comments)
+  if(!p.media_type) p.media_type = ''
 
   const handleLikeUnlike = async () =>{
     const prevState  = isLiked
