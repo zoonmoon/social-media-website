@@ -55,7 +55,7 @@ export default function DisplayCardMedia({p}){
   
       return (
         <div style={{position:'relative'}}>
-          <div style={{position:'absolute', display:'none', background:'transparent', zIndex:555, top: '-40px', right: '-40px', width:'150px', height: '150px', borderRadius: '50%'}}>
+          <div style={{position:'absolute',  background:'transparent', zIndex:555, top: '-40px', right: '-40px', width:'150px', height: '150px', borderRadius: '50%'}}>
           </div>
           <iframe
             src={googleDocsViewerUrl}
