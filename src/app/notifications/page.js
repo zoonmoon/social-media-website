@@ -86,7 +86,15 @@ export default function User({params}){
                                         case 'post_comment':
                                             return ['/posts/' + n.subject, 'commented on your post']
                                         case 'follow':
-                                            return ['/users' + n.caused_by_user, 'followed you']
+                                            return ['/users/' + n.caused_by_user, 'followed you']
+                                        case 'added_as_collaborator': 
+                                            return ['/posts/' + n.subject, 'has sent a new collaboration request!']
+                                        case "collaboration_request_accepted": 
+                                            return ['/posts/'+n.subject + '?show_collaborators=true' , 'has accepted your collaboration request']    
+                                        case 'collaboration_request_ignored': 
+                                            return ['/posts/'+n.subject +'?show_collaborators=true' , 'has rejected your collaboration request']    
+                                        default: 
+                                            return ['/', '']
                                     }
                                 })()
                                 return(

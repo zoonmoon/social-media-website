@@ -45,9 +45,25 @@ export  async function GET(request) {
             allFilters.push( '(' + mediaTypeFilters.join(' OR ') + ')' ) 
         }
 
-        if(ofUser && ofUser !== undefined){
-            allFilters.push(` ( p.username = '${ofUser}' )`)
-        }
+        // if(ofUser && ofUser !== undefined){
+        //     allFilters.push(` ( p.username = '${ofUser}' )`)
+        // }
+
+if (ofUser && ofUser !== undefined) {
+    allFilters.push(`
+        (
+            p.username = '${ofUser}'
+            OR EXISTS (
+                SELECT 1
+                FROM post_collaborators pc2
+                WHERE pc2.post_id = p.id
+                AND pc2.username = '${ofUser}'
+                AND pc2.accepted_invite = 1
+            )
+        )
+    `)
+}
+
 
         if(allFilters.length){
             allFiltersString = ' WHERE ' + allFilters.join(' AND ')
@@ -144,7 +160,48 @@ export  async function GET(request) {
         
         posts_num_comments_response.forEach(p => post_id_vs_comments[p.post_id] = p.comments_count )
         
-        posts = posts.map(p => ({...p, num_comments: post_id_vs_comments[p.id] !== undefined ? post_id_vs_comments[p.id] : 0 }) )
+        posts = posts.map(p => ({...p, collaborators: [], num_comments: post_id_vs_comments[p.id] !== undefined ? post_id_vs_comments[p.id] : 0 }) )
+
+
+        if (posts.length > 0) {
+
+    const post_ids = posts.map(post => `'${post.id}'`).join(',')
+
+    let collaboratorsQuery = `
+        SELECT 
+            pc.post_id,
+            pc.username,
+            u.name,
+            u.profile_pic_src,
+            pc.accepted_invite
+        FROM post_collaborators pc
+        INNER JOIN user_more_info u 
+            ON pc.username = u.username
+        WHERE pc.post_id IN (${post_ids})
+    `
+
+    const collaboratorsRows = await executeQuery(connection, collaboratorsQuery)
+
+    const postIdVsCollaborators = {}
+
+    collaboratorsRows.forEach(row => {
+        if (!postIdVsCollaborators[row.post_id]) {
+            postIdVsCollaborators[row.post_id] = []
+        }
+
+        postIdVsCollaborators[row.post_id].push({
+            username: row.username,
+            name: row.name,
+            accepted_invite: row.accepted_invite,
+            profile_pic_src: row.profile_pic_src
+        })
+    })
+
+    posts = posts.map(post => ({
+        ...post,
+        collaborators: postIdVsCollaborators[post.id] || []
+    }))
+}
 
         return new Response(JSON.stringify({success: true, posts: posts, query: query }), {
             headers: {

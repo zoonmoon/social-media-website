@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Modal, Box, Avatar, Divider, Stack  } from '@mui/material';
+import { AddCollaboratorsToPostButton } from '../modals/add-post-collaborators';
+import { Modal, Box, Avatar, Divider, Stack, Alert  } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import Button from '@mui/joy/Button';
 import CloseIcon from '@mui/icons-material/Close';
@@ -362,17 +363,40 @@ return(
 
         <div style={{textAlign:'center', marginTop:'20px', marginBottom:'10px'}}>
           <CheckCircleRoundedIcon sx={{width: 80, height: 80, color:'green',  animation: 'scale 0.5s ease-in-out'}} />
+          <div>
+            Post uploaded successfully
+          </div>
         </div>
+        <Divider style={{marginTop: '20px'}}></Divider>
+        <div style={{marginTop: "20px", marginBottom: '20px'}}>
+
+        <div>
+<Alert severity="info">
+  Tip: Add collaborators to credit those who helped you create this post.
+</Alert>        </div>
+
+
+          <div style={{marginTop: '10px'}}>
+        <AddCollaboratorsToPostButton post_id={post_id} type='button' />
+
+          </div>
+
+        </div>
+
         <Divider></Divider>
+
         <Button
           variant="outlined"
           component="label"
           sx={{ marginTop: '20px', minWidth:'250px', marginBottom:'20px'  }}
         >
-        <Link href={`/posts/${post_id}`} style={{textDecoration:'none', color:'inherit'}}>
-            View Post          
-        </Link>
+        
+
+          <Link href={`/posts/${post_id}`} style={{textDecoration:'none', color:'inherit'}}>
+              View Post          
+          </Link>
         </Button>
+
       </Box>
     </Modal>
   </>

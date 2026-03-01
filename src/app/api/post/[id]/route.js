@@ -1,6 +1,7 @@
 import { getLoggedInUsername } from "../../utils";
 import { databaseConnection, executeQuery } from "../../utils";
 
+
 export  async function GET(request, {params}) {
     let connection = false
 
@@ -74,30 +75,119 @@ export  async function GET(request, {params}) {
         let posts  = await executeQuery(connection, query);
         
         const post_ids = posts.map(post => `'${post.id}'`).join(',')
-        
-        console.log("postids", post_ids)
 
-        let query2 = `SELECT  COUNT(post_id) AS likes_count, post_id  FROM post_likes WHERE post_id IN ( ${post_ids}) GROUP BY post_id `;
+        // ------------------ LIKES COUNT ------------------
+
+        let query2 = `SELECT  COUNT(post_id) AS likes_count, post_id  
+                      FROM post_likes 
+                      WHERE post_id IN ( ${post_ids}) 
+                      GROUP BY post_id `;
         
         const post_id_vs_likes = {}
         
         const posts_num_likes_response = await executeQuery(connection, query2);
         
-        posts_num_likes_response.forEach(p => post_id_vs_likes[p.post_id] = p.likes_count )
+        posts_num_likes_response.forEach(p => 
+            post_id_vs_likes[p.post_id] = p.likes_count
+        )
         
-        posts = posts.map(p => ({...p, num_likes: post_id_vs_likes[p.id] !== undefined ? post_id_vs_likes[p.id] : 0 }) )
-        
-        let query3 = `SELECT  COUNT(post_id) AS comments_count, post_id  FROM post_comments WHERE post_id IN ( ${post_ids}) GROUP BY post_id `;
+        posts = posts.map(p => ({
+            ...p, 
+            num_likes: post_id_vs_likes[p.id] !== undefined 
+                ? post_id_vs_likes[p.id] 
+                : 0 
+        }))
+
+        // ------------------ COMMENTS COUNT ------------------
+
+        let query3 = `SELECT  COUNT(post_id) AS comments_count, post_id  
+                      FROM post_comments 
+                      WHERE post_id IN ( ${post_ids}) 
+                      GROUP BY post_id `;
 
         const post_id_vs_comments = {}
         
         const posts_num_comments_response = await executeQuery(connection, query3);
         
-        posts_num_comments_response.forEach(p => post_id_vs_comments[p.post_id] = p.comments_count )
+        posts_num_comments_response.forEach(p => 
+            post_id_vs_comments[p.post_id] = p.comments_count
+        )
         
-        posts = posts.map(p => ({...p, num_comments: post_id_vs_comments[p.id] !== undefined ? post_id_vs_comments[p.id] : 0 }) )
+        posts = posts.map(p => ({
+            ...p, 
+            num_comments: post_id_vs_comments[p.id] !== undefined 
+                ? post_id_vs_comments[p.id] 
+                : 0 
+        }))
 
-        return new Response(JSON.stringify({success: true, post: posts[0], query: query }), {
+        // =====================================================
+        // 🔥 COLLABORATORS ATTACHED HERE (ONLY ADDITION)
+        // =====================================================
+
+let collaboratorsQuery = `
+    SELECT 
+        pc.post_id,
+        pc.username,
+        pc.accepted_invite, 
+        umi.name,
+        umi.profile_pic_src
+    FROM post_collaborators pc
+    INNER JOIN user_more_info umi 
+        ON umi.username = pc.username
+    WHERE pc.post_id IN (${post_ids})
+`;
+        const collaboratorsResponse = await executeQuery(connection, collaboratorsQuery);
+
+const postIdVsCollaborators = {};
+const postIdVsIsCollaborator = {};
+const postIdVsInviteAccepted = {};
+const postIdVsInviteRejected = {}
+posts.forEach(p => {
+    postIdVsCollaborators[p.id] = [];
+    postIdVsIsCollaborator[p.id] = false;
+    postIdVsInviteAccepted[p.id] = false;
+    postIdVsInviteRejected[p.id] = false;
+});
+
+collaboratorsResponse.forEach(row => {
+
+    // Push ALL collaborators (no filtering)
+    postIdVsCollaborators[row.post_id].push({
+        username: row.username,
+        name: row.name,
+        profile_pic_src: row.profile_pic_src,
+        accepted_invite: row.accepted_invite 
+    });
+
+    // Logged-in user status
+    if(token_exists && row.username === username){
+        postIdVsIsCollaborator[row.post_id] = true; // set true even if accepted_invite = 0
+        postIdVsInviteAccepted[row.post_id] = row.accepted_invite === 1;
+        postIdVsInviteRejected[row.post_id] = row.accepted_invite === 2;
+    }
+});
+
+posts = posts.map(p => ({
+    ...p,
+    collaborators: postIdVsCollaborators[p.id],
+    is_collaborator: token_exists ? postIdVsIsCollaborator[p.id] : false,
+    has_collaboration_request_been_accepted: token_exists
+        ? postIdVsInviteAccepted[p.id]
+        : false,
+    has_collaboration_request_been_rejected: token_exists
+        ? postIdVsInviteRejected[p.id]
+        : false,
+
+    
+}));
+
+        // =====================================================
+
+        return new Response(JSON.stringify({
+            success: true, 
+            post: posts[0], 
+            query: query
+        }), {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -106,7 +196,10 @@ export  async function GET(request, {params}) {
 
     }catch(error){
 
-        return new Response(JSON.stringify({ success: false, msg: error.message  }), {
+        return new Response(JSON.stringify({ 
+            success: false, 
+            msg: error.message  
+        }), {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -119,6 +212,7 @@ export  async function GET(request, {params}) {
         }
     }
 }
+
 const mysql = require('mysql2');
 
 export  async function PUT(request, {params}) {

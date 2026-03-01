@@ -14,7 +14,7 @@ import PostUploadFormInitiator from "./post_upload_form_initiator";
 import { getRequest } from "../_components/file_upload";
 import FeedLeftSidebarSkeleton from "./_left_side_bar/skeleton";
 import Footer from "../_components/footer";
-
+import AddCollaboratorsToPost from "../_components/modals/add-post-collaborators";
 
 // 
 
@@ -218,6 +218,7 @@ history.replaceState(null, "", "/");
         </Grid>
       </Container>
       {postUploadFormOpen ? <PostUploadForm onClose={handlePostUploadFormDisplay} /> : '' }
+
 
     </>
   )

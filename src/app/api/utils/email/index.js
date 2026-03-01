@@ -1,7 +1,8 @@
 export async function sendEmail({ to, subject, html }) {
+console.log("sending mail lll")
+
   const apiKey = process.env.MG_API_KEY;
   const domain = process.env.MG_DOMAIN;
-
   // ALWAYS the same FROM address
   const from = "Arty <arty@mg.yourarton.com>";
 
