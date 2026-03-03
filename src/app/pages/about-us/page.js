@@ -47,7 +47,6 @@ export default function DashboardLayout({params,  children }) {
                     <li>Viewers can give monetary gifts in US dollars via PayPal.</li>
                     <li>If you are inspired by an artist’s creative skills here, you can give up to $19,000 per year, per person in 2026 per the IRS, tax free (gift tax). If you are married, you and your spouse can give up to $38,000 to the same person.</li>
                     <li>85% of the monetary gift will be given to the artist; a 15% fee will be used for maintenance of the site, help fund our services, and pay for the PayPal processing fees.</li>
-                    <li>Visit often and know that you are free from any intrusion on your device (computer, tablet, phone, etc.) from yourarton.com.</li>
                     <li>Our members’ art is their art, not ours.</li>
                     <li>We are grateful you are here and for your support.</li>
                     <li>We reserve the right to remove any art or comments at our sole discretion.</li>

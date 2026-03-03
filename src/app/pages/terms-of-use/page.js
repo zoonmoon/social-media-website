@@ -9,121 +9,187 @@ export default function DashboardLayout({params,  children }) {
           <Header />
           <Container>
             
-<div>
 
 
+<div class="terms-of-service" style={{paddingBottom:'50px'}}>
 
-<h1>Terms of Use for YourArton.com</h1>
-<p><strong>Effective Date:</strong> January 1st, 2025<br /><strong>Last Updated:</strong> October 20, 2025</p>
+  <h1>YOURARTON Terms of Service</h1>
+  <p><strong>Effective Date:</strong> 02-24</p>
+  <p><strong>Operated by:</strong> Beaver Entertainment, LLC (Wyoming)</p>
 
-<p>Welcome to <strong>YourArton.com</strong>, operated by Beaver Entertainment, LLC! We are a social network dedicated to positive expressions of art and fostering connections between artists and those inspired by their work. By using our platform, you agree to these Terms of Use. Please read them carefully before participating.</p>
+  <p>
+    Welcome to YourArton. By using this platform, you agree to these Terms of Service (“Terms”).
+    This is a legally binding agreement between you and Beaver Entertainment, LLC
+    (“Company,” “we,” “us”).
+    If you don’t agree, please do not use the platform.
+  </p>
 
-<h2>1. Acceptance of Terms</h2>
-<p>By accessing or using YourArton.com you agree to these Terms of Use, as well as any additional guidelines we may publish. If you do not agree, you must refrain from using our services.</p>
+  <section>
+    <h2>1. Eligibility</h2>
+    <p>You must be:</p>
+    <ul>
+      <li>At least 18 years old</li>
+      <li>Legally able to enter into contracts</li>
+      <li>Not prohibited from using the service under applicable law</li>
+    </ul>
+    <p>By using YourArton, you confirm you meet these requirements.</p>
+  </section>
 
-<h2>2. Eligibility</h2>
-<p>To participate in YourArton.com:</p>
-<ul>
-  <li>You must be at least 18 years old.</li>
-  <li>To receive monetary gifts, you must set up a free PayPal account and link it to your YourArton.com profile by adding the email associated with your PayPal account.</li>
-  <li>By registering, you confirm that all provided information is accurate and truthful.</li>
-</ul>
+  <section>
+    <h2>2. Account Login (Google & Apple Only)</h2>
+    <p>YourArton uses third-party authentication:</p>
+    <ul>
+      <li>Google</li>
+      <li>Apple</li>
+    </ul>
+    <p>
+      We do not store passwords. You are responsible for maintaining the security of your
+      Google or Apple account. If your authentication provider suspends your access,
+      your YourArton access may also be affected.
+    </p>
+  </section>
 
-<h2>3. Purpose and Platform Guidelines</h2>
-<p>YourArton.com is a platform for:</p>
-<ul>
-  <li>Sharing positive, inspiring art.</li>
-  <li>Supporting artists through voluntary, tax-free monetary gifts, up to $19,000 per individual giver per artist annually or $38,000 per married couple per artist annually.</li>
-</ul>
+  <section>
+    <h2>3. User Content</h2>
+    <p>You retain ownership of your artwork and content.</p>
+    <p>
+      By posting on YourArton, you grant us a non-exclusive, worldwide,
+      royalty-free license to:
+    </p>
+    <ul>
+      <li>Display your content</li>
+      <li>Promote the platform</li>
+      <li>Operate and improve the service</li>
+    </ul>
+    <p>You are responsible for what you post.</p>
+    <p>You may not post:</p>
+    <ul>
+      <li>Illegal content</li>
+      <li>Copyright-infringing material</li>
+      <li>Harassment or threats</li>
+      <li>Explicit or unlawful material</li>
+    </ul>
+    <p>We may remove content at our discretion.</p>
+  </section>
 
-<p><strong>Prohibited Content:</strong></p>
-<p>We do not permit:</p>
-<ul>
-  <li>Content supporting terrorism, organized crime, or hate groups.</li>
-  <li>The offering of sexual services or the sale of firearms or drugs.</li>
-  <li>Child pornography or any child sexual abuse material.</li>
-  <li>Violation of these guidelines will result in immediate account termination and potential legal action. We reserve the right to remove any art or comments at our sole discretion.</li>
-</ul>
+  <section>
+    <h2>4. Tips & Payments</h2>
+    <p>Payments are processed by a third-party provider (PayPal).</p>
+    <p>We do not store full financial details.</p>
+    <p>We are not responsible for:</p>
+    <ul>
+      <li>Payment processor errors</li>
+      <li>Chargebacks</li>
+      <li>Tax obligations of users</li>
+    </ul>
+    <p>
+      You are responsible for reporting income received through tips if they exceed
+      the applicable threshold in the United States or your country of residence.
+    </p>
+  </section>
 
-<h2>4. Monetary Gifts</h2>
-<p><strong>Gift Policy:</strong></p>
-<ul>
-  <li>Gifts are voluntary and non-refundable.</li>
-  <li>Beaver Entertainment, LLC will provide receipts for both givers and receivers for tax compliance purposes.</li>
-</ul>
+  <section>
+    <h2>5. Advertising & Cookies</h2>
+    <p>We may display ads through:</p>
+    <ul>
+      <li>Google AdSense</li>
+    </ul>
+    <p>Ads may be personalized using cookies.</p>
+    <p>You can opt out via:</p>
+    <ul>
+      <li>Cookie preferences</li>
+      <li>“Do Not Sell or Share” link (California residents)</li>
+    </ul>
+    <p>We do not sell personal data for monetary compensation.</p>
+  </section>
 
-<p><strong>Tax-Free Gift Limits:</strong></p>
-<ul>
-  <li>Individuals may give up to $19,000 annually per artist.</li>
-  <li>Married couples may give up to $38,000 annually per artist.</li>
-</ul>
-<p>Givers are responsible for ensuring compliance with these limits and their local tax laws.</p>
+  <section>
+    <h2>6. Platform Rules</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Attempt to hack or disrupt the service</li>
+      <li>Reverse engineer the platform</li>
+      <li>Use bots or scraping tools</li>
+      <li>Impersonate others</li>
+    </ul>
+    <p>Violation may result in suspension or termination.</p>
+  </section>
 
-<h2>5. Account Requirements</h2>
-<p>To receive gifts:</p>
-<ul>
-  <li>You must set up a free PayPal account and link your email associated with the PayPal account to your profile.</li>
-  <li>Ensure your PayPal account is active and accurately configured in your account settings.</li>
-</ul>
+  <section>
+    <h2>7. Account Termination</h2>
+    <p>We may suspend or terminate accounts for:</p>
+    <ul>
+      <li>Violations of these Terms</li>
+      <li>Fraud</li>
+      <li>Legal compliance reasons</li>
+    </ul>
+    <p>You may delete your account at any time.</p>
+  </section>
 
-<p>To maintain your account:</p>
-<ul>
-  <li>Protect your login credentials.</li>
-  <li>Notify us immediately if unauthorized access is suspected.</li>
-</ul>
+  <section>
+    <h2>8. Disclaimers</h2>
+    <p>YourArton is provided “AS IS.”</p>
+    <p>We do not guarantee:</p>
+    <ul>
+      <li>Continuous availability</li>
+      <li>Error-free performance</li>
+      <li>Specific results</li>
+    </ul>
+    <p>
+      We are not responsible for user interactions or third-party services.
+    </p>
+  </section>
 
-<h2>6. Content Ownership and Licensing</h2>
-<ul>
-  <li>Artists retain ownership of all content they share.</li>
-  <li>By posting, you grant Beaver Entertainment, LLC a non-exclusive, worldwide license to use your content for promotional purposes related to the platform.</li>
-</ul>
+  <section>
+    <h2>9. Limitation of Liability</h2>
+    <p>
+      To the maximum extent permitted by law, Beaver Entertainment, LLC is not
+      liable for indirect, incidental, special, or consequential damages.
+    </p>
+    <p>
+      Total liability shall not exceed the amount paid by you to the platform
+      in the prior 12 months.
+    </p>
+  </section>
 
-<h2>7. Community Standards</h2>
-<p>YourArton.com is a space for positive and inspiring artistic expression. All users must adhere to the following principles:</p>
-<ul>
-  <li>Respect for others.</li>
-  <li>Constructive and uplifting feedback.</li>
-  <li>No harassment, hate speech, or inappropriate behavior.</li>
-</ul>
+  <section>
+    <h2>10. Arbitration & Dispute Resolution</h2>
+    <p>
+      Any disputes shall be resolved through binding arbitration.
+      No class actions permitted.
+      Arbitration shall occur in Wyoming unless otherwise required by law.
+      You waive the right to a jury trial.
+    </p>
+  </section>
 
-<h2>8. Prohibited Activities</h2>
-<p>Users may not:</p>
-<ul>
-  <li>Share or promote content related to terrorism, hate groups, organized crime, child exploitation, or illicit goods and services.</li>
-  <li>We respect diversity among our users and their positive expressions of art. Therefore, we do not allow shocking content or promote hatred, sexually explicit content, hate speech, violence, discrimination, graphic crime scene images, cruelty to animals, self-harm, or content that exploits sensitive events&amp;rsquo;.</li>
-  <li>Engage in fraudulent activities, including soliciting false monetary gifts.</li>
-</ul>
-<p>Violation of these rules may result in account suspension or termination.</p>
+  <section>
+    <h2>11. Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of the State of Wyoming,
+      without regard to conflict-of-law principles.
+    </p>
+  </section>
 
-<h2>9. Termination of Use</h2>
-<p>Beaver Entertainment, LLC reserves the right to:</p>
-<ul>
-  <li>Suspend or terminate accounts for violations of these Terms.</li>
-  <li>Remove content that violates our positive guidelines or is harmful to the community.</li>
-</ul>
+  <section>
+    <h2>12. Changes to Terms</h2>
+    <p>
+      We may update these Terms periodically.
+      Continued use after updates constitutes acceptance.
+    </p>
+  </section>
 
-<h2>10. Liability and Disclaimers</h2>
-<ul>
-  <li>Beaver Entertainment, LLC is not responsible for disputes or outcomes related to monetary gifts.</li>
-  <li>We do not guarantee the accuracy or safety of content posted by users.</li>
-  <li>The platform is provided &amp;quot;as-is,&amp;quot; without warranties of any kind.</li>
-</ul>
-
-<h2>11. Changes to Terms</h2>
-<p>These Terms of Use may be updated periodically and users will be notified of the changes. Continued use of the platform after changes are posted indicates acceptance of the revised terms.</p>
-
-<h2>12. Contact Us</h2>
-<p>For questions, concerns, or support, email <a href="mailto:support@yourarton.com"><b>support@yourarton.com</b></a> or contact Beaver Entertainment, LLC at:</p>
-
-<p><strong>Beaver Entertainment LLC</strong><br />30 N Gould St<br />Suite R<br />Sheridan, WY 82801</p>
-
-<p>Thank you for joining YourArton.com! Together, we are building a supportive and creative community that empowers artists and inspires the world.</p>
-
-
-
-
+  <section>
+    <h2>13. Contact</h2>
+    <p>
+      Beaver Entertainment, LLC<br />
+      Wyoming, United States<br />
+      <a href="mailto:create@yourarton.com">create@yourarton.com</a>
+    </p>
+  </section>
 
 </div>
+
+
 
           </Container>
         </>

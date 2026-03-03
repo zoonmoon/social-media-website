@@ -23,7 +23,7 @@ export default function DashboardLayout({params,  children }) {
                 <h1>Contact Us</h1>
                 <Typography variant="body1">
                 For any inquiries, please reach out to us at{" "}
-                <a href="mailto:support@yourarton.com">support@yourarton.com </a>.
+                <a href="mailto:create@yourarton.com">create@yourarton.com </a>.
                 </Typography>
             </section>
           </Container>
