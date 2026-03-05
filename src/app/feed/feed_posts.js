@@ -1,9 +1,11 @@
 'use client'
 
 import Post from '../_components/post';
-import { Stack } from '@mui/material';
+import { Divider, Paper, Stack, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import NonStickyFooter from '../_components/footer/non-fixed-footer';
+import { Button } from '@mui/joy';
+import Link from 'next/link';
 
 export default function FeedPosts({posts}) {
     useEffect(() => {
@@ -32,6 +34,44 @@ export default function FeedPosts({posts}) {
 
                                 <Post post={post} key={index} />
                                 
+
+                                {/* LOGIN CTA after every 2 posts if user not logged in */}
+                                {(index + 1) % 2 === 0 && post?.has_logged_in === false && (
+                                    <Paper elevation={3} sx={{ p: 3, borderRadius:'10px',  mt: 2, mb:2, textAlign: 'center' }}>
+                                        <Typography variant="h6" sx={{ mb: 2 }}>
+                                            Create an account or log in to interact with posts
+                                        </Typography>
+
+                                        <Stack
+                                            spacing={2}
+                                            divider={<Divider />}
+                                        >
+                                            <Link href={'/login'}>
+                                                <Button
+                                                    variant="solid"
+                                                    sx={{padding:'10px 40px'}}
+                                                >
+                                                    Create new Account
+                                                </Button>
+                                            </Link>
+                                            
+                                            <Link href={'/login'}>
+                                                <Button
+                                                    variant="outlined"
+                                                    sx={{padding: '0 20px'}}
+                                                >
+                                                    Login
+                                                </Button>
+                                            </Link>
+
+
+
+                                        </Stack>
+
+
+                                    </Paper>
+                                )}
+
                                 {/* Show Ad after every 5th post */}
                                 
                                     {(index + 1) % 5 === 0 && (

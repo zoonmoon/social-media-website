@@ -150,7 +150,7 @@ if (ofUser && ofUser !== undefined) {
         
         posts_num_likes_response.forEach(p => post_id_vs_likes[p.post_id] = p.likes_count )
         
-        posts = posts.map(p => ({...p, num_likes: post_id_vs_likes[p.id] !== undefined ? post_id_vs_likes[p.id] : 0 }) )
+        posts = posts.map(p => ({...p,  num_likes: post_id_vs_likes[p.id] !== undefined ? post_id_vs_likes[p.id] : 0 }) )
         
         let query3 = `SELECT  COUNT(post_id) AS comments_count, post_id  FROM post_comments WHERE post_id IN ( ${post_ids}) GROUP BY post_id `;
 
@@ -160,7 +160,7 @@ if (ofUser && ofUser !== undefined) {
         
         posts_num_comments_response.forEach(p => post_id_vs_comments[p.post_id] = p.comments_count )
         
-        posts = posts.map(p => ({...p, collaborators: [], num_comments: post_id_vs_comments[p.id] !== undefined ? post_id_vs_comments[p.id] : 0 }) )
+        posts = posts.map(p => ({...p, has_logged_in: token_exists, collaborators: [], num_comments: post_id_vs_comments[p.id] !== undefined ? post_id_vs_comments[p.id] : 0 }) )
 
 
         if (posts.length > 0) {

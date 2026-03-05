@@ -167,7 +167,7 @@ const LoggedOutHeader = () => {
               
               {/* Log In Button wrapped in Link */}
               <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
-                <Button variant={'solid'} sx={{ marginLeft: '10px', minWidth: '100px' }}>
+                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
                   Log In
                 </Button>
               </Link>
