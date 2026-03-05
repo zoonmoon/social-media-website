@@ -7,15 +7,20 @@ export default function CreativesIntro() {
 
   return (
     <Box>
-      <Typography variant="h4" fontWeight={600}>
-        Get Your Arton
-      </Typography>
+
       
       <Typography sx={{ mt: 1 }}>
         <strong>
-          A creative home for visual, audio, and written artists to share work,
-          connect, and grow — no perfection required.
+
+          The Founding Artist $100 Challenge is Live!
+
+
         </strong>
+          <br/>
+Be one of the first 10 artists to earn $100 on our algorithm-free platform and earn "$100 Founding Earner" permanent badge.
+
+
+
       </Typography>
 
       {/* View More */}
@@ -42,6 +47,11 @@ export default function CreativesIntro() {
 
       <Collapse in={expanded}>
         <Typography sx={{ mt: 2, textAlign: "left" }}>
+                <strong>
+                    A creative home for visual, audio, and written artists to share work,
+          connect, and grow.
+          </strong>
+          <br />
           <strong>Audio Art:</strong> singing, spoken word, music, interviews,
           and more.
           <br />
