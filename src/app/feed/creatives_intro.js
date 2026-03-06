@@ -47,9 +47,17 @@ Be one of the first 10 artists to earn $100 on our algorithm-free platform and e
       <Collapse in={expanded}>
         <Typography sx={{ mt: 2, textAlign: "left" }}>
                 <strong>
-                    A creative home for visual, audio, and written artists to share work,
-          connect, and grow.
+
+Earn a Bronze, Silver, and Gold permanent "Momentum" badge, be the first to: <br/>
+$25 = Bronze Momentum <br />
+$50 = Silver Momentum <br />
+$100 = Gold Momentum <br />
           </strong>
+<br />
+            
+            <strong>Get Your Arton </strong><br />
+                   A creative home for visual, audio, and written artists to share work,
+          connect, and grow.
           <br />
           <strong>Audio Art:</strong> singing, spoken word, music, interviews,
           and more.
