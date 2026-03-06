@@ -17,8 +17,7 @@ export default function CreativesIntro() {
 
         </strong>
           <br/>
-Be one of the first 10 artists to earn $100 on our algorithm-free platform and earn "$100 Founding Earner" permanent badge.
-
+Be one of the first 10 artists to earn $100 on our algorithm-free platform and earn &quot;$100 Founding Earner&quot; permanent badge.
 
 
       </Typography>
