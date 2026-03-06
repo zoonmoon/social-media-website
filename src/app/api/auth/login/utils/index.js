@@ -62,7 +62,27 @@ export  async function handleLogin(social_login_id, social_login_type, name, pic
             //     await executeQuery(connection, insertProfilePicQuery)
             // }
             
+
+
             setToken(userInfo.user)
+
+            console.log("userInfo")
+            console.log(userInfo)
+            console.log("email input")
+            console.log(email)
+            
+
+            var existingEmail = userInfo?.user?.email 
+
+            if(!existingEmail){
+                if(email?.trim()?.length > 0){
+
+                    let queryy= `UPDATE users set email = '${email}' where username = '${userInfo?.user?.username}'  `
+
+                    await executeQuery(connection, queryy)
+
+                }
+            }
 
         }else{
 
