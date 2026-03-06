@@ -48,7 +48,7 @@ Be one of the first 10 artists to earn $100 on our algorithm-free platform and e
         <Typography sx={{ mt: 2, textAlign: "left" }}>
                 <strong>
 
-Earn a Bronze, Silver, and Gold permanent "Momentum" badge, be the first to: <br/>
+Earn a Bronze, Silver, and Gold permanent &quot;Moment&quot; badge, be the first to: <br/>
 $25 = Bronze Momentum <br />
 $50 = Silver Momentum <br />
 $100 = Gold Momentum <br />

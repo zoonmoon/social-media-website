@@ -32,7 +32,7 @@ export async function POST(request) {
         }else{
             name = decodedJWT.email.split('@')[0]
         }
-    
+        console.log(decodedJWT)
         const loggedIn = await handleLogin(sub, 'apple', name, picture, decodedJWT.email)
     
         if(loggedIn === true){
