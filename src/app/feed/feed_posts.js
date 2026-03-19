@@ -36,7 +36,7 @@ export default function FeedPosts({posts}) {
                                 
 
                                 {/* LOGIN CTA after every 2 posts if user not logged in */}
-                                {(index + 1) % 2 === 0 && post?.has_logged_in === false && (
+                                {/* {(index + 1) % 2 === 0 && post?.has_logged_in === false && (
                                     <Paper elevation={3} sx={{ p: 3, borderRadius:'10px',  mt: 2, mb:2, textAlign: 'center' }}>
                                         <Typography variant="h6" sx={{ mb: 2 }}>
                                             Create an account or log in to interact with posts
@@ -70,7 +70,7 @@ export default function FeedPosts({posts}) {
 
 
                                     </Paper>
-                                )}
+                                )} */}
 
                                 {/* Show Ad after every 5th post */}
                                 
