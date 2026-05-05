@@ -368,7 +368,7 @@ return(
           </div>
         </div>
         <Divider style={{marginTop: '20px'}}></Divider>
-        <div style={{marginTop: "20px", marginBottom: '20px'}}>
+        {/* <div style={{marginTop: "20px", marginBottom: '20px'}}>
 
         <div>
 <Alert severity="info">
@@ -383,7 +383,7 @@ return(
 
         </div>
 
-        <Divider></Divider>
+        <Divider></Divider> */}
 
         <Button
           variant="outlined"
