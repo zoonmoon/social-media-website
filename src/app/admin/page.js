@@ -30,6 +30,12 @@ const adminBlocks = [
         icon: <EmailIcon  fontSize={'large'} />
     },
 
+    {
+        link: '/admin/landing-pages/',
+        title: "Landing Pages",
+        icon: <ArticleIcon  fontSize={'large'} />
+    },
+
 
 ]
 
