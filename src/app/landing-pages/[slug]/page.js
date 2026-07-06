@@ -161,7 +161,38 @@ const BlogPage = ({params}) => {
 
                 <Grid container spacing={4}>
                   <Grid item xs={12} md={9} size={{ xs: 12, md: 8 }}>
-                    {isLoading ? <LoadingPost /> : <BlogDetail blog={blog} />}
+                    {isLoading ? <LoadingPost /> : 
+                    
+                    <div>
+                      <BlogDetail blog={blog} />
+
+                      <Grid container spacing={2} sx={{mt:3,}}>
+                        <Grid item md={4} sx={12} >
+                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                            Find Real Support for your Art
+                          </Paper>
+                        </Grid>
+                        <Grid item md={4} sx={12} >
+                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                            The Heart and Soul of Art
+                          </Paper>
+                        </Grid>
+                        <Grid item md={4} sx={12} >
+                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                            <a style={{width:'100%'}} href='/blogs-v2/earn-money-online-here-creatives'>
+                              <Button fullWidth sx={{width:'100%'}}>
+                                Earn money here
+                              </Button>
+                            </a>
+                          </Paper>
+                        </Grid>
+      
+                      </Grid>
+
+                    </div>
+
+                    
+                    }
                   </Grid>
 
                   <Grid item xs={12} md={3}  size={{ xs: 12, md: 4 }}>
@@ -171,11 +202,19 @@ const BlogPage = ({params}) => {
                       {
                         isPostsLoading 
                           ? <LoadingPost />
-                          : <Paper sx={{p: 2}}>
-                              <a href='/feed'>
-                                <Button fullWidth>View more Posts</Button>
-                              </a>
-                          </Paper>
+                          : 
+                            <div>
+                              <Paper sx={{p: 2}}>
+                                  <a href='/feed'>
+                                    <Button fullWidth>View more Posts</Button>
+                                  </a>
+                              </Paper>
+                              <Paper sx={{p: 2, mt: 2}}>
+                                  <a href='/feed'>
+                                    <Button fullWidth>Xpress Your Arty!</Button>
+                                  </a>
+                              </Paper>
+                            </div> 
                       }
 
                     </div>
