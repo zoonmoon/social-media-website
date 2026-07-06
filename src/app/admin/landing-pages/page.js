@@ -15,7 +15,7 @@ export default function Blogs(){
     const [isLoading, setIsLoading] = useState(true) 
     
     const [hasAccess, setHasAccess] = useState(false) 
-
+    
     const fetchBlogs = async () => {
 
         try{

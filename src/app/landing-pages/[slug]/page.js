@@ -7,13 +7,16 @@ import {
   Paper,
   Divider,
   Stack,
-  Grid
+  Grid,
 } from '@mui/material';
 import Header from '@/app/_components/_header';
 import LoadingPost from '@/app/_components/_loading-post';
 import toast from 'react-hot-toast';
 
+
 import Link from 'next/link';
+import FeedPosts from '@/app/feed/feed_posts';
+import { Button } from '@mui/joy';
 
 // Function to safely render HTML
 const renderHTML = (html) => {
@@ -103,16 +106,29 @@ const BlogDetail = ({ blog }) => {
 
 
 const BlogPage = ({params}) => {
-       const [blog, setBlog] = useState({})
-       const [isLoading, setIsLoading] = useState(true) 
-       
-      //  useEffect(() => {
+      const [blog, setBlog] = useState({})
+      
+      const [isLoading, setIsLoading] = useState(true) 
+      const [isPostsLoading, setIsPostsLoading] = useState(true) 
+      
+      const [posts, setPosts] = useState([])
+      
+      const fetchPosts = async () => {
 
-      //   if(window.innerWidth > 768 && document.querySelector('.footer-fixed')){
-      //     document.querySelector('.footer-fixed').style.display = "block"
-      //   }
-    
-      // }, [])
+        setIsPostsLoading(true)
+
+        let apiURL = '/api/feed/';
+        
+        const postsResponse = await fetch(apiURL)
+        
+        const postsResponseJson = await postsResponse.json();
+
+        setPosts(postsResponseJson.posts)
+
+        setIsPostsLoading(false)
+
+
+      }
 
        const fetchBlog = async () =>{
            try{
@@ -133,6 +149,7 @@ const BlogPage = ({params}) => {
    
        useEffect(() => {
            fetchBlog()
+           fetchPosts()
        }, [])
 
        return(
@@ -148,8 +165,19 @@ const BlogPage = ({params}) => {
                   </Grid>
 
                   <Grid item xs={12} md={3}  size={{ xs: 12, md: 4 }}>
-                    <div style={{backgroundColor:'white', padding:'10px'}}>
+                    <div>
                         
+                      <FeedPosts posts={posts.slice(0,2)}  /> 
+                      {
+                        isPostsLoading 
+                          ? <LoadingPost />
+                          : <Paper sx={{p: 2}}>
+                              <a href='/feed'>
+                                <Button fullWidth>View more Posts</Button>
+                              </a>
+                          </Paper>
+                      }
+
                     </div>
                   </Grid>
                 </Grid>

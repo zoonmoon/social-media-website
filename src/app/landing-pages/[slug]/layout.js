@@ -31,7 +31,7 @@ const url =  (new URL(`/api/admin/landing-pages/${slug}`, baseUrl)).href
   console.log("hello arjun ")
 
   console.log(blogPost)
-  
+
   let thumbnail = post?.thumbnail
     return {
       title: post?.meta_title || post?.title,
@@ -47,6 +47,7 @@ const url =  (new URL(`/api/admin/landing-pages/${slug}`, baseUrl)).href
       return( 
           <section>
               <Header />
+              
               {children}
           </section>
       )
