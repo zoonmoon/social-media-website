@@ -48,7 +48,7 @@ const LoggedOutHeader = () => {
       </ListItem>
 
       <ListItem button>
-        <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/pages/about-us">
+        <Link style={{ textDecoration: 'none', color: 'black', width: '100%' }} href="/landing-pages/about-us">
           <ListItemText primary="About us" />
         </Link>
       </ListItem>
@@ -141,7 +141,7 @@ const LoggedOutHeader = () => {
 
 
 
-              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/pages/about-us'}>
+              <Link style={{ textDecoration: 'none', color: 'black' }} href={'/landing-pages/about-us'}>
                 <Button variant='plain' sx={{ margin: '0 10px' }}>
                   About Us
                 </Button>

@@ -15,7 +15,7 @@ export async function GET(request, {params}){
         let query = `
             SELECT * FROM dynamic_pages WHERE slug = '${slug}'
         `
-
+        
         console.log("rr slug", slug)
         
         connection = await databaseConnection()
@@ -27,7 +27,7 @@ export async function GET(request, {params}){
     }catch(error){  
         
         return new Response(JSON.stringify({success:false, message: error.message}))
-
+        
     }finally{
         
         if(connection){

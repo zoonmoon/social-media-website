@@ -95,7 +95,7 @@ const Header = () => {
       </ListItem>
       
       <ListItem button>
-        <Link href="/pages/about-us" style={{ textDecoration: 'none', width: '100%', color: 'inherit' }}>
+        <Link href="/landing-pages/about-us" style={{ textDecoration: 'none', width: '100%', color: 'inherit' }}>
           <ListItemText primary="About us" />
         </Link>
       </ListItem>
@@ -213,7 +213,7 @@ const Header = () => {
                 Settings
               </Button>
             </Link>
-            <Link href="/pages/about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link href="/landing-pages/about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
                 About us
               </Button>

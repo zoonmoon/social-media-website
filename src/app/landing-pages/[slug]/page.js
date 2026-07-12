@@ -216,7 +216,7 @@ const BlogPage = ({params}) => {
                               </Paper>
                             </div> 
                       }
-
+                      
                     </div>
                   </Grid>
                 </Grid>
