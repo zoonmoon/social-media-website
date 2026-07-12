@@ -156,7 +156,7 @@ const Header = () => {
         {/* Logo on the left */}
 <Typography variant="h6" noWrap sx={{ flexGrow: 1, position: 'relative', display: 'inline-block' }}>
   <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
-    <img src="/site-assets/logo.png" width="150" height="auto" alt="Logo" />
+    <img src="/site-assets/artyxpress-logo.png" width="150" height="auto" alt="Logo" />
     <Box
       sx={{
         position: 'absolute',

@@ -11,7 +11,7 @@ export async function GET(request, {params}){
     let connection = false 
 
     try{
-
+        
         let query = `
             SELECT * FROM dynamic_pages WHERE slug = '${slug}'
         `

@@ -17,6 +17,7 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import FeedPosts from '@/app/feed/feed_posts';
 import { Button } from '@mui/joy';
+import BlogPost from '@/app/_components/_blog_post';
 
 // Function to safely render HTML
 const renderHTML = (html) => {
@@ -104,6 +105,46 @@ const BlogDetail = ({ blog }) => {
 };
 
 
+const blogs = [
+  {
+    "id": 171,
+    "version": 2,
+    "title": "The Heart and Soul of Art",
+    "slug": "the-heart-and-soul-of-art",
+    "author": null,
+    "created_at": "2026-02-25T01:17:01.000Z",
+    "status": "published",
+    "thumbnail": "https://s3.amazonaws.com/media703/3ppyoiy12mp61ag8ggbc.jpg",
+    "content": "",
+    "editable": false
+  },
+  {
+    "id": 159,
+    "version": 2,
+    "title": "Earn Money Online",
+    "slug": "earn-money-online-here-creatives",
+    "author": null,
+    "created_at": "2025-12-24T16:26:20.000Z",
+    "status": "published",
+    "thumbnail": "https://s3.amazonaws.com/media703/hfy4sa6edl4yjqu3gewr.jpg",
+    "content": "",
+    "editable": false
+  },
+  {
+    "id": 158,
+    "version": 2,
+    "title": "Your Art is Ready Now",
+    "slug": "your-art-is-ready-now",
+    "author": null,
+    "created_at": "2025-12-24T16:15:10.000Z",
+    "status": "published",
+    "thumbnail": "https://s3.amazonaws.com/media703/21my2gi1vl2590l5umb1.jpg",
+    "content": "",
+    "editable": false
+  },
+
+]
+
 
 const BlogPage = ({params}) => {
       const [blog, setBlog] = useState({})
@@ -167,30 +208,16 @@ const BlogPage = ({params}) => {
                       <BlogDetail blog={blog} />
 
                       <Grid container spacing={2} sx={{mt:3,}}>
-                        <Grid item md={4} sx={12} >
-                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                            Find Real Support for your Art
-                          </Paper>
-                        </Grid>
-                        <Grid item md={4} sx={12} >
-                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                            The Heart and Soul of Art
-                          </Paper>
-                        </Grid>
-                        <Grid item md={4} sx={12} >
-                          <Paper sx={{padding: 2, minHeight:'40px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                            <a style={{width:'100%'}} href='/blogs-v2/earn-money-online-here-creatives'>
-                              <Button fullWidth sx={{width:'100%'}}>
-                                Earn money here
-                              </Button>
-                            </a>
-                          </Paper>
-                        </Grid>
-      
+                        {   
+                          blogs.map((blog, index) => ( 
+                              <Grid key={index} item xs={12} md={4}>
+                                  <BlogPost key={index} blogPost={blog} />
+                              </Grid>
+                          ))
+                        }
                       </Grid>
 
                     </div>
-
                     
                     }
                   </Grid>

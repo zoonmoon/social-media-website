@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
 
         {/* <meta property="og:title" content="ArtXpress - Supporting Positive Expressions of Artist" /> */}
         {/* <meta property="og:description" content="A community supporting artists' positive expressions of art." /> */}
-        {/* <meta property="og:image" content="https://www.yourarton.com/site-assets/logo.png" /> */}
+        {/* <meta property="og:image" content="https://www.yourarton.com/site-assets/artyxpress-logo.png" /> */}
         {/* <meta property="og:url" content="https://www.yourarton.com" /> */}
         {/* <meta property="og:type" content="website" /> */}
         
