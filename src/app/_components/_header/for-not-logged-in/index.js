@@ -70,13 +70,13 @@ const LoggedOutHeader = () => {
         </Link>
       </ListItem>
       <ListItem button>
-        <Link href="/pages/privacy-policy" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
+        <Link href="/landing-pages/privacy-policy" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Privacy Policy" />
         </Link>
       </ListItem>
 
       <ListItem button>
-        <Link href="/pages/terms-of-use" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
+        <Link href="/landing-pages/terms-of-use" style={{ textDecoration: 'none', width: '100%',  color: 'inherit' }}>
           <ListItemText primary="Terms of Use" />
         </Link>
       </ListItem>

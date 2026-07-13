@@ -217,6 +217,13 @@ const BlogPage = ({params}) => {
                         }
                       </Grid>
 
+
+                      <Paper sx={{p: 2, mt: 4, display:'flex', justifyContent:'center'}}>
+                          <a href='/feed'>
+                            <Button >Xpress Your Arty!</Button>
+                          </a>
+                      </Paper>
+
                     </div>
                     
                     }
