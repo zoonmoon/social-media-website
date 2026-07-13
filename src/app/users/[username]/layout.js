@@ -13,8 +13,6 @@ export default function DashboardLayout({params,  children }) {
                       {children}
                   </Grid>
               </Grid>
-               <div style={{position:'fixed', zIndex:-1, top:0, left:0 , width:'100%', height: '100%', backgroundSize:'cover', backgroundImage: 'url("/site-assets/feed-bg.jpg")', backgroundRepeat:'repeat'}}>
-                </div>
           </Container>
         </>
       )
