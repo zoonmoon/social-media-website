@@ -72,7 +72,7 @@ export  function BlogComposer({ blocks: b = [], id: i = '', title: t = '', thumb
         if (b.type === "text") return `<p>${b.content}</p>`;
         if (b.type === "richtext") return b.content;
         if (b.type === "image")
-          return `<div><img style="width:90%;max-width:640px;height:auto" src="${b.content}" /></div>`;
+          return `<div><img style="width:90%;max-width:400px;height:auto" src="${b.content}" /></div>`;
         return "";
       })
       .join("\n");
