@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Container, Drawer, List, ListItem, ListItemText, useMediaQuery, Box } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Container, Drawer, List, ListItem, ListItemText, useMediaQuery, Box, Stack } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import { Button } from '@mui/joy';
@@ -95,38 +95,102 @@ const LoggedOutHeader = () => {
   );
 
   return (
-    <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
+
+    <AppBar position="sticky" color="transparent" sx={{ 
+        boxShadow: 'none', 
+        paddingTop:'15px', 
+        paddingBottom:'10px' 
+      }}
+    >
+
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         
         {/* Logo on the left */}
         
-        <Typography  variant="h6" noWrap sx={{ minWidth:'250px', flexGrow: 1, position: 'relative', display: 'inline-block' }}>
-          <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
-            <img src="/site-assets/artyxpress-logo.png" width="150" height="auto" alt="Logo" />
-            <Box
-              sx={{
+        {
+          isMobile && (
+            <Typography  variant="h6" noWrap sx={{ minWidth:'250px', flexGrow: 1, position: 'relative', display: 'inline-block' }}>
+              <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+                <img src="/site-assets/artyxpress-logo.png" width="150" height="auto" alt="Logo" />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 10,
+                    right: -30,
+                    bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                    background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                    color: 'white',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    px: 0.8,
+                    py: '2px',
+                    borderRadius: '9999px',
+                    boxShadow: 1,
+                  }}
+                >
+                  Beta
+                </Box>
+              </a>
+            </Typography>
+          )
+        }
+
+        {
+          !isMobile && (
+
+            <Link style={{ textDecoration: 'none', color: 'black' }} href="/feed">
+                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
+                  Find Real Support for your Art
+                </Button>
+            </Link>
+          )
+        }
+
+
+ 
+        {
+          (!isMobile) && (
+
+              <Typography  variant="h6" noWrap sx={{ 
+                left: '50%',
+                transform:'translateX(-50%)',
                 position: 'absolute',
-                top: 10,
-                right: -30,
-                bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                color: 'white',
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                px: 0.8,
-                py: '2px',
-                borderRadius: '9999px',
-                boxShadow: 1,
+                minWidth:'400px',
+                display:'flex',
+                justifyContent:'center' 
               }}
-            >
-              Beta
-            </Box>
-          </a>
-        </Typography>
+              >
+                <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+                  <img src="/site-assets/artyxpress-logo.png" style={{width:'200px'}} height="auto" alt="Logo" />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 10,
+                      right: -30,
+                      bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                      background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                      color: 'white',
+                      fontSize: '0.65rem',
+                      fontWeight: 600,
+                      px: 0.8,
+                      py: '2px',
+                      borderRadius: '9999px',
+                      boxShadow: 1,
+                    }}
+                  >
+                    Beta
+                  </Box>
+                </a>
+              </Typography>
+
+          )
+        }
+
 
 
         {/* Only show menu items in the center for larger screens */}
-        {!isMobile && (
+        {(isMobile &&!isMobile) && (
+
           <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <div>
               <Link style={{ textDecoration: 'none', color: 'black' }} href={'/feed'}>
@@ -177,8 +241,23 @@ const LoggedOutHeader = () => {
           </Container>
         )}
 
-        {/* Hamburger menu for mobile */}
-        {isMobile && (
+        <Stack
+          direction={'row'}
+          spacing={2}
+        >
+          {
+            (!isMobile) && (
+
+              <Link style={{ textDecoration: 'none', color: 'black' }} href="/login">
+                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
+                  Join the Community
+                </Button>
+              </Link>
+
+
+            )
+          }
+
           <IconButton
             color="inherit"
             onClick={() => toggleDrawer(true)}
@@ -186,13 +265,20 @@ const LoggedOutHeader = () => {
           >
             <MenuIcon />
           </IconButton>
-        )}
+        
+
+        </Stack>
+
+
+
+
       </Toolbar>
 
       {/* Drawer for mobile menu */}
       <Drawer PaperProps={{sx:{width:250}}} anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
         {drawerItems}
       </Drawer>
+
     </AppBar>
   );
 };

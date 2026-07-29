@@ -149,36 +149,101 @@ const Header = () => {
   );
 
   return (
-    <AppBar position="sticky" color="transparent" sx={{ boxShadow: 'none' }}>
+    <AppBar position="sticky" color="transparent" sx={{ 
+        boxShadow: 'none', 
+        paddingTop:'15px', 
+        paddingBottom:'10px' 
+      }}
+    >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* Logo on the left */}
         
-        <Typography  variant="h6" noWrap sx={{ minWidth:'250px', flexGrow: 1, position: 'relative', display: 'inline-block' }}>
-          <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
-            <img src="/site-assets/artyxpress-logo.png" width="150" height="auto" alt="Logo" />
-            <Box
-              sx={{
+
+
+
+        {
+          isMobile && (
+            <Typography  variant="h6" noWrap sx={{ minWidth:'250px', flexGrow: 1, position: 'relative', display: 'inline-block' }}>
+              <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+                <img src="/site-assets/artyxpress-logo.png" width="150" height="auto" alt="Logo" />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 10,
+                    right: -30,
+                    bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                    background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                    color: 'white',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    px: 0.8,
+                    py: '2px',
+                    borderRadius: '9999px',
+                    boxShadow: 1,
+                  }}
+                >
+                  Beta
+                </Box>
+              </a>
+            </Typography>
+
+          )
+        }
+
+
+        {
+          !isMobile && (
+
+            <Link style={{ textDecoration: 'none', color: 'black' }} href="/feed">
+                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
+                  Find Real Support for your Art
+                </Button>
+            </Link>
+          )
+        }
+
+
+
+        {
+          (!isMobile) && (
+
+              <Typography  variant="h6" noWrap sx={{ 
+                left: '50%',
+                transform:'translateX(-50%)',
                 position: 'absolute',
-                top: 10,
-                right: -30,
-                bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
-                color: 'white',
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                px: 0.8,
-                py: '2px',
-                borderRadius: '9999px',
-                boxShadow: 1,
+                minWidth:'400px',
+                display:'flex',
+                justifyContent:'center' 
               }}
-            >
-              Beta
-            </Box>
-          </a>
-        </Typography>
+              >
+                <a href="/feed" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'inline-block' }}>
+                  <img src="/site-assets/artyxpress-logo.png" style={{width:'200px'}} height="auto" alt="Logo" />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 10,
+                      right: -30,
+                      bgcolor: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                      background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                      color: 'white',
+                      fontSize: '0.65rem',
+                      fontWeight: 600,
+                      px: 0.8,
+                      py: '2px',
+                      borderRadius: '9999px',
+                      boxShadow: 1,
+                    }}
+                  >
+                    Beta
+                  </Box>
+                </a>
+              </Typography>
+
+          )
+        }
 
         {/* Menu items in the center (only shown on larger screens) */}
-        {!isMobile && (
+        { (!isMobile && isMobile) && (
           <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Link href="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Button variant="plain" sx={{ margin: '0 10px' }}>
@@ -246,9 +311,10 @@ const Header = () => {
             <IconButton
             variant="plain"
             edge="end"
+            size={'large'}
             sx={{position:'relative'}}
           >
-            <CircleNotificationsIcon color={hasAnyUnread ? 'error' : ''} />
+            <CircleNotificationsIcon fontSize={'large'} color={hasAnyUnread ? 'error' : ''} />
             {
               hasAnyUnread ? <>
                           <div style={{position:'absolute', color:'red', right: '0px', top: 0}}>
@@ -262,10 +328,11 @@ const Header = () => {
 
           <IconButton
           variant="plain"
+          size={'large'}
           onClick={() => toggleDrawer(true)}
           edge="end"
         >
-          <AccountCircleIcon />
+          <AccountCircleIcon fontSize={'large'} />
         </IconButton>
           </div>
 
