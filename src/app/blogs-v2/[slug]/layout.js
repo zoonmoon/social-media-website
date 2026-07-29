@@ -4,7 +4,7 @@ import Header from "@/app/_components/_header"
 export async function generateMetadata({params}) {
   const slug = (await params).slug
   // fetch post information
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yourarton.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://artyxpress.com';
 const url =  (new URL(`/api/admin/blogs-v2/${slug}`, baseUrl)).href
     console.log("api url", url)
 

@@ -139,7 +139,7 @@ export async function GET(request){
     try{
         
         let query = `
-            SELECT id, version, title, slug, author, created_at, status, thumbnail FROM dynamic_pages ORDER BY created_at DESC LIMIT 20
+            SELECT id, version, title, slug, author, created_at, status, thumbnail FROM dynamic_pages ORDER BY created_at DESC LIMIT 50
         `
 
         connection = await databaseConnection()

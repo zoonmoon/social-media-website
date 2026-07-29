@@ -118,7 +118,7 @@ export async function PUT(req) {
         updated_at = CURRENT_TIMESTAMP
       WHERE id = ${connection.escape(id)}
     `;
-
+    
     await executeQuery(connection, query);
 
     return Response.json({
