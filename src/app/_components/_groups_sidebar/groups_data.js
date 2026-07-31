@@ -3,7 +3,10 @@ import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import MicIcon from '@mui/icons-material/Mic';
 import PanoramaIcon from '@mui/icons-material/Panorama';
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
+import ShuffleIcon from '@mui/icons-material/Shuffle';
 const groups = [
+
+
     {
         name: "Visual",
         key: "visual",
@@ -21,7 +24,14 @@ const groups = [
         key: "written_word",
         icon: <WysiwygIcon />,
         image_src: '/site-assets/group_visual_art.jpeg'
-    }
+    },
+    {
+        name: "Random",
+        key: "",
+        icon: <ShuffleIcon />,
+        image_src: '/site-assets/group_visual_art.jpeg'
+    },
+
 ];
 
 export default groups;
