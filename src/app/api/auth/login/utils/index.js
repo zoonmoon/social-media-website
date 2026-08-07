@@ -34,6 +34,7 @@ function setToken(user){
     cookies().set('token', token)
     
     return true
+    
 }
 
 export  async function handleLogin(social_login_id, social_login_type, name, picture, email = '') {

@@ -72,8 +72,136 @@ if (ofUser && ofUser !== undefined) {
         // find whether the logged in user has already liked the post
         const {token_exists, username} = getLoggedInUsername()
 
+
+const isRandomFirstPage = feedTypeFilter === "random" && page === 1;
+
+
+        let query 
+
+        let posts = []
+
+                connection = await databaseConnection();
+
+
+        if(isRandomFirstPage){
+
+
+
+
+  const baseSelect = `
+        SELECT
+            p.id AS id,
+            p.thumbnail,
+            p.username AS posted_by_username,
+            umi.name AS posted_by_name,
+            umi.profile_pic_src AS poster_profile_pic,
+            TIMESTAMPDIFF(SECOND, p.posted_at, NOW()) AS posted_ago_in_seconds,
+            p.caption,
+            pm.media_src,
+            pm.media_type,
+            ${
+                token_exists
+                    ? `
+                    CASE
+                        WHEN pl.id IS NOT NULL THEN TRUE
+                        ELSE FALSE
+                    END AS has_already_liked,
+
+                    CASE
+                        WHEN p.username='${username}' THEN TRUE
+                        ELSE FALSE
+                    END AS is_editable
+                    `
+                    : `
+                    FALSE AS has_already_liked,
+                    FALSE AS is_editable
+                    `
+            }
+
+        FROM posts p
+
+        LEFT JOIN posts_media pm
+            ON pm.post_id = p.id
+
+        ${
+            token_exists
+                ? `
+                LEFT JOIN post_likes pl
+                    ON pl.post_id=p.id
+                    AND pl.username='${username}'
+                `
+                : ""
+        }
+
+        INNER JOIN user_more_info umi
+            ON umi.username=p.username
+    `;
+
+    const userFilter = ofUser
+        ? `
+        (
+            p.username='${ofUser}'
+            OR EXISTS (
+                SELECT 1
+                FROM post_collaborators pc
+                WHERE pc.post_id=p.id
+                AND pc.username='${ofUser}'
+                AND pc.accepted_invite=1
+            )
+        )
+        AND
+        `
+        : "";
+
+    const queries = [
+        `${baseSelect}
+        WHERE ${userFilter}
+        pm.media_type LIKE 'audio/%'
+        ORDER BY RAND()
+        LIMIT 1`,
+
+        `${baseSelect}
+        WHERE ${userFilter}
+        pm.media_type LIKE 'video/%'
+        ORDER BY RAND()
+        LIMIT 1`,
+
+        `${baseSelect}
+        WHERE ${userFilter}
+        pm.media_type LIKE 'image/%'
+        ORDER BY RAND()
+        LIMIT 1`,
+
+        `${baseSelect}
+        WHERE ${userFilter}
+        (
+            pm.media_type LIKE 'text/%'
+            OR pm.media_type LIKE 'application/%'
+        )
+        ORDER BY RAND()
+        LIMIT 1`
+    ];
+
+
+    for (const q of queries) {
+        const rows = await executeQuery(connection, q);
+        if (rows.length) {
+            posts.push(rows[0]);
+        }
+    }
+
+    // query = queries.join("\n\n------------------\n\n");
+
+
+
+
+        }else{
+
+        
+
+
         // Save the title and filenames in the MySQL database
-        const query = `
+         query = `
             SELECT 
                 p.id AS id,
                 p.thumbnail,
@@ -134,10 +262,17 @@ if (ofUser && ofUser !== undefined) {
             
         `;
 
-        connection = await databaseConnection();
+
+             posts  = await executeQuery(connection, query);
         
-        let posts  = await executeQuery(connection, query);
+
+        }
+
+
+
+
         
+
         const post_ids = posts.map(post => `'${post.id}'`).join(',')
         
         logPostsView(posts.map(post => post.id), connection)

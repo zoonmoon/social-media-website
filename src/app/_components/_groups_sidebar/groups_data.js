@@ -27,7 +27,7 @@ const groups = [
     },
     {
         name: "Random",
-        key: "",
+        key: "random",
         icon: <ShuffleIcon />,
         image_src: '/site-assets/group_visual_art.jpeg'
     },
