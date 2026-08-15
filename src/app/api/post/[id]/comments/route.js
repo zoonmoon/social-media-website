@@ -92,14 +92,14 @@ html: `
     
     <p>Hi ${nameOfOwner},</p>
 
-    <p>You’ve received a new comment on your post on <strong>YourArtOn</strong>.</p>
+    <p>You’ve received a new comment on your post on <strong>artyxpress</strong>.</p>
 
     <p>
         Click the link below to view the post:
     </p>
 
     <p>
-        <a href="https://www.yourarton.com/posts/${post_id}" 
+        <a href="https://www.artyxpress.com/posts/${post_id}" 
            style="background:#4CAF50;color:#fff;padding:10px 16px;text-decoration:none;border-radius:4px;">
            View Post
         </a>
@@ -112,14 +112,14 @@ html: `
     </p>
 
     <p style="font-size:13px;">
-        <a href="https://www.yourarton.com/settings/notifications">
+        <a href="https://www.artyxpress.com/settings/notifications">
             Manage Notification Settings
         </a>
     </p>
 
     <p style="font-size:13px;color:#777;">
         Thanks,<br>
-        The YourArtOn Team
+        The artyxpress Team
     </p>
 
 </div>

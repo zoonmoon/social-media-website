@@ -105,7 +105,7 @@ const generateHTML = () => {
     <p style="font-size:12px;color:#666;text-align:center;">
       Don’t want to receive these emails?
       <br />
-      <a href="https://yourarton.com/settings/notifications" target="_blank">
+      <a href="https://artyxpress.com/settings/notifications" target="_blank">
         Unsubscribe or manage your email preferences
       </a>
     </p>

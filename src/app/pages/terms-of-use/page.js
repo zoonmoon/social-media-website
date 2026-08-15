@@ -13,12 +13,12 @@ export default function DashboardLayout({params,  children }) {
 
 <div class="terms-of-service" style={{paddingBottom:'50px'}}>
 
-  <h1>YOURARTON Terms of Service</h1>
+  <h1>artyxpress Terms of Service</h1>
   <p><strong>Effective Date:</strong> 02-24</p>
   <p><strong>Operated by:</strong> Beaver Entertainment, LLC (Wyoming)</p>
 
   <p>
-    Welcome to YourArton. By using this platform, you agree to these Terms of Service (“Terms”).
+    Welcome to artyxpress. By using this platform, you agree to these Terms of Service (“Terms”).
     This is a legally binding agreement between you and Beaver Entertainment, LLC
     (“Company,” “we,” “us”).
     If you don’t agree, please do not use the platform.
@@ -32,12 +32,12 @@ export default function DashboardLayout({params,  children }) {
       <li>Legally able to enter into contracts</li>
       <li>Not prohibited from using the service under applicable law</li>
     </ul>
-    <p>By using YourArton, you confirm you meet these requirements.</p>
+    <p>By using artyxpress, you confirm you meet these requirements.</p>
   </section>
 
   <section>
     <h2>2. Account Login (Google & Apple Only)</h2>
-    <p>YourArton uses third-party authentication:</p>
+    <p>artyxpress uses third-party authentication:</p>
     <ul>
       <li>Google</li>
       <li>Apple</li>
@@ -45,7 +45,7 @@ export default function DashboardLayout({params,  children }) {
     <p>
       We do not store passwords. You are responsible for maintaining the security of your
       Google or Apple account. If your authentication provider suspends your access,
-      your YourArton access may also be affected.
+      your artyxpress access may also be affected.
     </p>
   </section>
 
@@ -53,7 +53,7 @@ export default function DashboardLayout({params,  children }) {
     <h2>3. User Content</h2>
     <p>You retain ownership of your artwork and content.</p>
     <p>
-      By posting on YourArton, you grant us a non-exclusive, worldwide,
+      By posting on artyxpress, you grant us a non-exclusive, worldwide,
       royalty-free license to:
     </p>
     <ul>
@@ -128,7 +128,7 @@ export default function DashboardLayout({params,  children }) {
 
   <section>
     <h2>8. Disclaimers</h2>
-    <p>YourArton is provided “AS IS.”</p>
+    <p>artyxpress is provided “AS IS.”</p>
     <p>We do not guarantee:</p>
     <ul>
       <li>Continuous availability</li>
@@ -183,7 +183,7 @@ export default function DashboardLayout({params,  children }) {
     <p>
       Beaver Entertainment, LLC<br />
       Wyoming, United States<br />
-      <a href="mailto:create@yourarton.com">create@yourarton.com</a>
+      <a href="mailto:create@artyxpress.com">create@artyxpress.com</a>
     </p>
   </section>
 

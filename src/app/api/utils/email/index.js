@@ -4,7 +4,7 @@ console.log("sending mail lll")
   const apiKey = process.env.MG_API_KEY;
   const domain = process.env.MG_DOMAIN;
   // ALWAYS the same FROM address
-  const from = "Arty <arty@mg.yourarton.com>";
+  const from = "Arty <arty@mg.artyxpress.com>";
 
   const url = `https://api.mailgun.net/v3/${domain}/messages`;
 
@@ -29,16 +29,16 @@ console.log("sending mail lll")
 
 
 export async function generateWelcomeEmail(toName, toEmail) {
-  const subject = `Welcome to YourArton, ${toName}!`;
+  const subject = `Welcome to artyxpress, ${toName}!`;
 
   const html = `
   <div style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
-    <h2 style="color: #4a4a4a;">Welcome to YourArton, ${toName}! 🎉</h2>
+    <h2 style="color: #4a4a4a;">Welcome to artyxpress, ${toName}! 🎉</h2>
 
-    <p>We're thrilled to have you join the YourArton community. Your account is ready, and you're all set to explore what YourArton can offer.</p>
+    <p>We're thrilled to have you join the artyxpress community. Your account is ready, and you're all set to explore what artyxpress can offer.</p>
 
     <div style="margin: 30px 0;">
-      <a href="https://yourarton.com/"
+      <a href="https://artyxpress.com/"
         style="
           background:#4a90e2;
           padding:12px 20px;
@@ -46,11 +46,11 @@ export async function generateWelcomeEmail(toName, toEmail) {
           color:white;
           border-radius:6px;
           font-weight:bold;">
-        Go to YourArton Dashboard
+        Go to artyxpress Dashboard
       </a>
     </div>
 
-    <p>Best regards,<br/>The YourArton Team</p>
+    <p>Best regards,<br/>The artyxpress Team</p>
   </div>
   `;
 
@@ -62,7 +62,7 @@ export async function generateWelcomeEmail(toName, toEmail) {
 }
 
 export async function generateMissingPayPalEmail(toName, toEmail) {
-  const settingsUrl = "https://www.yourarton.com/settings/receiving-account";
+  const settingsUrl = "https://www.artyxpress.com/settings/receiving-account";
 
   
   return await sendEmail( {
@@ -73,7 +73,7 @@ export async function generateMissingPayPalEmail(toName, toEmail) {
         <h2>Hello ${toName},</h2>
         
         <p>
-          Someone recently attempted to support you on <strong>YourArton.com</strong>, 
+          Someone recently attempted to support you on <strong>artyxpress.com</strong>, 
           but we could not process the contribution because your 
           <strong>PayPal receiving account is not set up yet</strong>.
         </p>
@@ -108,7 +108,7 @@ export async function generateMissingPayPalEmail(toName, toEmail) {
 
         <p style="margin-top: 40px;">
           Best regards,<br/>
-          <strong>YourArton Team</strong>
+          <strong>artyxpress Team</strong>
         </p>
       </div>
     `

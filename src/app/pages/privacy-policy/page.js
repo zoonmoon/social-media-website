@@ -20,7 +20,7 @@ export default function DashboardLayout({params,  children }) {
           <Container>
 <div className="privacy-policy" style={{paddingBottom:'50px'}}>
 
-  <h1>YOURARTON Privacy Summary – Simple Overview</h1>
+  <h1>artyxpress Privacy Summary – Simple Overview</h1>
   <p><strong>(Including Data Processing Addendum + CCPA/CPRA Notice)</strong></p>
   <p><strong>Effective Date:</strong> 02-24-2026</p>
 
@@ -43,7 +43,7 @@ export default function DashboardLayout({params,  children }) {
   </section>
 
   <section>
-    <h2>🎨 What We Collect on YourArton</h2>
+    <h2>🎨 What We Collect on artyxpress</h2>
     <ul>
       <li>Profile info</li>
       <li>Artwork & posts</li>
@@ -94,7 +94,7 @@ export default function DashboardLayout({params,  children }) {
     </p>
     <p>
       To exercise your rights:<br />
-      <a href="mailto:create@yourarton.com">create@yourarton.com</a>
+      <a href="mailto:create@artyxpress.com">create@artyxpress.com</a>
     </p>
     <p>We do not discriminate against users who exercise privacy rights.</p>
   </section>
@@ -139,7 +139,7 @@ export default function DashboardLayout({params,  children }) {
     </ul>
     <p>
       Requests:<br />
-      <a href="mailto:create@yourarton.com">create@yourarton.com</a>
+      <a href="mailto:create@artyxpress.com">create@artyxpress.com</a>
     </p>
   </section>
 
@@ -157,7 +157,7 @@ export default function DashboardLayout({params,  children }) {
 
   <section>
     <h2>👶 Age Restriction</h2>
-    <p>YourArton is for users 18+ only.</p>
+    <p>artyxpress is for users 18+ only.</p>
     <p>We do not knowingly collect data from minors.</p>
   </section>
 
@@ -166,7 +166,7 @@ export default function DashboardLayout({params,  children }) {
     <p>
       Beaver Entertainment, LLC<br />
       Wyoming, United States<br />
-      <a href="mailto:create@yourarton.com">create@yourarton.com</a>
+      <a href="mailto:create@artyxpress.com">create@artyxpress.com</a>
     </p>
   </section>
 

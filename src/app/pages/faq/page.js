@@ -2,7 +2,7 @@
 import Header from "@/app/_components/_header"
 import { Container, Grid, Typography } from "@mui/material"
 import { useEffect } from "react"
-import YourArtonFAQ from "./faq.js"
+import artyxpressFAQ from "./faq.js"
 
 export default function DashboardLayout() {
     
@@ -19,7 +19,7 @@ export default function DashboardLayout() {
           <Header />
           <Container>
 
-            <YourArtonFAQ />
+            <artyxpressFAQ />
 
           </Container>
         </>

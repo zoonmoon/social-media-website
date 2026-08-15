@@ -1,5 +1,5 @@
 export function getCollaborationAcceptedEmail({ name, collaboratorName, postId }) {
-    const postUrl = `https://yourarton.com/posts/${postId}?show_collaborators=true`;
+    const postUrl = `https://artyxpress.com/posts/${postId}?show_collaborators=true`;
 
     return `
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ This is an automated email from YourArt.
 }
 
 export function getCollaborationIgnoredEmail({ name, collaboratorName, postId }) {
-    const postUrl = `https://yourarton.com/posts/${postId}?show_collaborators=true`;
+    const postUrl = `https://artyxpress.com/posts/${postId}?show_collaborators=true`;
 
     return `
 <!DOCTYPE html>
@@ -130,7 +130,7 @@ This is an automated email from YourArt.
 }
 
 export function getNewCollaborationRequestEmail({ name, requestSentBy, postId }) {
-    const postUrl = `https://yourarton.com/posts/${postId}`;
+    const postUrl = `https://artyxpress.com/posts/${postId}`;
 
     return `
 <!DOCTYPE html>

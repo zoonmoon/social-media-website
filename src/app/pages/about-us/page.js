@@ -36,7 +36,7 @@ export default function DashboardLayout({params,  children }) {
                   </div>
                 </Stack>
                 <ul>
-                    <li>yourarton.com is passionate about supporting Artists!</li>
+                    <li>artyxpress.com is passionate about supporting Artists!</li>
                     <li>Art: the expression or application of human creative skill and imagination (such as painting, music, literature, and dance). We agree with this definition of art and have created a platform where multiple art forms and beyond can be shared.</li>
                     <li>What’s your Art? How do you like to use your creative skill and imagination?</li>
                     <li>Maybe you like to make hats/clothes, maybe your thing is numbers-finance, maybe take photos, maybe write poems/stories and narrate them, or passionate about space or comedy. Great! Creativity and imagination are vast!</li>
