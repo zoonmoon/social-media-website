@@ -69,6 +69,11 @@ const Header = () => {
         </Link>
       </ListItem>
 
+      <ListItem button>
+        <Link href="/landing-pages" style={{ textDecoration: 'none',width: '100%',  color: 'inherit' }}>
+          <ListItemText primary="Pages" />
+        </Link>
+      </ListItem>
 
 
       {
