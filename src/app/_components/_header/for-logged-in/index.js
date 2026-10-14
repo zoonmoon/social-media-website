@@ -4,14 +4,18 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link'; // Import Link from Next.js
+import { useRouter } from 'next/navigation';
 import { Button } from '@mui/joy';
 import { SupportSiteButton } from '../../modals/support-site';
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
+import SearchIcon from '@mui/icons-material/Search';
 
 import CircleIcon from '@mui/icons-material/Circle';
 const Header = () => {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const [hasAnyUnread, setHasAnyUnread] = useState(false)
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen size
@@ -31,6 +35,12 @@ const Header = () => {
     fetchNoti()
 
   }, [])
+
+  const handleArtistSearch = () => {
+    const q = searchTerm.trim();
+    if (!q) return;
+    router.push(`/search/${encodeURIComponent(q)}`);
+  };
 
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -198,12 +208,49 @@ const Header = () => {
 
         {
           !isMobile && (
-
-            <Link style={{ textDecoration: 'none', color: 'black' }} href="/feed">
-                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
-                  Find Real Support for your Art
-                </Button>
-            </Link>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mr: 'auto', ml: 1, width: '360px', minWidth: '240px', zIndex: 2 }}>
+              <Box
+                component="div"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  border: '1px solid #dfe6f1',
+                  backgroundColor: '#f5f7fb',
+                  borderRadius: '999px',
+                  px: 1.5,
+                  py: 0.75,
+                  width: '100%',
+                  minWidth: 0,
+                  boxShadow: 'inset 0 1px 2px rgba(15, 23, 42, 0.04)'
+                }}
+              >
+                <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 1 }} />
+                <input
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleArtistSearch();
+                  }}
+                  placeholder="Search artists..."
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    fontSize: '0.9rem',
+                    color: '#111827',
+                    width: '100%',
+                    minWidth: 0
+                  }}
+                />
+              </Box>
+              <Button
+                variant={'solid'}
+                onClick={handleArtistSearch}
+                sx={{ minWidth: '110px', borderRadius: '999px', whiteSpace: 'nowrap' }}
+              >
+                Search
+              </Button>
+            </Box>
           )
         }
 
@@ -311,7 +358,29 @@ const Header = () => {
 
         {/* Hamburger menu for mobile */}
         {(
-          <div style={{display:'flex', gap:'10px'}}>
+          <div style={{display:'flex', gap:'8px', alignItems:'center'}}>
+            {isMobile && (
+              <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #dfe6f1', backgroundColor: '#f5f7fb', borderRadius: '999px', px: 1, py: 0.5, maxWidth: '160px', width: '100%' }}>
+                <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 0.5 }} />
+                <input
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleArtistSearch();
+                  }}
+                  placeholder="Search"
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    fontSize: '0.8rem',
+                    color: '#111827',
+                    width: '100%',
+                    minWidth: 0
+                  }}
+                />
+              </Box>
+            )}
             <Link href='/notifications'>
             <IconButton
             variant="plain"

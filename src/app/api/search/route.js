@@ -3,13 +3,22 @@ import { databaseConnection, executeQuery, getLoggedInUsername } from '@/app/api
 export async function GET(request) {
 
     const { searchParams } = new URL(request.url)
-    const sq = searchParams.get('query') || ''
+    const sq = (searchParams.get('query') || '').trim()
 
     const { username: loggedInUsername } = getLoggedInUsername()
 
     let connection
 
     try {
+        if (!sq) {
+            return new Response(JSON.stringify({ success: true, suggestions: [] }), {
+                headers: { "Content-Type": "application/json" },
+                status: 200
+            })
+        }
+
+        const safeQuery = sq.replace(/'/g, "\\'")
+
         connection = await databaseConnection()
 
         const query = `
@@ -21,11 +30,12 @@ export async function GET(request) {
             INNER JOIN user_more_info m 
                 ON u.username = m.username
             WHERE 
-                u.username != '${loggedInUsername}'
+                u.username != '${loggedInUsername || 'unknown'}'
                 AND (
-                    u.username LIKE '%${sq}%'
-                    OR m.name LIKE '%${sq}%'
+                    u.username LIKE '%${safeQuery}%'
+                    OR m.name LIKE '%${safeQuery}%'
                 )
+            ORDER BY m.name ASC
             LIMIT 50
         `
 

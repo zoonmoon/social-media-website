@@ -7,9 +7,9 @@ export  async function POST(request) {
     try {
 
         const data = await request.formData()
-
+        
         const token = data.get('token')
-
+        
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: process.env.GOOGLE_CLIENT_ID,

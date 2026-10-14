@@ -78,10 +78,13 @@ export default function RootLayout({ children }) {
               }}
             />
             {children}
-          </GoogleOAuthProvider>
         <div style={{marginTop:'30px'}}>
           <Footer />
         </div>
+
+          </GoogleOAuthProvider>
+
+
       </body>
     </html>
   );

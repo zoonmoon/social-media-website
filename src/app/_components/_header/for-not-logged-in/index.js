@@ -4,12 +4,22 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import { Button } from '@mui/joy';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import SearchIcon from '@mui/icons-material/Search';
 import { SupportSiteButton } from '../../modals/support-site';
 
 const LoggedOutHeader = () => {
+  const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile screen size
+
+  const handleArtistSearch = () => {
+    const q = searchTerm.trim();
+    if (!q) return;
+    router.push(`/search/${encodeURIComponent(q)}`);
+  };
 
   const toggleDrawer = (open) => {
     setDrawerOpen(open);
@@ -144,12 +154,49 @@ const LoggedOutHeader = () => {
 
         {
           !isMobile && (
-
-            <Link style={{ textDecoration: 'none', color: 'black' }} href="/feed">
-                <Button variant={'solid'} sx={{ marginLeft: '10px', paddingTop:'10px', paddingBottom:'10px', minWidth: '200px' }}>
-                  Find Real Support for your Art
-                </Button>
-            </Link>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mr: 'auto', ml: 1, width: '360px', minWidth: '240px', zIndex: 2 }}>
+              <Box
+                component="div"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  border: '1px solid #dfe6f1',
+                  backgroundColor: '#f5f7fb',
+                  borderRadius: '999px',
+                  px: 1.5,
+                  py: 0.75,
+                  width: '100%',
+                  minWidth: 0,
+                  boxShadow: 'inset 0 1px 2px rgba(15, 23, 42, 0.04)'
+                }}
+              >
+                <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 1 }} />
+                <input
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleArtistSearch();
+                  }}
+                  placeholder="Search artists..."
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    outline: 'none',
+                    fontSize: '0.9rem',
+                    color: '#111827',
+                    width: '100%',
+                    minWidth: 0
+                  }}
+                />
+              </Box>
+              <Button
+                variant={'solid'}
+                onClick={handleArtistSearch}
+                sx={{ minWidth: '110px', borderRadius: '999px', whiteSpace: 'nowrap' }}
+              >
+                Search
+              </Button>
+            </Box>
           )
         }
 
@@ -194,6 +241,29 @@ const LoggedOutHeader = () => {
         }
 
 
+
+        {isMobile && (
+          <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #dfe6f1', backgroundColor: '#f5f7fb', borderRadius: '999px', px: 1, py: 0.5, maxWidth: '170px', width: '100%', mr: 1 }}>
+            <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 0.5 }} />
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleArtistSearch();
+              }}
+              placeholder="Search"
+              style={{
+                border: 'none',
+                background: 'transparent',
+                outline: 'none',
+                fontSize: '0.8rem',
+                color: '#111827',
+                width: '100%',
+                minWidth: 0
+              }}
+            />
+          </Box>
+        )}
 
         {/* Only show menu items in the center for larger screens */}
         {(isMobile &&!isMobile) && (

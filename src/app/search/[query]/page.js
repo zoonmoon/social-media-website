@@ -1,111 +1,137 @@
 'use client'
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
-import Link from 'next/link'
+
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { Divider, Typography } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import Stack from '@mui/material/Stack';
+import { Divider, Box, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect } from 'react';
-import Button from '@mui/joy/Button';
-import { setLazyProp } from 'next/dist/server/api-utils';
-import { setgid } from 'process';
-import { pOSTRequest, getRequest, uPDATErequest, dELETErequest } from '@/app/_components/file_upload';
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
+import { getRequest } from '@/app/_components/file_upload';
+import Header from '@/app/_components/_header';
 import { useRouter } from 'next/navigation';
 
-export default function SearchResults({params}) {
-
-  const [dashboardInfo, setDashboardInfo] =  useState({})
+export default function SearchResults({ params }) {
   const [loading, setIsLoading] = useState(true)
-  const query = params.query
   const [searchResults, setSearchResults] = useState([])
+  const [searchTerm, setSearchTerm] = useState(decodeURIComponent(params.query || ''))
+  const router = useRouter()
+  const query = decodeURIComponent(params.query || '')
 
-  useEffect( () => {
-
+  useEffect(() => {
     const fetchSearchResults = async () => {
-        
-        try {
-            setIsLoading(true)
-            const data = await getRequest('/api/search?query='+encodeURIComponent(query)); // Adjust the API endpoint URL as needed
-            setIsLoading(false)
-            let suggestions = data.suggestions
-           setSearchResults(suggestions);
-        } catch (error) {
-            alert(error.message)
-        }
-    };
+      try {
+        setIsLoading(true)
+        const data = await getRequest('/api/search?query=' + encodeURIComponent(query))
+        setSearchResults(data?.suggestions || [])
+      } catch (error) {
+        console.error(error)
+        setSearchResults([])
+      } finally {
+        setIsLoading(false)
+      }
+    }
 
     fetchSearchResults()
+  }, [query])
 
-  }, [])
+  const handleClick = (username) => {
+    router.push(`/users/${encodeURIComponent(username)}`)
+  }
 
-  const router = useRouter()
-  const handleClick = (un) => {router.push('/view-profile/'+encodeURIComponent(un))}
-
-
+  const handleSearch = () => {
+    const trimmed = searchTerm.trim()
+    if (!trimmed) return
+    router.push(`/search/${encodeURIComponent(trimmed)}`)
+  }
 
   return (
     <>
-      <Container sx={{marginTop: '30px'}} maxWidth="md">
-        <Paper sx={{paddingTop: '10px', paddingBottom: '20px' }}>
-          {
-            loading ? (
-                <div style={{textAlign:'center'}}>
-                  Loading
-                </div>
-            ): (
-              <>
-                <div>
-                  <h4 style={{textAlign:'center'}}>Search Results for <i>{query}</i></h4>
-                </div>
-                <Divider></Divider>
-                <div style={{padding:'30px'}}>
+      <Header />
+      <Container sx={{ marginTop: '30px' }} maxWidth="md">
+        <Paper sx={{ paddingTop: '10px', paddingBottom: '20px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 3, pt: 2, pb: 1 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                flex: 1,
+                border: '1px solid #dfe6f1',
+                backgroundColor: '#f5f7fb',
+                borderRadius: '999px',
+                px: 1.5,
+                py: 0.7
+              }}
+            >
+              <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 1 }} />
+              <input
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSearch()
+                }}
+                placeholder="Search artists..."
+                style={{
+                  border: 'none',
+                  background: 'transparent',
+                  outline: 'none',
+                  fontSize: '0.95rem',
+                  color: '#111827',
+                  width: '100%',
+                  minWidth: 0
+                }}
+              />
+            </Box>
+            <Button
+              variant="contained"
+              onClick={handleSearch}
+              sx={{ borderRadius: '999px', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)', textTransform: 'none', px: 2.5 }}
+            >
+              Search
+            </Button>
+          </Box>
+
+          {loading ? (
+            <div style={{ textAlign: 'center' }}>Loading</div>
+          ) : (
+            <>
+              <div>
+                <h4 style={{ textAlign: 'center' }}>Search Results for <i>{query}</i></h4>
+              </div>
+              <Divider />
+              <div style={{ padding: '30px' }}>
+                {searchResults.length === 0 ? (
+                  <div style={{ textAlign: 'center', color: '#666' }}>
+                    No artists found for this search.
+                  </div>
+                ) : (
                   <Grid container spacing={2}>
                     {searchResults.map((sr, index) => (
-                      <Grid item xs={12} sm={6} md={4}  key={index} sx={{justifyContent: 'center'}} >
-                        <Card style={{cursor:'pointer'}} onClick={()=>{ handleClick(sr.username)}}>
+                      <Grid item xs={12} sm={6} md={4} key={`${sr.username}-${index}`} sx={{ justifyContent: 'center' }}>
+                        <Card style={{ cursor: 'pointer' }} onClick={() => handleClick(sr.username)}>
                           <CardHeader
                             avatar={
-                              <Avatar aria-label="recipe">
-                                
+                              <Avatar
+                                src={sr.profile_pic_src || undefined}
+                                alt={sr.name || sr.username}
+                                aria-label="artist-profile"
+                              >
+                                {!sr.profile_pic_src && (sr.name || sr.username || 'A').charAt(0).toUpperCase()}
                               </Avatar>
                             }
-                            title={sr.name}
-                            subheader={sr.sport+' player'}
+                            title={sr.name || sr.username}
+                            subheader={`@${sr.username}`}
                           />
                         </Card>
                       </Grid>
                     ))}
                   </Grid>
-                </div>
-              </>
-            )
-          }
+                )}
+              </div>
+            </>
+          )}
         </Paper>
       </Container>
     </>
