@@ -15,6 +15,7 @@ const Header = () => {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [hasAnyUnread, setHasAnyUnread] = useState(false)
   const theme = useTheme();
@@ -39,6 +40,7 @@ const Header = () => {
   const handleArtistSearch = () => {
     const q = searchTerm.trim();
     if (!q) return;
+    setMobileSearchOpen(false);
     router.push(`/search/${encodeURIComponent(q)}`);
   };
 
@@ -358,28 +360,48 @@ const Header = () => {
 
         {/* Hamburger menu for mobile */}
         {(
-          <div style={{display:'flex', gap:'8px', alignItems:'center'}}>
+          <div style={{display:'flex', gap:'8px', alignItems:'center', position: 'relative'}}>
             {isMobile && (
-              <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #dfe6f1', backgroundColor: '#f5f7fb', borderRadius: '999px', px: 1, py: 0.5, maxWidth: '160px', width: '100%' }}>
-                <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 0.5 }} />
-                <input
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') handleArtistSearch();
-                  }}
-                  placeholder="Search"
-                  style={{
-                    border: 'none',
-                    background: 'transparent',
-                    outline: 'none',
-                    fontSize: '0.8rem',
-                    color: '#111827',
-                    width: '100%',
-                    minWidth: 0
-                  }}
-                />
-              </Box>
+              <>
+                <IconButton
+                  aria-label="Open artist search"
+                  onClick={() => setMobileSearchOpen((prev) => !prev)}
+                  size="large"
+                  sx={{ bgcolor: '#f3f6fb', border: '1px solid #dfe6f1' }}
+                >
+                  <SearchIcon fontSize="medium" />
+                </IconButton>
+
+                {mobileSearchOpen && (
+                  <Box sx={{ position: 'absolute', top: 'calc(100% + 8px)', right: 0, left: '-110px', zIndex: 20, bgcolor: 'white', border: '1px solid #e5e7eb', borderRadius: '16px', boxShadow: '0 10px 25px rgba(15, 23, 42, 0.12)', p: 1.25 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', flex: 1, border: '1px solid #dfe6f1', backgroundColor: '#f5f7fb', borderRadius: '999px', px: 1.25, py: 0.75 }}>
+                        <SearchIcon sx={{ color: '#6b7280', fontSize: 18, mr: 0.5 }} />
+                        <input
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleArtistSearch();
+                          }}
+                          placeholder="Search artists..."
+                          style={{
+                            border: 'none',
+                            background: 'transparent',
+                            outline: 'none',
+                            fontSize: '0.85rem',
+                            color: '#111827',
+                            width: '100%',
+                            minWidth: 0
+                          }}
+                        />
+                      </Box>
+                      <Button variant={'solid'} onClick={handleArtistSearch} sx={{ minWidth: '90px', borderRadius: '999px', whiteSpace: 'nowrap' }}>
+                        Search
+                      </Button>
+                    </Box>
+                  </Box>
+                )}
+              </>
             )}
             <Link href='/notifications'>
             <IconButton
