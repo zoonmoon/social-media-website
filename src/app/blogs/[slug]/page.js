@@ -25,7 +25,6 @@ const BlogDetail = ({ blog }) => {
     thumbnail,
     content,
     author,
-    created_at,
   } = blog;
 
   return (
@@ -53,9 +52,6 @@ const BlogDetail = ({ blog }) => {
           <Box display="flex" alignItems="center" mb={2}>
             <Box>
               <Link style={{color:'unset'}} href={'/users/'+author}><Typography variant="subtitle2">@{author}</Typography></Link>
-              <Typography variant="caption" color="text.secondary">
-                {new Date(created_at).toLocaleDateString()}
-              </Typography>
             </Box>
           </Box>
 
